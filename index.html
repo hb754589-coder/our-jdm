@@ -2,1508 +2,1526 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jalchatra Dakhil Madrasha | OUR JDM</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#08111f">
+<title>OUR JDM — School Community</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
+}
+
+:root{
+  --bg:#07111f;
+  --card:#0d1a2b;
+  --card2:#11233a;
+  --text:#f7fbff;
+  --muted:#91a3b8;
+  --primary:#4f8cff;
+  --primary2:#7657ff;
+  --success:#24d17e;
+  --danger:#ff5c6c;
+  --border:rgba(255,255,255,.08);
 }
 
 body{
-  background:#f4f7fb;
-  color:#172033;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(79,140,255,.20),transparent 28%),
+    radial-gradient(circle at 90% 10%,rgba(118,87,255,.18),transparent 25%),
+    var(--bg);
+  color:var(--text);
+  font-family:"Inter","Noto Sans Bengali",sans-serif;
+  min-height:100vh;
 }
 
-header{
-  background:linear-gradient(135deg,#06182f,#075477,#07806d);
-  color:white;
-  padding:28px 18px 75px;
-  text-align:center;
-  border-radius:0 0 38px 38px;
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.app{
+  max-width:720px;
+  margin:auto;
+  min-height:100vh;
+}
+
+/* HEADER */
+
+.topbar{
+  padding:24px 20px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
-  width:90px;
-  height:90px;
-  margin:auto;
-  border-radius:50%;
-  background:white;
-  color:#087f6b;
   display:flex;
   align-items:center;
-  justify-content:center;
-  font-size:28px;
-  font-weight:900;
-  box-shadow:0 15px 35px #0005;
+  gap:12px;
 }
 
-header h1{
-  margin-top:15px;
-  font-size:26px;
+.logo-icon{
+  width:46px;
+  height:46px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  box-shadow:0 10px 30px rgba(79,140,255,.25);
+  font-size:22px;
 }
 
-header p{
-  margin-top:7px;
-  opacity:.9;
+.logo h1{
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:1px;
 }
 
-.container{
-  max-width:900px;
-  margin:-45px auto 30px;
-  padding:0 15px;
+.logo p{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:2px;
 }
 
-.card{
-  background:white;
-  border-radius:25px;
-  padding:23px;
-  margin-bottom:18px;
-  box-shadow:0 12px 35px #13263d12;
+.status{
+  width:10px;
+  height:10px;
+  background:var(--success);
+  border-radius:50%;
+  box-shadow:0 0 12px var(--success);
 }
+
+/* PAGES */
+
+.page{
+  display:none;
+  padding:0 18px 100px;
+}
+
+.page.active{
+  display:block;
+}
+
+/* HERO */
 
 .hero{
-  text-align:center;
+  margin-top:8px;
+  padding:28px 23px;
+  border:1px solid var(--border);
+  border-radius:27px;
+  background:
+    linear-gradient(135deg,
+    rgba(79,140,255,.17),
+    rgba(118,87,255,.12)),
+    rgba(13,26,43,.88);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:rgba(118,87,255,.16);
+  right:-60px;
+  top:-60px;
+}
+
+.hero small{
+  color:#9fc0ff;
+  font-weight:700;
 }
 
 .hero h2{
-  color:#087f6b;
-  font-size:26px;
-  margin-bottom:10px;
+  font-size:30px;
+  margin:10px 0 8px;
+  line-height:1.2;
 }
 
 .hero p{
-  color:#687386;
+  color:var(--muted);
   line-height:1.7;
+  font-size:14px;
 }
 
-.btn{
+.hero-btn{
+  margin-top:19px;
+  padding:12px 18px;
   border:0;
-  padding:14px 18px;
-  border-radius:15px;
-  background:#087f6b;
+  border-radius:13px;
   color:white;
-  font-weight:bold;
-  font-size:15px;
-  cursor:pointer;
-  margin:6px 3px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  font-weight:700;
 }
 
-.btn.secondary{
-  background:#071b35;
-}
-
-.btn.light{
-  background:#eaf7f4;
-  color:#087f6b;
-}
-
-.btn.danger{
-  background:#d83a3a;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:13px;
-}
-
-.feature{
-  background:#f7fafc;
-  border:1px solid #edf1f5;
-  border-radius:19px;
-  padding:19px;
-}
-
-.feature .icon{
-  font-size:27px;
-}
-
-.feature b{
-  display:block;
-  margin:7px 0;
-}
-
-.feature span{
-  color:#687386;
-  font-size:13px;
-  line-height:1.5;
-}
+/* SECTION */
 
 .section-title{
-  color:#071b35;
-  margin-bottom:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:25px 2px 13px;
 }
 
-input,
-textarea{
+.section-title h3{
+  font-size:17px;
+}
+
+.section-title span{
+  font-size:11px;
+  color:var(--muted);
+}
+
+/* MENU */
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.menu-card{
+  border:1px solid var(--border);
+  background:rgba(13,26,43,.85);
+  color:white;
+  border-radius:20px;
+  padding:19px 13px;
+  text-align:left;
+  transition:.2s;
+}
+
+.menu-card:active{
+  transform:scale(.97);
+}
+
+.menu-icon{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:rgba(79,140,255,.12);
+  margin-bottom:13px;
+  font-size:21px;
+}
+
+.menu-card h4{
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.menu-card p{
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* NOTICE */
+
+.notice{
+  margin-top:16px;
+  padding:17px;
+  border:1px solid rgba(255,190,70,.18);
+  background:rgba(255,190,70,.07);
+  border-radius:18px;
+}
+
+.notice b{
+  color:#ffd16a;
+}
+
+.notice p{
+  color:#b9c5d4;
+  font-size:12px;
+  line-height:1.7;
+  margin-top:6px;
+}
+
+/* CARD */
+
+.card{
+  background:rgba(13,26,43,.9);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:20px;
+  margin-top:15px;
+}
+
+.card h2{
+  font-size:20px;
+}
+
+.back{
+  margin-top:5px;
+  background:transparent;
+  color:#a9c6ff;
+  border:0;
+  padding:8px 0;
+}
+
+/* INPUT */
+
+label{
+  display:block;
+  color:#aab9ca;
+  font-size:12px;
+  margin:14px 0 6px;
+}
+
+input,select,textarea{
   width:100%;
-  border:1px solid #dce3ea;
-  border-radius:14px;
-  padding:14px;
-  margin:6px 0;
-  font-size:15px;
+  background:#081625;
+  border:1px solid var(--border);
+  color:white;
+  border-radius:13px;
+  padding:13px;
   outline:none;
 }
 
-textarea{
-  min-height:115px;
-  resize:vertical;
+input:focus,select:focus,textarea:focus{
+  border-color:var(--primary);
 }
 
-.notice{
-  background:#f5f9ff;
-  border-left:4px solid #087f6b;
-  padding:15px;
+.primary{
+  width:100%;
+  border:0;
+  border-radius:13px;
+  padding:14px;
+  margin-top:16px;
+  color:white;
+  font-weight:700;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+}
+
+/* CHAT */
+
+.chat-box{
+  height:430px;
+  overflow-y:auto;
+  padding:5px;
+  margin-top:15px;
+}
+
+.msg{
+  max-width:82%;
+  padding:11px 13px;
+  border-radius:15px;
+  background:#13263d;
+  margin-bottom:10px;
+  font-size:13px;
+  line-height:1.55;
+}
+
+.msg.mine{
+  margin-left:auto;
+  background:linear-gradient(135deg,#275dbb,#4937a8);
+}
+
+.msg small{
+  display:block;
+  color:#91a3b8;
+  font-size:9px;
+  margin-bottom:3px;
+}
+
+.chat-send{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.chat-send input{
+  margin:0;
+}
+
+.chat-send button{
+  width:70px;
+  border:0;
+  border-radius:13px;
+  color:white;
+  background:var(--primary);
+}
+
+.warning{
+  display:none;
+  background:rgba(255,92,108,.12);
+  border:1px solid rgba(255,92,108,.25);
+  color:#ff9da8;
+  padding:12px;
+  border-radius:13px;
+  font-size:12px;
+  line-height:1.5;
+}
+
+/* LIST */
+
+.list-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.list-item:last-child{
+  border-bottom:0;
+}
+
+.person{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.avatar{
+  width:43px;
+  height:43px;
   border-radius:14px;
-  margin:9px 0;
-  line-height:1.6;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#183961,#34256e);
+}
+
+.person small{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:3px;
+}
+
+.call{
+  padding:8px 12px;
+  border-radius:10px;
+  background:rgba(36,209,126,.12);
+  color:#63e7a5;
+  font-size:12px;
+}
+
+/* PROFILE */
+
+.profile-head{
+  text-align:center;
+  padding:15px 0;
+}
+
+.big-avatar{
+  width:80px;
+  height:80px;
+  border-radius:25px;
+  margin:auto;
+  display:grid;
+  place-items:center;
+  font-size:35px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+}
+
+.profile-head h2{
+  margin-top:12px;
+}
+
+.profile-head p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* ADMIN */
+
+.admin-banner{
+  background:linear-gradient(135deg,#301a36,#182548);
+  border:1px solid rgba(255,255,255,.08);
+  padding:20px;
+  border-radius:20px;
+}
+
+.admin-banner h2{
+  margin-bottom:6px;
+}
+
+.admin-banner p{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.admin-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:15px;
+}
+
+.admin-stat{
+  padding:16px;
+  border-radius:17px;
+  background:#0b192a;
+  border:1px solid var(--border);
+}
+
+.admin-stat b{
+  font-size:24px;
+}
+
+.admin-stat span{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
+}
+
+.danger{
+  width:100%;
+  border:0;
+  padding:13px;
+  border-radius:12px;
+  background:rgba(255,92,108,.13);
+  color:#ff8793;
+  margin-top:10px;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+  position:fixed;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 30px);
+  max-width:690px;
+  background:rgba(9,20,34,.94);
+  backdrop-filter:blur(18px);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:8px;
+  display:flex;
+  justify-content:space-around;
+  z-index:20;
+}
+
+.nav-btn{
+  background:transparent;
+  color:#708198;
+  border:0;
+  padding:7px 13px;
+  font-size:10px;
+}
+
+.nav-btn span{
+  display:block;
+  font-size:19px;
+  margin-bottom:3px;
+}
+
+.nav-btn.active{
+  color:white;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  color:#617086;
+  font-size:10px;
+  padding:20px 0;
 }
 
 .hidden{
   display:none!important;
 }
 
-.modal{
-  position:fixed;
-  inset:0;
-  background:#06172dcc;
-  z-index:999;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:18px;
-}
-
-.modal-box{
-  background:white;
-  width:100%;
-  max-width:430px;
-  border-radius:26px;
-  padding:25px;
-  max-height:90vh;
-  overflow:auto;
-}
-
-.modal-box h2{
-  color:#087f6b;
-  margin-bottom:15px;
-}
-
-.close{
-  float:right;
-  border:0;
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:20px;
-}
-
-.admin{
-  border:2px solid #087f6b;
-}
-
-.chat-box{
-  height:340px;
-  overflow-y:auto;
-  background:#f3f7fa;
-  border-radius:19px;
-  padding:12px;
-  margin-bottom:12px;
-}
-
-.chat-message{
-  background:white;
-  padding:11px 13px;
-  border-radius:15px;
-  margin-bottom:9px;
-  box-shadow:0 3px 10px #00000008;
-}
-
-.chat-message b{
-  color:#087f6b;
-}
-
-.chat-time{
-  font-size:11px;
-  color:#929baa;
-}
-
-.chat-input{
-  display:flex;
-  gap:7px;
-}
-
-.chat-input input{
-  margin:0;
-}
-
-footer{
-  text-align:center;
-  padding:30px 15px;
-  color:#748095;
-  font-size:13px;
-}
-
-@media(max-width:600px){
-
-  header h1{
-    font-size:22px;
+@media(max-width:390px){
+  .hero h2{
+    font-size:26px;
   }
 
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .chat-input .btn{
-    padding:12px;
+  .menu-card{
+    padding:16px 11px;
   }
 }
 </style>
 </head>
 
-
 <body>
 
-<!-- ================= HEADER ================= -->
+<div class="app">
 
-<header>
+<!-- TOP BAR -->
+<div class="topbar">
 
   <div class="logo">
-    JDM
+    <div class="logo-icon">🎓</div>
+    <div>
+      <h1>OUR JDM</h1>
+      <p>School Community</p>
+    </div>
   </div>
 
-  <h1>Jalchatra Dakhil Madrasha</h1>
-
-  <p>
-    OUR JDM • Education • Community • Excellence
-  </p>
-
-</header>
-
-
-<div class="container">
-
-
-<!-- ================= HERO ================= -->
-
-<section class="card hero">
-
-  <h2>WELCOME TO OUR MADRASHA</h2>
-
-  <p>
-    Welcome to
-    <b>Jalchatra Dakhil Madrasha</b>.
-    <br>
-    শিক্ষার্থী ও মাদ্রাসার সকল গুরুত্বপূর্ণ তথ্যের
-    জন্য আমাদের ডিজিটাল প্ল্যাটফর্ম।
-  </p>
-
-  <br>
-
-  <button class="btn"
-          onclick="openModal('register')">
-    📝 Registration
-  </button>
-
-  <button class="btn secondary"
-          onclick="openModal('login')">
-    🔐 Sign In
-  </button>
-
-</section>
-
-
-<!-- ================= OUR MADRASHA ================= -->
-
-<section class="card">
-
-  <h2 class="section-title">
-    Our Madrasha
-  </h2>
-
-  <div class="grid">
-
-    <div class="feature">
-
-      <div class="icon">🎓</div>
-
-      <b>Student</b>
-
-      <span>
-        শিক্ষার্থীদের জন্য নিজের account
-        ও dashboard।
-      </span>
-
-    </div>
-
-
-    <div class="feature">
-
-      <div class="icon">💬</div>
-
-      <b>Student Group Chat</b>
-
-      <span>
-        বন্ধুদের সাথে কথা বলুন,
-        আলোচনা করুন ও সময় কাটান।
-      </span>
-
-    </div>
-
-
-    <div class="feature">
-
-      <div class="icon">📢</div>
-
-      <b>Notice</b>
-
-      <span>
-        মাদ্রাসার গুরুত্বপূর্ণ notice
-        এখানে দেখা যাবে।
-      </span>
-
-    </div>
-
-
-    <div class="feature">
-
-      <div class="icon">📝</div>
-
-      <b>অভিযোগ</b>
-
-      <span>
-        যেকোনো সমস্যা বা অভিযোগ
-        Admin-এর কাছে পাঠাতে পারবেন।
-      </span>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= NOTICE ================= -->
-
-<section class="card">
-
-  <h2 class="section-title">
-    📢 Latest Notice
-  </h2>
-
-  <div id="noticeList">
-
-    <div class="notice">
-
-      <b>Jalchatra Dakhil Madrasha</b>
-
-      <br>
-
-      অ্যাপস্ এর কাজ চলমানঅনুগ্রহ করে কয়েকদিন অপেক্ষা করুন।
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= COMPLAINT ================= -->
-
-<section class="card">
-
-  <h2 class="section-title">
-    📝 অভিযোগ / মতামত
-  </h2>
-
-  <p style="color:#687386;margin-bottom:10px">
-
-    আপনার কোনো সমস্যা বা অভিযোগ থাকলে
-    Admin-এর কাছে পাঠাতে পারেন।
-
-  </p>
-
-  <input
-    id="complaintName"
-    placeholder="আপনার নাম">
-
-  <input
-    id="complaintPhone"
-    placeholder="মোবাইল নম্বর">
-
-  <textarea
-    id="complaintText"
-    placeholder="আপনার অভিযোগ লিখুন...">
-  </textarea>
-
-  <button class="btn"
-          onclick="sendComplaint()">
-
-    📤 অভিযোগ পাঠান
-
-  </button>
-
-  <button class="btn light"
-          onclick="callAdmin()">
-
-    📞 Admin-কে ফোন
-
-  </button>
-
-</section>
-
-
-<!-- ================= STUDENT DASHBOARD ================= -->
-
-<section
-  id="studentDashboard"
-  class="card hidden">
-
-  <h2 class="section-title">
-    🎓 Student Dashboard
-  </h2>
-
-  <p id="studentWelcome"></p>
-
-  <br>
-
-  <button class="btn"
-          onclick="openGroupChat()">
-
-    💬 Student Group Chat
-
-  </button>
-
-  <button class="btn light"
-          onclick="showNotices()">
-
-    📢 Notices
-
-  </button>
-
-  <button class="btn secondary"
-          onclick="logout()">
-
-    Logout
-
-  </button>
-
-</section>
-
-
-<!-- ================= GROUP CHAT ================= -->
-
-<section
-  id="groupChat"
-  class="card hidden">
-
-  <h2 class="section-title">
-    💬 Student Group Chat
-  </h2>
-
-  <p style="color:#687386;margin-bottom:14px">
-
-    Talk • Share • Enjoy Together
-
-  </p>
-
-
-  <div
-    id="chatMessages"
-    class="chat-box">
-
-    <div class="chat-message">
-
-      <b>Jalchatra Dakhil Madrasha</b>
-
-      <br>
-
-      <span>
-        Student Community-তে স্বাগতম! 🎓
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <div class="chat-input">
-
-    <input
-      id="chatInput"
-      placeholder="আপনার মেসেজ লিখুন..."
-      onkeydown="
-      if(event.key==='Enter')
-      sendChatMessage()
-      ">
-
-    <button
-      class="btn"
-      onclick="sendChatMessage()">
-
-      Send
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ================= ADMIN PANEL ================= -->
-
-<section
-  id="adminDashboard"
-  class="card admin hidden">
-
-  <h2 class="section-title">
-    👨‍💼 Admin Panel
-  </h2>
-
-  <p>
-    <b>Admin:</b> Website Administrator
-  </p>
-
-
-  <hr style="
-    margin:20px 0;
-    border:0;
-    border-top:1px solid #eee;
-  ">
-
-
-  <h3>
-    📢 Publish Notice
-  </h3>
-
-  <input
-    id="noticeTitle"
-    placeholder="Notice title">
-
-  <textarea
-    id="noticeBody"
-    placeholder="Notice লিখুন...">
-  </textarea>
-
-  <button
-    class="btn"
-    onclick="addNotice()">
-
-    ➕ Publish Notice
-
-  </button>
-
-
-  <hr style="
-    margin:20px 0;
-    border:0;
-    border-top:1px solid #eee;
-  ">
-
-
-  <h3>
-    👥 Registered Students
-  </h3>
-
-  <div
-    id="studentList"
-    style="margin-top:12px">
-
-    কোনো Student এখনো Registration করেনি।
-
-  </div>
-
-
-  <br>
-
-
-  <button
-    class="btn danger"
-    onclick="logout()">
-
-    Logout Admin
-
-  </button>
-
-</section>
+  <div class="status"></div>
 
 </div>
 
 
-<footer>
+<!-- HOME -->
+<section id="home" class="page active">
 
-  © 2026 Jalchatra Dakhil Madrasha
-  <br>
-  OUR JDM
+  <div class="hero">
+    <small>WELCOME TO OUR COMMUNITY</small>
 
-</footer>
+    <h2>Our School.<br>Our Community.</h2>
+
+    <p>
+      সবাই একসাথে থাকি, কথা বলি, মজা করি
+      এবং একে অপরকে সম্মান করি।
+    </p>
+
+    <button class="hero-btn"
+            onclick="showPage('register')">
+      🚀 Join OUR JDM
+    </button>
+  </div>
 
 
-<!-- ================= AUTH MODAL ================= -->
+  <div class="section-title">
+    <h3>Quick Access</h3>
+    <span>OUR JDM</span>
+  </div>
 
-<div
-  id="authModal"
-  class="modal hidden">
 
-  <div class="modal-box">
+  <div class="menu-grid">
 
-    <button
-      class="close"
-      onclick="closeModal()">
-
-      ×
-
+    <button class="menu-card"
+            onclick="showPage('chat')">
+      <div class="menu-icon">💬</div>
+      <h4>Group Chat</h4>
+      <p>সবার সাথে কথা বলুন</p>
     </button>
 
+    <button class="menu-card"
+            onclick="showPage('students')">
+      <div class="menu-icon">👨‍🎓</div>
+      <h4>Students</h4>
+      <p>Student community</p>
+    </button>
 
-    <!-- REGISTER -->
+    <button class="menu-card"
+            onclick="showPage('teachers')">
+      <div class="menu-icon">👨‍🏫</div>
+      <h4>Teachers</h4>
+      <p>Teacher information</p>
+    </button>
 
-    <div
-      id="registerBox"
-      class="hidden">
+    <button class="menu-card"
+            onclick="showPage('notice')">
+      <div class="menu-icon">📢</div>
+      <h4>Notice</h4>
+      <p>Latest school notices</p>
+    </button>
 
-      <h2>
-        📝 Student Registration
-      </h2>
+    <button class="menu-card"
+            onclick="showPage('profile')">
+      <div class="menu-icon">👤</div>
+      <h4>My Profile</h4>
+      <p>আপনার তথ্য</p>
+    </button>
 
-      <input
-        id="regName"
-        placeholder="আপনার পূর্ণ নাম">
+    <button class="menu-card"
+            onclick="showPage('rules')">
+      <div class="menu-icon">🛡️</div>
+      <h4>Community Rules</h4>
+      <p>নিয়ম ও নিরাপত্তা</p>
+    </button>
 
-      <input
-        id="regPhone"
-        placeholder="মোবাইল নম্বর">
+  </div>
 
-      <input
-        id="regEmail"
-        type="email"
-        placeholder="Email">
 
-      <input
-        id="regPassword"
-        type="password"
-        placeholder="Password">
+  <div class="notice">
+    <b>⚠️ Community Reminder</b>
+    <p>
+      এখানে ছোট-বড় সবাই আছেন।
+      গালি, অপমানজনক বা অশালীন ভাষা ব্যবহার করা যাবে না।
+      সবাইকে সম্মান করে কথা বলুন।
+    </p>
+  </div>
 
-      <button
-        class="btn"
-        onclick="registerStudent()">
+</section>
 
-        Create Account
 
-      </button>
+<!-- REGISTER -->
+<section id="register" class="page">
 
-      <button
-        class="btn light"
-        onclick="switchAuth('login')">
+  <button class="back" onclick="showPage('home')">
+    ← Back
+  </button>
 
-        Already have an account?
-        Sign In
+  <div class="card">
 
-      </button>
+    <h2>📝 Student Registration</h2>
+
+    <label>Full Name</label>
+    <input id="name" placeholder="আপনার নাম">
+
+    <label>Phone Number</label>
+    <input id="phone"
+           type="tel"
+           placeholder="01XXXXXXXXX">
+
+    <label>Roll Number</label>
+    <input id="roll"
+           type="number"
+           placeholder="আপনার Roll">
+
+    <label>Class</label>
+    <select id="className">
+      <option value="">Class নির্বাচন করুন</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+    </select>
+
+    <button class="primary"
+            onclick="register()">
+      Create Student Profile
+    </button>
+
+    <p id="regResult"
+       style="margin-top:12px;font-size:12px;">
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- CHAT -->
+<section id="chat" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="card">
+
+    <h2>💬 Group Chat</h2>
+
+    <p style="color:var(--muted);font-size:11px;margin-top:5px;">
+      OUR JDM Community
+    </p>
+
+    <div id="warning" class="warning">
+      ⚠️ এখানে ছোট-বড় সবাই আছেন।
+      গালি বা অপমানজনক ভাষা ব্যবহার করা যাবে না।
+    </div>
+
+    <div id="chatBox" class="chat-box">
+
+      <div class="msg">
+        <small>OUR JDM</small>
+        সবাইকে OUR JDM-এ স্বাগতম! 👋
+      </div>
+
+      <div class="msg">
+        <small>System</small>
+        Respect everyone and keep the community friendly. 🤝
+      </div>
 
     </div>
 
+    <div class="chat-send">
 
-    <!-- LOGIN -->
+      <input id="chatInput"
+             placeholder="Write a message..."
+             onkeydown="if(event.key==='Enter')sendMessage()">
 
-    <div
-      id="loginBox"
-      class="hidden">
-
-      <h2>
-        🔐 Sign In
-      </h2>
-
-      <input
-        id="loginEmail"
-        type="email"
-        placeholder="Email">
-
-      <input
-        id="loginPassword"
-        type="password"
-        placeholder="Password">
-
-      <button
-        class="btn"
-        onclick="loginUser()">
-
-        Sign In
-
-      </button>
-
-      <button
-        class="btn light"
-        onclick="switchAuth('register')">
-
-        Create Student Account
-
+      <button onclick="sendMessage()">
+        ➤
       </button>
 
     </div>
 
   </div>
+
+</section>
+
+
+<!-- STUDENTS -->
+<section id="students" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="card">
+
+    <h2>👨‍🎓 Students</h2>
+
+    <div id="studentList">
+
+      <div class="list-item">
+        <div class="person">
+          <div class="avatar">👨‍🎓</div>
+          <div>
+            <b>Student Community</b>
+            <small>Registration করলে profile দেখা যাবে</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TEACHERS -->
+<section id="teachers" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="card">
+
+    <h2>👨‍🏫 Teachers</h2>
+
+    <div class="list-item">
+
+      <div class="person">
+        <div class="avatar">👨‍🏫</div>
+
+        <div>
+          <b>Teacher Name</b>
+          <small>Subject</small>
+        </div>
+      </div>
+
+      <a class="call"
+         href="tel:01XXXXXXXXX">
+        📞 Call
+      </a>
+
+    </div>
+
+    <p style="color:var(--muted);font-size:10px;margin-top:12px;">
+      শিক্ষকের অনুমতি নিয়ে তাঁদের তথ্য ও ফোন নম্বর যুক্ত করবেন।
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- NOTICE -->
+<section id="notice" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="card">
+
+    <h2>📢 Notice Board</h2>
+
+    <div class="notice">
+      <b>Welcome to OUR JDM</b>
+      <p>
+        OUR JDM School Community-তে সবাইকে স্বাগতম।
+      </p>
+    </div>
+
+    <div class="notice">
+      <b>🛡️ Community Rule</b>
+      <p>
+        গালি বা অপমানজনক ভাষা ব্যবহার করা যাবে না।
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROFILE -->
+<section id="profile" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="card">
+
+    <div class="profile-head">
+
+      <div class="big-avatar">
+        👤
+      </div>
+
+      <h2 id="profileName">
+        Guest Student
+      </h2>
+
+      <p id="profilePhone">
+        Registration required
+      </p>
+
+    </div>
+
+    <div class="list-item">
+      <span>🔢 Roll</span>
+      <b id="profileRoll">—</b>
+    </div>
+
+    <div class="list-item">
+      <span>🏫 Class</span>
+      <b id="profileClass">—</b>
+    </div>
+
+    <button class="danger"
+            onclick="logout()">
+      Logout
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- RULES -->
+<section id="rules" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="card">
+
+    <h2>🛡️ Community Rules</h2>
+
+    <div class="list-item">
+      <span>🤝 সবাইকে সম্মান করুন</span>
+    </div>
+
+    <div class="list-item">
+      <span>🚫 গালি বা অপমানজনক ভাষা নয়</span>
+    </div>
+
+    <div class="list-item">
+      <span>🔒 অন্যের ব্যক্তিগত তথ্য প্রকাশ নয়</span>
+    </div>
+
+    <div class="list-item">
+      <span>📵 Spam করা যাবে না</span>
+    </div>
+
+    <div class="list-item">
+      <span>👨‍🏫 শিক্ষক ও শিক্ষার্থীদের সম্মান করুন</span>
+    </div>
+
+    <div class="list-item">
+      <span>⚠️ সমস্যা হলে Admin-কে জানান</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ADMIN LOGIN -->
+<section id="adminLogin" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="card">
+
+    <h2>🔐 Admin Login</h2>
+
+    <p style="color:var(--muted);font-size:12px;margin-top:6px;">
+      শুধুমাত্র অনুমোদিত Admin-এর জন্য।
+    </p>
+
+    <label>Admin ID</label>
+    <input id="adminId"
+           placeholder="Admin ID">
+
+    <label>Password</label>
+    <input id="adminPass"
+           type="password"
+           placeholder="Password">
+
+    <button class="primary"
+            onclick="adminLogin()">
+      Login to Admin Panel
+    </button>
+
+    <p id="adminResult"
+       style="margin-top:12px;font-size:12px;">
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ADMIN PANEL -->
+<section id="admin" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="admin-banner">
+
+    <h2>🛡️ Admin Panel</h2>
+
+    <p>
+      OUR JDM Community Management
+    </p>
+
+  </div>
+
+  <div class="admin-grid">
+
+    <div class="admin-stat">
+      <b id="totalStudents">0</b>
+      <span>Students</span>
+    </div>
+
+    <div class="admin-stat">
+      <b>0</b>
+      <span>Reports</span>
+    </div>
+
+    <div class="admin-stat">
+      <b>0</b>
+      <span>Notices</span>
+    </div>
+
+    <div class="admin-stat">
+      <b>Online</b>
+      <span>System Status</span>
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>📢 Create Notice</h2>
+
+    <textarea id="noticeText"
+              rows="4"
+              placeholder="Notice লিখুন..."></textarea>
+
+    <button class="primary"
+            onclick="createNotice()">
+      Publish Notice
+    </button>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>👥 Student Management</h2>
+
+    <div id="adminStudents"
+         style="margin-top:10px;">
+      No students registered yet.
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>⚙️ Admin Tools</h2>
+
+    <button class="danger"
+            onclick="clearLocalData()">
+      Clear Local Demo Data
+    </button>
+
+  </div>
+
+</section>
+
+
+<div class="footer">
+  © 2026 OUR JDM • Our School • Our Community
+</div>
+
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+  <button class="nav-btn active"
+          onclick="showPage('home');setNav(this)">
+    <span>⌂</span>
+    Home
+  </button>
+
+  <button class="nav-btn"
+          onclick="showPage('chat');setNav(this)">
+    <span>💬</span>
+    Chat
+  </button>
+
+  <button class="nav-btn"
+          onclick="showPage('students');setNav(this)">
+    <span>👥</span>
+    Students
+  </button>
+
+  <button class="nav-btn"
+          onclick="showPage('profile');setNav(this)">
+    <span>👤</span>
+    Profile
+  </button>
+
+  <button class="nav-btn"
+          onclick="showPage('adminLogin');setNav(this)">
+    <span>⚙️</span>
+    Admin
+  </button>
+
+</div>
 
 </div>
 
 
 <script>
 
-/* =====================================================
-   ADMIN SETTINGS
-   =====================================================
+/* PAGE SYSTEM */
 
-   IMPORTANT:
-   এটি DEMO authentication.
+function showPage(page){
 
-   আসল নিরাপদ website-এর জন্য
-   Firebase Authentication / Supabase ব্যবহার করতে হবে।
-===================================================== */
+  document.querySelectorAll(".page")
+    .forEach(function(p){
+      p.classList.remove("active");
+    });
 
-const ADMIN_EMAIL =
-"admin@ourjdm.com";
+  const target=document.getElementById(page);
 
-const ADMIN_PASSWORD =
-"CHANGE_THIS_PASSWORD";
-
-
-/* ================= MODAL ================= */
-
-function openModal(type){
-
-  document
-    .getElementById("authModal")
-    .classList.remove("hidden");
-
-  switchAuth(type);
-}
-
-
-function closeModal(){
-
-  document
-    .getElementById("authModal")
-    .classList.add("hidden");
-}
-
-
-function switchAuth(type){
-
-  document
-    .getElementById("registerBox")
-    .classList.add("hidden");
-
-  document
-    .getElementById("loginBox")
-    .classList.add("hidden");
-
-
-  if(type==="register"){
-
-    document
-      .getElementById("registerBox")
-      .classList.remove("hidden");
-
+  if(target){
+    target.classList.add("active");
   }
 
-
-  if(type==="login"){
-
-    document
-      .getElementById("loginBox")
-      .classList.remove("hidden");
-
-  }
-}
-
-
-/* ================= STUDENT REGISTRATION ================= */
-
-function registerStudent(){
-
-  const name =
-    document.getElementById("regName")
-    .value.trim();
-
-  const phone =
-    document.getElementById("regPhone")
-    .value.trim();
-
-  const email =
-    document.getElementById("regEmail")
-    .value.trim();
-
-  const password =
-    document.getElementById("regPassword")
-    .value;
-
-
-  if(!name || !phone || !email || !password){
-
-    alert("সব তথ্য পূরণ করুন।");
-
-    return;
-  }
-
-
-  let students =
-    JSON.parse(
-      localStorage.getItem("jdm_students")
-      || "[]"
-    );
-
-
-  if(
-    students.some(
-      student => student.email === email
-    )
-  ){
-
-    alert(
-      "এই Email দিয়ে ইতিমধ্যে Registration করা হয়েছে।"
-    );
-
-    return;
-  }
-
-
-  students.push({
-
-    name:name,
-    phone:phone,
-    email:email,
-    password:password
-
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
   });
 
+  loadProfile();
+  loadStudents();
+}
+
+
+/* NAVIGATION */
+
+function setNav(btn){
+
+  document.querySelectorAll(".nav-btn")
+    .forEach(function(b){
+      b.classList.remove("active");
+    });
+
+  btn.classList.add("active");
+}
+
+
+/* REGISTRATION */
+
+function register(){
+
+  const name=
+    document.getElementById("name").value.trim();
+
+  const phone=
+    document.getElementById("phone").value.trim();
+
+  const roll=
+    document.getElementById("roll").value.trim();
+
+  const className=
+    document.getElementById("className").value;
+
+  const result=
+    document.getElementById("regResult");
+
+  if(!name || !phone || !roll || !className){
+
+    result.innerText=
+      "⚠️ সব তথ্য পূরণ করুন।";
+
+    result.style.color="#ff8793";
+
+    return;
+  }
+
+  const student={
+    name:name,
+    phone:phone,
+    roll:roll,
+    className:className
+  };
 
   localStorage.setItem(
-    "jdm_students",
+    "ourJDM_profile",
+    JSON.stringify(student)
+  );
+
+  let students=
+    JSON.parse(
+      localStorage.getItem("ourJDM_students") || "[]"
+    );
+
+  students.push(student);
+
+  localStorage.setItem(
+    "ourJDM_students",
     JSON.stringify(students)
   );
 
+  result.innerText=
+    "✅ Registration সফল হয়েছে!";
 
-  alert(
-    "Registration সফল হয়েছে। এখন Sign In করুন।"
-  );
+  result.style.color="#63e7a5";
 
-
-  switchAuth("login");
+  setTimeout(function(){
+    showPage("profile");
+  },700);
 }
 
 
-/* ================= LOGIN ================= */
+/* PROFILE */
 
-function loginUser(){
+function loadProfile(){
 
-  const email =
-    document.getElementById("loginEmail")
-    .value.trim();
+  const data=
+    localStorage.getItem("ourJDM_profile");
 
-  const password =
-    document.getElementById("loginPassword")
-    .value;
+  if(!data) return;
 
+  const student=JSON.parse(data);
 
-  /* ADMIN */
+  document.getElementById("profileName")
+    .innerText=student.name;
 
-  if(
-    email === ADMIN_EMAIL &&
-    password === ADMIN_PASSWORD
-  ){
+  document.getElementById("profilePhone")
+    .innerText=student.phone;
 
-    closeModal();
+  document.getElementById("profileRoll")
+    .innerText=student.roll;
 
-    document
-      .getElementById("adminDashboard")
-      .classList.remove("hidden");
-
-    loadStudents();
-
-    window.scrollTo({
-
-      top:document.body.scrollHeight,
-
-      behavior:"smooth"
-
-    });
-
-    return;
-  }
-
-
-  /* STUDENT */
-
-  let students =
-    JSON.parse(
-      localStorage.getItem("jdm_students")
-      || "[]"
-    );
-
-
-  const student =
-    students.find(
-
-      s =>
-      s.email === email &&
-      s.password === password
-
-    );
-
-
-  if(!student){
-
-    alert(
-      "Email অথবা Password সঠিক নয়।"
-    );
-
-    return;
-  }
-
-
-  localStorage.setItem(
-
-    "jdm_current_student",
-
-    JSON.stringify(student)
-
-  );
-
-
-  closeModal();
-
-
-  document
-    .getElementById("studentDashboard")
-    .classList.remove("hidden");
-
-
-  document
-    .getElementById("studentWelcome")
-    .innerHTML =
-    "স্বাগতম, <b>" +
-    escapeHTML(student.name) +
-    "</b>!";
-
-
-  window.scrollTo({
-
-    top:document.body.scrollHeight,
-
-    behavior:"smooth"
-
-  });
+  document.getElementById("profileClass")
+    .innerText=student.className;
 }
 
 
-/* ================= STUDENTS ================= */
+/* STUDENTS */
 
 function loadStudents(){
 
-  let students =
+  const data=
     JSON.parse(
-      localStorage.getItem("jdm_students")
-      || "[]"
+      localStorage.getItem("ourJDM_students") || "[]"
     );
 
-
-  const box =
+  const list=
     document.getElementById("studentList");
 
+  const adminList=
+    document.getElementById("adminStudents");
 
-  if(students.length===0){
+  document.getElementById("totalStudents")
+    .innerText=data.length;
 
-    box.innerHTML =
-      "কোনো Student এখনো Registration করেনি।";
+  if(data.length===0){
 
-    return;
-  }
+    list.innerHTML=
+      '<div class="list-item">No students registered yet.</div>';
 
-
-  box.innerHTML="";
-
-
-  students.forEach(student => {
-
-    box.innerHTML += `
-
-      <div class="notice">
-
-        <b>
-          ${escapeHTML(student.name)}
-        </b>
-
-        <br>
-
-        📱
-        ${escapeHTML(student.phone)}
-
-        <br>
-
-        ✉️
-        ${escapeHTML(student.email)}
-
-      </div>
-
-    `;
-
-  });
-}
-
-
-/* ================= NOTICE ================= */
-
-function addNotice(){
-
-  const title =
-    document.getElementById("noticeTitle")
-    .value.trim();
-
-  const body =
-    document.getElementById("noticeBody")
-    .value.trim();
-
-
-  if(!title || !body){
-
-    alert(
-      "Notice title এবং notice লিখুন।"
-    );
+    adminList.innerText=
+      "No students registered yet.";
 
     return;
   }
-
-
-  let notices =
-    JSON.parse(
-      localStorage.getItem("jdm_notices")
-      || "[]"
-    );
-
-
-  notices.unshift({
-
-    title:title,
-
-    body:body,
-
-    date:
-      new Date().toLocaleDateString("bn-BD")
-
-  });
-
-
-  localStorage.setItem(
-
-    "jdm_notices",
-
-    JSON.stringify(notices)
-
-  );
-
-
-  document.getElementById(
-    "noticeTitle"
-  ).value="";
-
-
-  document.getElementById(
-    "noticeBody"
-  ).value="";
-
-
-  loadNotices();
-
-
-  alert(
-    "Notice Publish হয়েছে।"
-  );
-}
-
-
-function loadNotices(){
-
-  let notices =
-    JSON.parse(
-      localStorage.getItem("jdm_notices")
-      || "[]"
-    );
-
-
-  const list =
-    document.getElementById("noticeList");
-
-
-  if(notices.length===0){
-
-    return;
-  }
-
 
   list.innerHTML="";
 
+  adminList.innerHTML="";
 
-  notices.forEach(n => {
+  data.forEach(function(student,index){
 
-    list.innerHTML += `
-
-      <div class="notice">
-
-        <b>
-          ${escapeHTML(n.title)}
-        </b>
-
-        <br>
-
-        ${escapeHTML(n.body)}
-
-        <br>
-
-        <small>
-          ${escapeHTML(n.date)}
-        </small>
-
+    list.innerHTML+=`
+      <div class="list-item">
+        <div class="person">
+          <div class="avatar">👨‍🎓</div>
+          <div>
+            <b>${escapeHTML(student.name)}</b>
+            <small>Roll ${escapeHTML(student.roll)}
+            • Class ${escapeHTML(student.className)}</small>
+          </div>
+        </div>
       </div>
-
     `;
 
+    adminList.innerHTML+=`
+      <div class="list-item">
+        <div>
+          <b>${escapeHTML(student.name)}</b>
+          <small>
+            Roll ${escapeHTML(student.roll)}
+            • Class ${escapeHTML(student.className)}
+          </small>
+        </div>
+
+        <button class="danger"
+          style="width:auto;margin:0;padding:7px 10px"
+          onclick="removeStudent(${index})">
+          Remove
+        </button>
+      </div>
+    `;
   });
 }
 
 
-/* ================= GROUP CHAT ================= */
+/* REMOVE STUDENT */
 
-function openGroupChat(){
+function removeStudent(index){
 
-  document
-    .getElementById("groupChat")
-    .classList.remove("hidden");
-
-
-  loadChatMessages();
-
-
-  document
-    .getElementById("groupChat")
-    .scrollIntoView({
-
-      behavior:"smooth"
-
-    });
-}
-
-
-function sendChatMessage(){
-
-  const input =
-    document.getElementById("chatInput");
-
-
-  const message =
-    input.value.trim();
-
-
-  if(!message){
-
-    return;
-  }
-
-
-  const currentStudent =
+  let students=
     JSON.parse(
-
-      localStorage.getItem(
-        "jdm_current_student"
-      )
-      || "null"
-
+      localStorage.getItem("ourJDM_students") || "[]"
     );
 
-
-  const sender =
-    currentStudent
-      ? currentStudent.name
-      : "Student";
-
-
-  let messages =
-    JSON.parse(
-
-      localStorage.getItem(
-        "jdm_chat"
-      )
-      || "[]"
-
-    );
-
-
-  messages.push({
-
-    sender:sender,
-
-    message:message,
-
-    time:
-      new Date().toLocaleTimeString(
-        "bn-BD",
-        {
-          hour:"2-digit",
-          minute:"2-digit"
-        }
-      )
-
-  });
-
+  students.splice(index,1);
 
   localStorage.setItem(
-
-    "jdm_chat",
-
-    JSON.stringify(messages)
-
+    "ourJDM_students",
+    JSON.stringify(students)
   );
 
-
-  input.value="";
-
-
-  loadChatMessages();
+  loadStudents();
 }
 
 
-function loadChatMessages(){
-
-  const box =
-    document.getElementById(
-      "chatMessages"
-    );
-
-
-  if(!box){
-
-    return;
-  }
-
-
-  let messages =
-    JSON.parse(
-
-      localStorage.getItem(
-        "jdm_chat"
-      )
-      || "[]"
-
-    );
-
-
-  box.innerHTML="";
-
-
-  messages.forEach(chat => {
-
-    box.innerHTML += `
-
-      <div class="chat-message">
-
-        <b>
-          ${escapeHTML(chat.sender)}
-        </b>
-
-        <br>
-
-        <span>
-          ${escapeHTML(chat.message)}
-        </span>
-
-        <br>
-
-        <span class="chat-time">
-          ${escapeHTML(chat.time)}
-        </span>
-
-      </div>
-
-    `;
-
-  });
-
-
-  box.scrollTop =
-    box.scrollHeight;
-}
-
-
-/* ================= COMPLAINT ================= */
-
-function sendComplaint(){
-
-  const name =
-    document.getElementById(
-      "complaintName"
-    ).value.trim();
-
-
-  const phone =
-    document.getElementById(
-      "complaintPhone"
-    ).value.trim();
-
-
-  const text =
-    document.getElementById(
-      "complaintText"
-    ).value.trim();
-
-
-  if(!name || !phone || !text){
-
-    alert(
-      "নাম, মোবাইল এবং অভিযোগ লিখুন।"
-    );
-
-    return;
-  }
-
-
-  /*
-    Admin WhatsApp নম্বর পরে এখানে বসাবেন।
-  */
-
-  const adminWhatsApp = "";
-
-
-  if(!adminWhatsApp){
-
-    alert(
-      "Admin-এর WhatsApp নম্বর এখনো সেট করা হয়নি।"
-    );
-
-    return;
-  }
-
-
-  const message =
-    "Jalchatra Dakhil Madrasha অভিযোগ\n\n" +
-
-    "নাম: " + name +
-
-    "\nমোবাইল: " + phone +
-
-    "\nঅভিযোগ: " + text;
-
-
-  window.open(
-
-    "https://wa.me/" +
-    adminWhatsApp +
-    "?text=" +
-    encodeURIComponent(message),
-
-    "_blank"
-
-  );
-}
-
-
-/* ================= ADMIN PHONE ================= */
-
-function callAdmin(){
-
-  const adminNumber = "";
-
-
-  if(!adminNumber){
-
-    alert(
-      "Admin-এর ফোন নম্বর এখনো সেট করা হয়নি।"
-    );
-
-    return;
-  }
-
-
-  window.location.href =
-    "tel:" + adminNumber;
-}
-
-
-/* ================= NOTICE BUTTON ================= */
-
-function showNotices(){
-
-  document
-    .getElementById("noticeList")
-    .scrollIntoView({
-
-      behavior:"smooth"
-
-    });
-}
-
-
-/* ================= LOGOUT ================= */
+/* LOGOUT */
 
 function logout(){
 
-  document
-    .getElementById(
-      "studentDashboard"
-    )
-    .classList.add("hidden");
+  localStorage.removeItem("ourJDM_profile");
 
+  alert("Logout সফল হয়েছে।");
 
-  document
-    .getElementById(
-      "groupChat"
-    )
-    .classList.add("hidden");
-
-
-  document
-    .getElementById(
-      "adminDashboard"
-    )
-    .classList.add("hidden");
-
-
-  localStorage.removeItem(
-    "jdm_current_student"
-  );
-
-
-  alert(
-    "Logout হয়েছে।"
-  );
+  showPage("home");
 }
 
 
-/* ================= SECURITY HELPER ================= */
+/* CHAT MODERATION */
+
+const badWords=[
+  "গালি",
+  "হারামি",
+  "শালা",
+  "fuck",
+  "shit"
+];
+
+function sendMessage(){
+
+  const input=
+    document.getElementById("chatInput");
+
+  const text=
+    input.value.trim();
+
+  if(!text) return;
+
+  const lower=text.toLowerCase();
+
+  const bad=
+    badWords.some(function(word){
+      return lower.includes(word.toLowerCase());
+    });
+
+  const warning=
+    document.getElementById("warning");
+
+  if(bad){
+
+    warning.style.display="block";
+
+    input.value="";
+
+    return;
+  }
+
+  warning.style.display="none";
+
+  let name="Student";
+
+  const profile=
+    localStorage.getItem("ourJDM_profile");
+
+  if(profile){
+
+    name=
+      JSON.parse(profile).name;
+  }
+
+  const msg=
+    document.createElement("div");
+
+  msg.className="msg mine";
+
+  msg.innerHTML=
+    "<small>"+escapeHTML(name)+"</small>"+
+    escapeHTML(text);
+
+  document.getElementById("chatBox")
+    .appendChild(msg);
+
+  input.value="";
+
+  const box=
+    document.getElementById("chatBox");
+
+  box.scrollTop=box.scrollHeight;
+}
+
+
+/* ADMIN LOGIN */
+
+/*
+  DEMO ONLY.
+  Real authentication will be added with Firebase.
+*/
+
+function adminLogin(){
+
+  const id=
+    document.getElementById("adminId").value;
+
+  const pass=
+    document.getElementById("adminPass").value;
+
+  const result=
+    document.getElementById("adminResult");
+
+  /*
+    Demo credentials:
+    ID: admin
+    Password: ourjdm
+  */
+
+  if(id==="admin" && pass==="ourjdm"){
+
+    result.innerText=
+      "✅ Admin Login Successful";
+
+    result.style.color="#63e7a5";
+
+    setTimeout(function(){
+      showPage("admin");
+    },600);
+
+  }else{
+
+    result.innerText=
+      "❌ Admin ID অথবা Password ভুল।";
+
+    result.style.color="#ff8793";
+  }
+}
+
+
+/* NOTICE */
+
+function createNotice(){
+
+  const text=
+    document.getElementById("noticeText")
+    .value.trim();
+
+  if(!text){
+
+    alert("Notice লিখুন।");
+
+    return;
+  }
+
+  localStorage.setItem(
+    "ourJDM_latestNotice",
+    text
+  );
+
+  alert("✅ Notice publish হয়েছে।");
+
+  document.getElementById("noticeText")
+    .value="";
+}
+
+
+/* CLEAR DEMO DATA */
+
+function clearLocalData(){
+
+  const ok=
+    confirm(
+      "Demo data মুছে ফেলতে চান?"
+    );
+
+  if(!ok) return;
+
+  localStorage.removeItem("ourJDM_profile");
+  localStorage.removeItem("ourJDM_students");
+  localStorage.removeItem("ourJDM_latestNotice");
+
+  alert("Demo data clear হয়েছে।");
+
+  loadStudents();
+  loadProfile();
+}
+
+
+/* SECURITY */
 
 function escapeHTML(text){
 
-  return String(text)
+  const div=
+    document.createElement("div");
 
-    .replace(/&/g,"&amp;")
+  div.textContent=text;
 
-    .replace(/</g,"&lt;")
-
-    .replace(/>/g,"&gt;")
-
-    .replace(/"/g,"&quot;")
-
-    .replace(/'/g,"&#039;");
+  return div.innerHTML;
 }
 
 
-/* ================= START ================= */
+/* START */
 
-loadNotices();
+loadProfile();
+loadStudents();
 
 </script>
 
