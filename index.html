@@ -7,1044 +7,408 @@
 <title>OUR JDM — Jalchatra Dakhil Madrasha</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{box-sizing:border-box}
 body{
-  font-family:Inter,"Noto Sans Bengali",sans-serif;
-  background:
-    radial-gradient(circle at 10% 0%,#12385d 0,transparent 32%),
-    radial-gradient(circle at 100% 100%,#123c32 0,transparent 32%),
-    #050b14;
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#07111f;
   color:#fff;
-  min-height:100vh;
 }
-
-button,input,textarea,select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.hidden{
-  display:none!important;
-}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
 
 .container{
   width:min(1100px,94%);
   margin:auto;
 }
 
-/* ================= AUTH ================= */
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(7,17,31,.92);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #1e3047;
+}
+.nav{
+  min-height:65px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.logo{
+  font-size:19px;
+  font-weight:800;
+}
+.logo span{color:#36d399}
 
-#authScreen{
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:11px 16px;
+  color:white;
+  background:#1677ff;
+  font-weight:700;
+}
+.btn:hover{opacity:.9}
+.btn.red{background:#e5484d}
+.btn.green{background:#16a36a}
+.btn.gray{background:#24364d}
+.btn.small{padding:7px 10px;font-size:12px}
+
+main{padding:25px 0 50px}
+
+.card{
+  background:#0c1a2b;
+  border:1px solid #1c3048;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+h1,h2,h3{margin-top:0}
+.muted{color:#91a4bb}
+
+input,textarea,select{
+  width:100%;
+  border:1px solid #29415c;
+  background:#081522;
+  color:#fff;
+  border-radius:11px;
+  padding:12px;
+  outline:none;
+  margin:6px 0 12px;
+}
+textarea{min-height:90px;resize:vertical}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:15px;
+}
+.tabs button{
+  flex:1;
+  border:1px solid #29415c;
+  background:#0b1726;
+  color:#a9bad0;
+  padding:11px;
+  border-radius:10px;
+}
+.tabs button.active{
+  background:#1677ff;
+  color:#fff;
+}
+
+.auth{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:20px;
 }
-
-.auth-box{
-  width:min(450px,100%);
-  padding:28px;
-  border-radius:28px;
-  background:rgba(10,21,35,.88);
-  border:1px solid rgba(255,255,255,.1);
-  box-shadow:0 25px 80px rgba(0,0,0,.45);
-  backdrop-filter:blur(20px);
-}
-
-.logo{
-  width:76px;
-  height:76px;
-  margin:0 auto 15px;
-  border-radius:24px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#00c6ff,#006cff);
-  font-size:25px;
-  font-weight:800;
-  box-shadow:0 12px 35px rgba(0,140,255,.3);
-}
-
-.auth-box h1{
-  text-align:center;
-  font-size:26px;
-}
-
-.auth-sub{
-  text-align:center;
-  color:#91a5ba;
-  font-size:13px;
-  margin:8px 0 23px;
-}
-
-.tabs{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:6px;
-  padding:5px;
-  border-radius:14px;
-  background:#081321;
-  margin-bottom:20px;
-}
-
-.tab{
-  border:0;
-  border-radius:10px;
-  padding:11px;
-  color:#8498ad;
-  background:transparent;
-}
-
-.tab.active{
-  color:#fff;
-  background:#172b43;
-}
-
-.field{
-  margin-bottom:14px;
-}
-
-.field label{
-  display:block;
-  color:#aab9ca;
-  font-size:13px;
-  margin-bottom:7px;
-}
-
-.field input,
-.field textarea,
-.field select{
-  width:100%;
-  padding:13px;
-  color:#fff;
-  background:#071321;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:13px;
-  outline:none;
-}
-
-.field textarea{
-  min-height:110px;
-  resize:vertical;
-}
-
-.field input:focus,
-.field textarea:focus,
-.field select:focus{
-  border-color:#0da5ff;
-}
-
-.primary{
-  width:100%;
-  padding:14px;
-  border:0;
-  border-radius:14px;
-  color:#fff;
-  font-weight:700;
-  background:linear-gradient(135deg,#00a9ff,#006cff);
-}
-
-.primary:disabled{
-  opacity:.55;
-}
-
-.error,
-.success,
-.info{
-  padding:11px 13px;
-  border-radius:12px;
-  margin-bottom:13px;
-  font-size:13px;
-}
-
-.error{
-  color:#ffabab;
-  background:rgba(255,60,60,.1);
-  border:1px solid rgba(255,60,60,.2);
-}
-
-.success{
-  color:#85f1b0;
-  background:rgba(40,220,120,.1);
-  border:1px solid rgba(40,220,120,.2);
-}
-
-.info{
-  color:#8fd9ff;
-  background:rgba(0,160,255,.08);
-  border:1px solid rgba(0,160,255,.16);
-}
-
-
-/* ================= HEADER ================= */
-
-#appScreen{
-  min-height:100vh;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(5,12,21,.88);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  backdrop-filter:blur(18px);
-}
-
-.nav{
-  min-height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-}
-
-.brand-icon{
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  background:linear-gradient(135deg,#00c6ff,#006cff);
-}
-
-.brand strong{
-  display:block;
-}
-
-.brand small{
-  color:#7890a7;
-  font-size:10px;
-}
-
-.logout{
-  border:1px solid rgba(255,255,255,.1);
-  background:#0c1828;
-  color:#fff;
-  padding:9px 12px;
-  border-radius:11px;
-}
-
-
-/* ================= MAIN ================= */
-
-main{
-  padding:24px 0 95px;
-}
-
-.page{
-  animation:fade .18s ease;
-}
-
-@keyframes fade{
-  from{opacity:0;transform:translateY(5px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-.hero{
-  padding:27px;
-  border-radius:25px;
-  margin-bottom:18px;
-  background:linear-gradient(135deg,rgba(12,39,64,.92),rgba(9,20,34,.9));
-  border:1px solid rgba(255,255,255,.09);
-}
-
-.hero h2{
-  font-size:26px;
-  margin-bottom:7px;
-}
-
-.hero p{
-  color:#9cafc2;
-  font-size:14px;
+.auth-card{
+  width:min(440px,100%);
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:15px;
 }
 
-.card{
-  padding:19px;
-  border-radius:20px;
-  background:rgba(10,20,33,.83);
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.card h3{
-  margin-bottom:12px;
-}
-
-.card p{
-  color:#9fb0c2;
-  line-height:1.7;
-  font-size:14px;
-}
-
-.section-title{
+.navbuttons{
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:13px;
+  gap:8px;
+  overflow:auto;
+  padding:12px 0;
 }
+.navbuttons button{white-space:nowrap}
 
-.section-title h2{
-  font-size:21px;
-}
-
-.list{
-  display:grid;
-  gap:10px;
-}
+.page{display:none}
+.page.active{display:block}
 
 .item{
-  padding:15px;
-  border-radius:15px;
   background:#091625;
-  border:1px solid rgba(255,255,255,.07);
+  border:1px solid #20354d;
+  border-radius:13px;
+  padding:14px;
+  margin-bottom:10px;
 }
-
-.item strong{
-  display:block;
-  margin-bottom:5px;
-}
-
-.item small{
-  color:#70869c;
-}
-
-.item p{
-  color:#b5c3d1;
-  font-size:14px;
-  line-height:1.6;
-  margin-top:7px;
-}
-
-.admin-card{
-  border-color:rgba(255,177,55,.2);
-  background:rgba(95,63,15,.12);
-  margin-bottom:15px;
-}
-
-.admin-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:8px;
-}
-
-.secondary{
-  padding:10px;
-  border-radius:10px;
-  color:#fff;
-  background:#122136;
-  border:1px solid rgba(255,255,255,.1);
-}
-
-.danger{
-  padding:10px;
-  border-radius:10px;
-  color:#ff9b9b;
-  background:rgba(255,55,55,.1);
-  border:1px solid rgba(255,55,55,.2);
-}
-
-
-/* ================= CHAT ================= */
+.item:last-child{margin-bottom:0}
 
 .chat-box{
-  height:440px;
+  height:430px;
   overflow-y:auto;
-  padding:14px;
-  border-radius:18px;
-  background:#06101c;
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.msg{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  margin-bottom:12px;
-}
-
-.msg.me{
-  align-items:flex-end;
-}
-
-.bubble{
-  max-width:82%;
-  padding:10px 13px;
+  background:#07111d;
+  border:1px solid #20354d;
   border-radius:15px;
-  background:#14263b;
-  font-size:14px;
-  line-height:1.5;
+  padding:12px;
 }
-
-.msg.me .bubble{
-  background:#075f91;
+.msg{
+  background:#102237;
+  border-radius:13px;
+  padding:10px 12px;
+  margin-bottom:9px;
 }
-
+.msg.me{border-left:3px solid #36d399}
 .msg-name{
-  color:#78cfff;
-  font-size:11px;
-  margin-bottom:3px;
+  font-size:13px;
+  font-weight:800;
+  color:#55aaff;
+  margin-bottom:4px;
 }
-
+.msg-text{
+  white-space:pre-wrap;
+  word-break:break-word;
+}
 .msg-time{
-  color:#6c8196;
-  font-size:9px;
-  margin:4px;
+  font-size:10px;
+  color:#72869d;
+  margin-top:5px;
 }
-
-.chat-form{
+.chat-send{
   display:flex;
   gap:8px;
-  margin-top:9px;
+  margin-top:10px;
+}
+.chat-send input{margin:0}
+.chat-send button{width:90px}
+
+.badge{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:8px;
+  background:#17314e;
+  color:#9fc9ff;
+  font-size:11px;
+}
+.badge.red{background:#421d25;color:#ff9da2}
+.badge.green{background:#123d31;color:#8bf0c5}
+
+.admin-section{
+  border:1px solid #563a20;
+  background:#21180e;
 }
 
-.chat-form input{
-  flex:1;
-  min-width:0;
-  padding:12px;
-  border-radius:13px;
-  color:#fff;
-  background:#081321;
-  border:1px solid rgba(255,255,255,.1);
-  outline:none;
+.profile-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid #20354d;
+}
+.profile-row:last-child{border-bottom:0}
+
+.empty{
+  text-align:center;
+  padding:25px;
+  color:#71859b;
 }
 
-.chat-send{
-  border:0;
-  border-radius:13px;
-  padding:0 17px;
-  color:#fff;
-  background:#087fc1;
-}
+.notice-body{white-space:pre-wrap}
 
-
-/* ================= BOTTOM NAV ================= */
-
-.bottom-nav{
+#toast{
   position:fixed;
-  z-index:40;
-  bottom:0;
-  left:0;
-  right:0;
-  background:rgba(5,12,21,.94);
-  border-top:1px solid rgba(255,255,255,.08);
-  backdrop-filter:blur(18px);
-}
-
-.bottom-inner{
-  width:min(700px,100%);
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-}
-
-.nav-item{
-  padding:9px 2px;
-  border:0;
-  color:#71869d;
-  background:transparent;
-  font-size:10px;
-}
-
-.nav-item span{
-  display:block;
-  font-size:19px;
-  margin-bottom:3px;
-}
-
-.nav-item.active{
-  color:#25b4ff;
-}
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:700px){
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero h2{
-    font-size:22px;
-  }
-
-  .auth-box{
-    padding:22px;
-  }
-
-  .admin-grid{
-    grid-template-columns:1fr;
-  }
-
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:100;
+  background:#102237;
+  border:1px solid #31506f;
+  padding:12px 18px;
+  border-radius:12px;
+  display:none;
+  max-width:90%;
 }
 </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     AUTH SCREEN
-===================================================== -->
-
-<section id="authScreen">
-
-  <div class="auth-box">
-
-    <div class="logo">JDM</div>
-
+<!-- AUTH -->
+<section id="authScreen" class="auth">
+  <div class="card auth-card">
     <h1>OUR JDM</h1>
-
-    <div class="auth-sub">
-      Jalchatra Dakhil Madrasha
-    </div>
+    <p class="muted">Jalchatra Dakhil Madrasha</p>
 
     <div class="tabs">
-
-      <button
-        id="loginTab"
-        class="tab active"
-        type="button">
-        Login
-      </button>
-
-      <button
-        id="registerTab"
-        class="tab"
-        type="button">
-        Registration
-      </button>
-
+      <button id="loginTab" class="active" onclick="showAuth('login')">Login</button>
+      <button id="registerTab" onclick="showAuth('register')">Registration</button>
     </div>
 
-    <div id="authMessage"></div>
+    <div id="loginBox">
+      <h3>Student / Admin Login</h3>
+      <input id="loginEmail" type="email" placeholder="Email">
+      <input id="loginPassword" type="password" placeholder="Password">
+      <button class="btn" style="width:100%" onclick="login()">Login</button>
+    </div>
 
-
-    <!-- LOGIN -->
-
-    <form id="loginForm">
-
-      <div class="field">
-        <label>Email</label>
-        <input
-          id="loginEmail"
-          type="email"
-          autocomplete="email"
-          required>
-      </div>
-
-      <div class="field">
-        <label>Password</label>
-        <input
-          id="loginPassword"
-          type="password"
-          autocomplete="current-password"
-          required>
-      </div>
-
-      <button
-        id="loginBtn"
-        class="primary"
-        type="submit">
-        Login
-      </button>
-
-    </form>
-
-
-    <!-- REGISTRATION -->
-
-    <form id="registerForm" class="hidden">
-
-      <div class="field">
-        <label>নাম</label>
-        <input
-          id="regName"
-          type="text"
-          autocomplete="name"
-          required>
-      </div>
-
-      <div class="field">
-        <label>শ্রেণি</label>
-
-        <select id="regClass" required>
-
-          <option value="">
-            শ্রেণি নির্বাচন করুন
-          </option>
-
-          <option>৬ষ্ঠ</option>
-          <option>৭ম</option>
-          <option>৮ম</option>
-          <option>৯ম</option>
-          <option>১০ম</option>
-          <option>দাখিল</option>
-
-        </select>
-
-      </div>
-
-      <div class="field">
-        <label>রোল</label>
-        <input
-          id="regRoll"
-          type="text"
-          required>
-      </div>
-
-      <div class="field">
-        <label>Email</label>
-        <input
-          id="regEmail"
-          type="email"
-          autocomplete="email"
-          required>
-      </div>
-
-      <div class="field">
-        <label>Password</label>
-        <input
-          id="regPassword"
-          type="password"
-          minlength="6"
-          autocomplete="new-password"
-          required>
-      </div>
-
-      <button
-        id="registerBtn"
-        class="primary"
-        type="submit">
-        Registration
-      </button>
-
-    </form>
-
+    <div id="registerBox" class="hidden">
+      <h3>Student Registration</h3>
+      <input id="regName" placeholder="নাম">
+      <input id="regClass" placeholder="শ্রেণি">
+      <input id="regRoll" placeholder="রোল">
+      <input id="regEmail" type="email" placeholder="Email">
+      <input id="regPassword" type="password" placeholder="Password (কমপক্ষে 6 অক্ষর)">
+      <button class="btn green" style="width:100%" onclick="register()">Registration</button>
+    </div>
   </div>
-
 </section>
 
 
-<!-- =====================================================
-     APP SCREEN
-===================================================== -->
-
+<!-- APP -->
 <section id="appScreen" class="hidden">
 
 <header>
-
   <div class="container nav">
-
-    <div class="brand">
-
-      <div class="brand-icon">
-        J
-      </div>
-
-      <div>
-        <strong>OUR JDM</strong>
-        <small>Jalchatra Dakhil Madrasha</small>
-      </div>
-
-    </div>
-
-    <button
-      id="logoutBtn"
-      class="logout">
-      Logout
-    </button>
-
+    <div class="logo">OUR <span>JDM</span></div>
+    <button class="btn red small" onclick="logout()">Logout</button>
   </div>
-
 </header>
-
 
 <main class="container">
 
-
-<!-- ================= HOME ================= -->
-
-<section id="homePage" class="page">
-
-  <div class="hero">
-
-    <h2>
-      স্বাগতম,
-      <span id="welcomeName">Student</span> 👋
-    </h2>
-
-    <p>
-      OUR JDM-এর অনলাইন প্ল্যাটফর্মে আপনাকে স্বাগতম।
-    </p>
-
+  <div class="navbuttons">
+    <button class="btn gray small" onclick="openPage('home')">Home</button>
+    <button class="btn gray small" onclick="openPage('notices')">Notice</button>
+    <button class="btn gray small" onclick="openPage('chat')">Group Chat</button>
+    <button class="btn gray small" onclick="openPage('teachers')">Teachers</button>
+    <button class="btn gray small" onclick="openPage('profile')">Profile</button>
+    <button id="adminNav" class="btn small hidden" onclick="openPage('admin')">Admin Panel</button>
   </div>
 
 
-  <div class="grid">
-
+  <!-- HOME -->
+  <section id="home" class="page active">
     <div class="card">
-      <h3>📢 Notice</h3>
-      <p>
-        মাদ্রাসার গুরুত্বপূর্ণ Notice এখানে দেখতে পারবেন।
-      </p>
+      <h1>স্বাগতম 👋</h1>
+      <p class="muted">Jalchatra Dakhil Madrasha — OUR JDM</p>
+      <div id="welcomeText"></div>
     </div>
 
-    <div class="card">
-      <h3>💬 Group Chat</h3>
-      <p>
-        শিক্ষার্থীদের Group Chat-এ message পাঠাতে পারবেন।
-      </p>
+    <div class="grid">
+      <div class="card">
+        <h3>📢 Notice</h3>
+        <p class="muted">মাদ্রাসার সর্বশেষ Notice দেখুন।</p>
+        <button class="btn" onclick="openPage('notices')">Notice দেখুন</button>
+      </div>
+
+      <div class="card">
+        <h3>💬 Group Chat</h3>
+        <p class="muted">সবাই মিলে Group Chat করুন।</p>
+        <button class="btn" onclick="openPage('chat')">Chat খুলুন</button>
+      </div>
+
+      <div class="card">
+        <h3>👨‍🏫 Teachers</h3>
+        <p class="muted">শিক্ষকদের তথ্য দেখুন।</p>
+        <button class="btn" onclick="openPage('teachers')">Teachers</button>
+      </div>
     </div>
-
-    <div class="card">
-      <h3>👨‍🏫 Teachers</h3>
-      <p>
-        মাদ্রাসার শিক্ষক ও বিষয় সম্পর্কে তথ্য দেখতে পারবেন।
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>👤 Profile</h3>
-      <p>
-        নিজের account-এর তথ্য দেখতে পারবেন।
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= NOTICE ================= -->
-
-<section id="noticePage" class="page hidden">
-
-  <div class="section-title">
-    <h2>📢 Notice</h2>
-  </div>
-
-  <div
-    id="noticeList"
-    class="list">
-  </div>
-
-</section>
-
-
-<!-- ================= CHAT ================= -->
-
-<section id="chatPage" class="page hidden">
-
-  <div class="section-title">
-    <h2>💬 Group Chat</h2>
-  </div>
-
-  <div id="chatStatus"></div>
-
-  <div
-    id="chatBox"
-    class="chat-box">
-  </div>
-
-  <form
-    id="chatForm"
-    class="chat-form">
-
-    <input
-      id="chatInput"
-      maxlength="300"
-      placeholder="আপনার message লিখুন..."
-      autocomplete="off">
-
-    <button
-      class="chat-send"
-      type="submit">
-      Send
-    </button>
-
-  </form>
-
-</section>
-
-
-<!-- ================= TEACHERS ================= -->
-
-<section id="teachersPage" class="page hidden">
-
-  <div class="section-title">
-    <h2>👨‍🏫 Teachers</h2>
-  </div>
-
-  <div
-    id="teacherList"
-    class="list">
-  </div>
-
-</section>
-
-
-<!-- ================= PROFILE ================= -->
-
-<section id="profilePage" class="page hidden">
-
-  <div class="section-title">
-    <h2>👤 Profile</h2>
-  </div>
-
-  <div class="card">
-
-    <div class="item">
-      <strong>নাম</strong>
-      <span id="profileName">—</span>
-    </div>
-
-    <br>
-
-    <div class="item">
-      <strong>শ্রেণি</strong>
-      <span id="profileClass">—</span>
-    </div>
-
-    <br>
-
-    <div class="item">
-      <strong>রোল</strong>
-      <span id="profileRoll">—</span>
-    </div>
-
-    <br>
-
-    <div class="item">
-      <strong>Email</strong>
-      <span id="profileEmail">—</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= ADMIN PANEL ================= -->
-
-<section id="adminPage" class="page hidden">
-
-  <div class="section-title">
-    <h2>🛡️ Admin Panel</h2>
-  </div>
+  </section>
 
 
   <!-- NOTICE -->
-
-  <div class="card admin-card">
-
-    <h3>📢 Notice Publish</h3>
-
-    <form id="noticeForm">
-
-      <div class="field">
-        <label>Notice Title</label>
-
-        <input
-          id="noticeTitle"
-          required>
-      </div>
-
-      <div class="field">
-        <label>Notice Details</label>
-
-        <textarea
-          id="noticeBody"
-          required>
-        </textarea>
-
-      </div>
-
-      <button
-        class="primary"
-        type="submit">
-        Publish Notice
-      </button>
-
-    </form>
-
-  </div>
-
-
-  <!-- TEACHER -->
-
-  <div class="card admin-card">
-
-    <h3>👨‍🏫 Teacher Add</h3>
-
-    <form id="teacherForm">
-
-      <div class="field">
-        <label>Teacher Name</label>
-
-        <input
-          id="teacherName"
-          required>
-      </div>
-
-      <div class="field">
-        <label>Subject</label>
-
-        <input
-          id="teacherSubject"
-          required>
-      </div>
-
-      <div class="field">
-        <label>Designation</label>
-
-        <input
-          id="teacherDesignation"
-          required>
-      </div>
-
-      <button
-        class="primary"
-        type="submit">
-        Add Teacher
-      </button>
-
-    </form>
-
-  </div>
-
-
-  <!-- STUDENTS -->
-
-  <div class="card admin-card">
-
-    <h3>👥 Student Management</h3>
-
-    <div
-      id="studentList"
-      class="list">
+  <section id="notices" class="page">
+    <div class="card">
+      <h2>📢 Notice</h2>
+      <div id="noticeList"><div class="empty">Loading...</div></div>
     </div>
 
-  </div>
+    <div id="noticeAdmin" class="card admin-section hidden">
+      <h3>Admin — নতুন Notice</h3>
+      <input id="noticeTitle" placeholder="Notice Title">
+      <textarea id="noticeBody" placeholder="Notice লিখুন"></textarea>
+      <button class="btn green" onclick="addNotice()">Publish Notice</button>
+    </div>
+  </section>
 
 
-  <!-- CHAT MANAGEMENT -->
+  <!-- CHAT -->
+  <section id="chat" class="page">
+    <div class="card">
+      <h2>💬 Group Chat</h2>
+      <p class="muted">আপনার নাম ও মেসেজ সবাই দেখতে পারবে।</p>
 
-  <div class="card admin-card">
+      <div id="chatBox" class="chat-box">
+        <div class="empty">Loading...</div>
+      </div>
 
-    <h3>🗑️ Chat Management</h3>
+      <div class="chat-send">
+        <input id="chatInput" maxlength="500" placeholder="মেসেজ লিখুন...">
+        <button class="btn" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </section>
 
-    <div
-      id="adminChatList"
-      class="list">
+
+  <!-- TEACHERS -->
+  <section id="teachers" class="page">
+    <div class="card">
+      <h2>👨‍🏫 Teachers</h2>
+      <div id="teacherList"><div class="empty">Loading...</div></div>
     </div>
 
-  </div>
+    <div id="teacherAdmin" class="card admin-section hidden">
+      <h3>Admin — Teacher Add</h3>
+      <input id="teacherName" placeholder="Teacher Name">
+      <input id="teacherSubject" placeholder="Subject">
+      <input id="teacherDesignation" placeholder="Designation">
+      <button class="btn green" onclick="addTeacher()">Add Teacher</button>
+    </div>
+  </section>
 
-</section>
+
+  <!-- PROFILE -->
+  <section id="profile" class="page">
+    <div class="card">
+      <h2>👤 Profile</h2>
+      <div id="profileData"></div>
+    </div>
+  </section>
+
+
+  <!-- ADMIN -->
+  <section id="admin" class="page">
+    <div class="card admin-section">
+      <h2>🛡️ Admin Panel</h2>
+      <p class="muted">শুধু Admin এই অংশ ব্যবহার করতে পারবে।</p>
+    </div>
+
+    <div class="card admin-section">
+      <h3>👥 Student Management</h3>
+      <div id="studentList"><div class="empty">Loading...</div></div>
+    </div>
+
+    <div class="card admin-section">
+      <h3>💬 Chat Management</h3>
+      <p class="muted">Group Chat-এর যেকোনো message Delete করতে পারবেন।</p>
+      <div id="adminChatList"></div>
+    </div>
+  </section>
 
 </main>
-
-
-<!-- ================= BOTTOM NAV ================= -->
-
-<nav class="bottom-nav">
-
-  <div class="bottom-inner">
-
-    <button
-      class="nav-item active"
-      data-page="homePage">
-
-      <span>⌂</span>
-      Home
-
-    </button>
-
-    <button
-      class="nav-item"
-      data-page="noticePage">
-
-      <span>📢</span>
-      Notice
-
-    </button>
-
-    <button
-      class="nav-item"
-      data-page="chatPage">
-
-      <span>💬</span>
-      Chat
-
-    </button>
-
-    <button
-      class="nav-item"
-      data-page="teachersPage">
-
-      <span>👨‍🏫</span>
-      Teachers
-
-    </button>
-
-    <button
-      class="nav-item"
-      data-page="profilePage">
-
-      <span>👤</span>
-      Profile
-
-    </button>
-
-  </div>
-
-</nav>
-
 </section>
+
+<div id="toast"></div>
 
 
 <script type="module">
-
-/* =====================================================
-   FIREBASE
-===================================================== */
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 
 import {
   getAuth,
-  setPersistence,
-  inMemoryPersistence,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
+  setPersistence,
+  inMemoryPersistence
 }
 from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
@@ -1055,88 +419,878 @@ import {
   get,
   push,
   remove,
-  onValue,
-  query,
-  orderByChild
+  update,
+  onValue
 }
 from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 
-/* =====================================================
-   FIREBASE CONFIG
-===================================================== */
+/* =========================
+   FIREBASE
+========================= */
 
 const firebaseConfig = {
-
-  apiKey:
-    "AIzaSyDZKSWOQtDjpylWLBa39v9_XeZclzojkxQ",
-
-  authDomain:
-    "our-jdm.firebaseapp.com",
-
-  databaseURL:
-    "https://our-jdm-default-rtdb.firebaseio.com",
-
-  projectId:
-    "our-jdm",
-
-  storageBucket:
-    "our-jdm.firebasestorage.app",
-
-  messagingSenderId:
-    "286298440794",
-
-  appId:
-    "1:286298440794:web:12e5e0af59e2c77d2d0463"
-
+  apiKey: "AIzaSyDZKSWOQtDjpylWLBa39v9_XeZclzojkxQ",
+  authDomain: "our-jdm.firebaseapp.com",
+  databaseURL: "https://our-jdm-default-rtdb.firebaseio.com",
+  projectId: "our-jdm",
+  storageBucket: "our-jdm.firebasestorage.app",
+  messagingSenderId: "286298440794",
+  appId: "1:286298440794:web:12e5e0af59e2c77d2d0463"
 };
 
+const ADMIN_UID = "OvGBm4CurNRZzz64vztAxk0vIok1";
 
-const app =
-  initializeApp(firebaseConfig);
-
-const auth =
-  getAuth(app);
-
-const db =
-  getDatabase(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getDatabase(app);
 
 
-/* =====================================================
-   CURRENT ADMIN UID
-===================================================== */
-
-const ADMIN_UID =
-  "OvGBm4CurNRZzz64vztAxk0vIok1";
-
-
-/* =====================================================
-   NO SAVED LOGIN SESSION
-===================================================== */
-
-await setPersistence(
-  auth,
-  inMemoryPersistence
-);
-
-
-/* =====================================================
-   GLOBAL
-===================================================== */
+/* =========================
+   STATE
+========================= */
 
 let currentUser = null;
 let currentProfile = null;
 
+const $ = id => document.getElementById(id);
 
-/* =====================================================
-   HELPERS
-===================================================== */
-
-function $(id){
-  return document.getElementById(id);
+function isAdmin(){
+  return currentUser && currentUser.uid === ADMIN_UID;
 }
 
-function esc(value){
+function toast(message){
+  const t = $("toast");
+  t.textContent = message;
+  t.style.display = "block";
+  setTimeout(()=>t.style.display="none",3000);
+}
+
+
+/* =========================
+   AUTH PERSISTENCE
+========================= */
+
+await setPersistence(auth, inMemoryPersistence);
+
+
+/* =========================
+   AUTH TABS
+========================= */
+
+window.showAuth = function(type){
+
+  $("loginBox").classList.toggle("hidden",type !== "login");
+  $("registerBox").classList.toggle("hidden",type !== "register");
+
+  $("loginTab").classList.toggle("active",type === "login");
+  $("registerTab").classList.toggle("active",type === "register");
+};
+
+
+/* =========================
+   REGISTRATION
+========================= */
+
+window.register = async function(){
+
+  const name = $("regName").value.trim();
+  const cls = $("regClass").value.trim();
+  const roll = $("regRoll").value.trim();
+  const email = $("regEmail").value.trim();
+  const password = $("regPassword").value;
+
+  if(!name || !cls || !roll || !email || !password){
+    toast("সব তথ্য পূরণ করুন");
+    return;
+  }
+
+  if(password.length < 6){
+    toast("Password কমপক্ষে 6 অক্ষরের হতে হবে");
+    return;
+  }
+
+  try{
+
+    const result =
+      await createUserWithEmailAndPassword(auth,email,password);
+
+    const uid = result.user.uid;
+
+    await set(ref(db,"users/"+uid),{
+      name:name,
+      class:cls,
+      roll:roll,
+      createdAt:Date.now()
+    });
+
+    await signOut(auth);
+
+    $("loginEmail").value = email;
+    $("loginPassword").value = "";
+
+    showAuth("login");
+
+    toast("Registration সফল হয়েছে। এখন Login করুন");
+
+  }catch(error){
+    toast(firebaseError(error));
+  }
+};
+
+
+/* =========================
+   LOGIN
+========================= */
+
+window.login = async function(){
+
+  const email = $("loginEmail").value.trim();
+  const password = $("loginPassword").value;
+
+  if(!email || !password){
+    toast("Email এবং Password দিন");
+    return;
+  }
+
+  try{
+
+    await signInWithEmailAndPassword(auth,email,password);
+
+  }catch(error){
+    toast(firebaseError(error));
+  }
+};
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+window.logout = async function(){
+
+  try{
+
+    await signOut(auth);
+
+    currentUser = null;
+    currentProfile = null;
+
+    $("appScreen").classList.add("hidden");
+    $("authScreen").classList.remove("hidden");
+
+    $("loginPassword").value = "";
+
+    showAuth("login");
+
+    toast("Logout সফল হয়েছে");
+
+  }catch(error){
+    toast("Logout করা যায়নি: "+error.message);
+  }
+};
+
+
+/* =========================
+   AUTH STATE
+========================= */
+
+onAuthStateChanged(auth, async user => {
+
+  currentUser = user;
+
+  if(!user){
+
+    $("appScreen").classList.add("hidden");
+    $("authScreen").classList.remove("hidden");
+    return;
+  }
+
+  try{
+
+    const snap = await get(ref(db,"users/"+user.uid));
+
+    if(snap.exists()){
+      currentProfile = snap.val();
+    }else{
+
+      currentProfile = {
+        name:user.email.split("@")[0],
+        class:"-",
+        roll:"-"
+      };
+    }
+
+    $("authScreen").classList.add("hidden");
+    $("appScreen").classList.remove("hidden");
+
+    $("adminNav").classList.toggle("hidden",!isAdmin());
+    $("noticeAdmin").classList.toggle("hidden",!isAdmin());
+    $("teacherAdmin").classList.toggle("hidden",!isAdmin());
+
+    $("welcomeText").innerHTML =
+      `স্বাগতম <b>${escapeHtml(currentProfile.name)}</b>`;
+
+    loadNotices();
+    loadTeachers();
+    loadChat();
+    loadProfile();
+
+    if(isAdmin()){
+      loadStudents();
+      loadAdminChat();
+    }
+
+  }catch(error){
+
+    console.error(error);
+    toast("User data load হয়নি");
+  }
+
+});
+
+
+/* =========================
+   PAGE
+========================= */
+
+window.openPage = function(page){
+
+  document.querySelectorAll(".page")
+    .forEach(x=>x.classList.remove("active"));
+
+  const target = $(page);
+
+  if(target){
+    target.classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  if(page === "admin" && !isAdmin()){
+    openPage("home");
+    toast("Admin access only");
+  }
+};
+
+
+/* =========================
+   NOTICE
+========================= */
+
+function loadNotices(){
+
+  onValue(ref(db,"notices"),snap=>{
+
+    const box = $("noticeList");
+
+    if(!snap.exists()){
+      box.innerHTML = `<div class="empty">কোনো Notice নেই</div>`;
+      return;
+    }
+
+    const arr = [];
+
+    snap.forEach(child=>{
+      arr.push({
+        id:child.key,
+        ...child.val()
+      });
+    });
+
+    arr.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
+
+    box.innerHTML = arr.map(n=>`
+
+      <div class="item">
+
+        <h3>${escapeHtml(n.title || "Notice")}</h3>
+
+        <div class="notice-body">
+          ${escapeHtml(n.body || "")}
+        </div>
+
+        <div class="msg-time">
+          ${formatDate(n.createdAt)}
+        </div>
+
+        ${isAdmin() ? `
+          <button class="btn red small"
+            onclick="deleteNotice('${n.id}')">
+            Delete
+          </button>
+        `:""}
+
+      </div>
+
+    `).join("");
+
+  });
+}
+
+
+window.addNotice = async function(){
+
+  if(!isAdmin()){
+    toast("Admin only");
+    return;
+  }
+
+  const title = $("noticeTitle").value.trim();
+  const body = $("noticeBody").value.trim();
+
+  if(!title || !body){
+    toast("Title এবং Notice লিখুন");
+    return;
+  }
+
+  try{
+
+    const newRef = push(ref(db,"notices"));
+
+    await set(newRef,{
+      title:title,
+      body:body,
+      createdAt:Date.now(),
+      createdBy:currentUser.uid
+    });
+
+    $("noticeTitle").value="";
+    $("noticeBody").value="";
+
+    toast("Notice Publish হয়েছে");
+
+  }catch(error){
+    toast("Notice Publish হয়নি");
+    console.error(error);
+  }
+};
+
+
+window.deleteNotice = async function(id){
+
+  if(!isAdmin()) return;
+
+  if(!confirm("এই Notice Delete করবেন?")) return;
+
+  try{
+    await remove(ref(db,"notices/"+id));
+    toast("Notice Delete হয়েছে");
+  }catch(error){
+    toast("Delete হয়নি");
+  }
+};
+
+
+/* =========================
+   TEACHERS
+========================= */
+
+function loadTeachers(){
+
+  onValue(ref(db,"teachers"),snap=>{
+
+    const box = $("teacherList");
+
+    if(!snap.exists()){
+      box.innerHTML=`<div class="empty">কোনো Teacher তথ্য নেই</div>`;
+      return;
+    }
+
+    const arr=[];
+
+    snap.forEach(child=>{
+      arr.push({
+        id:child.key,
+        ...child.val()
+      });
+    });
+
+    box.innerHTML = arr.map(t=>`
+
+      <div class="item">
+
+        <h3>${escapeHtml(t.name || "")}</h3>
+
+        <div>
+          <span class="badge">
+            ${escapeHtml(t.subject || "-")}
+          </span>
+          <span class="badge">
+            ${escapeHtml(t.designation || "-")}
+          </span>
+        </div>
+
+        ${isAdmin() ? `
+          <br>
+          <button class="btn red small"
+            onclick="deleteTeacher('${t.id}')">
+            Delete
+          </button>
+        `:""}
+
+      </div>
+
+    `).join("");
+
+  });
+}
+
+
+window.addTeacher = async function(){
+
+  if(!isAdmin()){
+    toast("Admin only");
+    return;
+  }
+
+  const name=$("teacherName").value.trim();
+  const subject=$("teacherSubject").value.trim();
+  const designation=$("teacherDesignation").value.trim();
+
+  if(!name){
+    toast("Teacher Name দিন");
+    return;
+  }
+
+  try{
+
+    const newRef=push(ref(db,"teachers"));
+
+    await set(newRef,{
+      name:name,
+      subject:subject,
+      designation:designation,
+      createdAt:Date.now()
+    });
+
+    $("teacherName").value="";
+    $("teacherSubject").value="";
+    $("teacherDesignation").value="";
+
+    toast("Teacher Added");
+
+  }catch(error){
+    toast("Teacher Add হয়নি");
+  }
+};
+
+
+window.deleteTeacher=async function(id){
+
+  if(!isAdmin()) return;
+
+  if(!confirm("Teacher Delete করবেন?")) return;
+
+  try{
+    await remove(ref(db,"teachers/"+id));
+    toast("Teacher Deleted");
+  }catch(error){
+    toast("Delete হয়নি");
+  }
+};
+
+
+/* =========================
+   GROUP CHAT
+========================= */
+
+const badWords = [
+  "fuck",
+  "shit",
+  "bitch",
+  "asshole"
+];
+
+function containsBadWord(text){
+
+  const lower=text.toLowerCase();
+
+  return badWords.some(word=>lower.includes(word));
+}
+
+
+function loadChat(){
+
+  onValue(ref(db,"groupChat"),snap=>{
+
+    const box=$("chatBox");
+
+    if(!snap.exists()){
+      box.innerHTML=`<div class="empty">এখনও কোনো মেসেজ নেই</div>`;
+      return;
+    }
+
+    const arr=[];
+
+    snap.forEach(child=>{
+      arr.push({
+        id:child.key,
+        ...child.val()
+      });
+    });
+
+    arr.sort((a,b)=>(a.createdAt||0)-(b.createdAt||0));
+
+    box.innerHTML=arr.map(m=>`
+
+      <div class="msg ${m.uid===currentUser?.uid?"me":""}">
+
+        <div class="msg-name">
+          ${escapeHtml(m.name || "Student")}
+        </div>
+
+        <div class="msg-text">
+          ${escapeHtml(m.text || "")}
+        </div>
+
+        <div class="msg-time">
+          ${formatDate(m.createdAt)}
+        </div>
+
+        ${isAdmin()?`
+          <button
+            class="btn red small"
+            onclick="deleteMessage('${m.id}')">
+            Delete
+          </button>
+        `:""}
+
+      </div>
+
+    `).join("");
+
+    box.scrollTop=box.scrollHeight;
+
+  });
+}
+
+
+window.sendMessage=async function(){
+
+  if(!currentUser){
+    toast("আগে Login করুন");
+    return;
+  }
+
+  const input=$("chatInput");
+  const text=input.value.trim();
+
+  if(!text) return;
+
+  if(text.length>500){
+    toast("মেসেজ 500 অক্ষরের বেশি হতে পারবে না");
+    return;
+  }
+
+  if(containsBadWord(text)){
+    toast("দয়া করে খারাপ ভাষা ব্যবহার করবেন না");
+    return;
+  }
+
+  try{
+
+    /* Check moderation */
+    const modSnap =
+      await get(ref(db,"moderation/"+currentUser.uid));
+
+    if(modSnap.exists()){
+
+      const mod=modSnap.val();
+
+      if(mod.banned === true){
+        toast("আপনাকে Group Chat থেকে Ban করা হয়েছে");
+        return;
+      }
+
+      if(mod.mutedUntil &&
+         Number(mod.mutedUntil) > Date.now()){
+
+        const mins=Math.ceil(
+          (Number(mod.mutedUntil)-Date.now())/60000
+        );
+
+        toast(`আপনি আরও ${mins} মিনিট Muted`);
+        return;
+      }
+    }
+
+    const newRef=push(ref(db,"groupChat"));
+
+    await set(newRef,{
+      uid:currentUser.uid,
+      name:currentProfile?.name || currentUser.email,
+      text:text,
+      createdAt:Date.now()
+    });
+
+    input.value="";
+
+  }catch(error){
+
+    console.error(error);
+
+    toast("Message Send হয়নি। Firebase Rules পরীক্ষা করুন।");
+  }
+};
+
+
+window.deleteMessage=async function(id){
+
+  if(!isAdmin()){
+    toast("Admin only");
+    return;
+  }
+
+  try{
+
+    await remove(ref(db,"groupChat/"+id));
+
+    toast("Message Deleted");
+
+  }catch(error){
+
+    console.error(error);
+    toast("Message Delete হয়নি");
+  }
+};
+
+
+/* Enter চাপলে Send */
+$("chatInput").addEventListener("keydown",e=>{
+
+  if(e.key==="Enter"){
+    e.preventDefault();
+    sendMessage();
+  }
+
+});
+
+
+/* =========================
+   PROFILE
+========================= */
+
+function loadProfile(){
+
+  if(!currentUser || !currentProfile) return;
+
+  $("profileData").innerHTML=`
+
+    <div class="profile-row">
+      <span>Name</span>
+      <b>${escapeHtml(currentProfile.name || "-")}</b>
+    </div>
+
+    <div class="profile-row">
+      <span>Class</span>
+      <b>${escapeHtml(currentProfile.class || "-")}</b>
+    </div>
+
+    <div class="profile-row">
+      <span>Roll</span>
+      <b>${escapeHtml(currentProfile.roll || "-")}</b>
+    </div>
+
+    <div class="profile-row">
+      <span>Email</span>
+      <b>${escapeHtml(currentUser.email || "-")}</b>
+    </div>
+
+    <div class="profile-row">
+      <span>Role</span>
+      <b>${isAdmin()?"ADMIN":"STUDENT"}</b>
+    </div>
+
+  `;
+}
+
+
+/* =========================
+   ADMIN STUDENTS
+========================= */
+
+function loadStudents(){
+
+  onValue(ref(db,"users"),snap=>{
+
+    const box=$("studentList");
+
+    if(!snap.exists()){
+      box.innerHTML=`<div class="empty">কোনো Student নেই</div>`;
+      return;
+    }
+
+    const arr=[];
+
+    snap.forEach(child=>{
+      arr.push({
+        uid:child.key,
+        ...child.val()
+      });
+    });
+
+    box.innerHTML=arr.map(s=>`
+
+      <div class="item">
+
+        <b>${escapeHtml(s.name || "-")}</b>
+
+        <div class="muted">
+          Class: ${escapeHtml(s.class || "-")}
+          · Roll: ${escapeHtml(s.roll || "-")}
+        </div>
+
+        ${s.uid===ADMIN_UID ? `
+          <span class="badge green">ADMIN</span>
+        ` : `
+          <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+
+            <button class="btn small"
+              onclick="muteStudent('${s.uid}',15)">
+              Mute 15m
+            </button>
+
+            <button class="btn small"
+              onclick="muteStudent('${s.uid}',60)">
+              Mute 1h
+            </button>
+
+            <button class="btn red small"
+              onclick="banStudent('${s.uid}')">
+              Ban
+            </button>
+
+            <button class="btn green small"
+              onclick="unbanStudent('${s.uid}')">
+              Unban
+            </button>
+
+            <button class="btn gray small"
+              onclick="unmuteStudent('${s.uid}')">
+              Unmute
+            </button>
+
+          </div>
+        `}
+
+      </div>
+
+    `).join("");
+
+  });
+}
+
+
+window.muteStudent=async function(uid,minutes){
+
+  if(!isAdmin()) return;
+
+  await update(ref(db,"moderation/"+uid),{
+    mutedUntil:Date.now()+(minutes*60*1000),
+    banned:false
+  });
+
+  toast(`Student ${minutes} মিনিট Muted`);
+};
+
+
+window.unmuteStudent=async function(uid){
+
+  if(!isAdmin()) return;
+
+  await update(ref(db,"moderation/"+uid),{
+    mutedUntil:0
+  });
+
+  toast("Student Unmuted");
+};
+
+
+window.banStudent=async function(uid){
+
+  if(!isAdmin()) return;
+
+  if(uid===ADMIN_UID) return;
+
+  await update(ref(db,"moderation/"+uid),{
+    banned:true,
+    mutedUntil:0
+  });
+
+  toast("Student Banned");
+};
+
+
+window.unbanStudent=async function(uid){
+
+  if(!isAdmin()) return;
+
+  await update(ref(db,"moderation/"+uid),{
+    banned:false
+  });
+
+  toast("Student Unbanned");
+};
+
+
+/* =========================
+   ADMIN CHAT
+========================= */
+
+function loadAdminChat(){
+
+  onValue(ref(db,"groupChat"),snap=>{
+
+    const box=$("adminChatList");
+
+    if(!snap.exists()){
+      box.innerHTML=`<div class="empty">No messages</div>`;
+      return;
+    }
+
+    const arr=[];
+
+    snap.forEach(child=>{
+      arr.push({
+        id:child.key,
+        ...child.val()
+      });
+    });
+
+    arr.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
+
+    box.innerHTML=arr.map(m=>`
+
+      <div class="item">
+
+        <b>${escapeHtml(m.name || "Student")}</b>
+
+        <div style="margin:6px 0">
+          ${escapeHtml(m.text || "")}
+        </div>
+
+        <div class="msg-time">
+          ${formatDate(m.createdAt)}
+        </div>
+
+        <button class="btn red small"
+          onclick="deleteMessage('${m.id}')">
+          Delete
+        </button>
+
+      </div>
+
+    `).join("");
+
+  });
+}
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function escapeHtml(value){
 
   return String(value ?? "")
     .replaceAll("&","&amp;")
@@ -1144,1615 +1298,47 @@ function esc(value){
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#039;");
-
-}
-
-function isAdmin(){
-
-  return currentUser &&
-         currentUser.uid === ADMIN_UID;
-
-}
-
-function errorBox(text){
-
-  $("authMessage").innerHTML =
-    `<div class="error">${esc(text)}</div>`;
-
-}
-
-function successBox(text){
-
-  $("authMessage").innerHTML =
-    `<div class="success">${esc(text)}</div>`;
-
 }
 
 
-/* =====================================================
-   AUTH TABS
-===================================================== */
+function formatDate(timestamp){
 
-$("loginTab").onclick = ()=>{
+  if(!timestamp) return "";
 
-  $("loginTab").classList.add("active");
-  $("registerTab").classList.remove("active");
-
-  $("loginForm").classList.remove("hidden");
-  $("registerForm").classList.add("hidden");
-
-  $("authMessage").innerHTML = "";
-
-};
-
-
-$("registerTab").onclick = ()=>{
-
-  $("registerTab").classList.add("active");
-  $("loginTab").classList.remove("active");
-
-  $("registerForm").classList.remove("hidden");
-  $("loginForm").classList.add("hidden");
-
-  $("authMessage").innerHTML = "";
-
-};
-
-
-/* =====================================================
-   REGISTRATION
-===================================================== */
-
-$("registerForm").addEventListener(
-  "submit",
-  async e=>{
-
-    e.preventDefault();
-
-    const btn =
-      $("registerBtn");
-
-    const name =
-      $("regName").value.trim();
-
-    const studentClass =
-      $("regClass").value;
-
-    const roll =
-      $("regRoll").value.trim();
-
-    const email =
-      $("regEmail").value.trim();
-
-    const password =
-      $("regPassword").value;
-
-    if(
-      !name ||
-      !studentClass ||
-      !roll ||
-      !email ||
-      !password
-    ){
-
-      errorBox(
-        "সব তথ্য পূরণ করুন।"
-      );
-
-      return;
-
-    }
-
-    if(password.length < 6){
-
-      errorBox(
-        "Password কমপক্ষে ৬ অক্ষরের হতে হবে।"
-      );
-
-      return;
-
-    }
-
-    btn.disabled = true;
-    btn.textContent =
-      "Registration হচ্ছে...";
-
-    try{
-
-      const credential =
-        await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-
-      const uid =
-        credential.user.uid;
-
-
-      await set(
-        ref(db,"users/"+uid),
-        {
-          name,
-          class:studentClass,
-          roll,
-          createdAt:Date.now()
-        }
-      );
-
-
-      /*
-        Registration শেষ হওয়ার পর
-        automatic login বন্ধ।
-      */
-
-      await signOut(auth);
-
-      $("registerForm").reset();
-
-      $("loginTab").click();
-
-      $("loginEmail").value =
-        email;
-
-      successBox(
-        "Registration সফল হয়েছে। এখন Login করুন।"
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      let message =
-        "Registration করা যায়নি।";
-
-      if(
-        error.code ===
-        "auth/email-already-in-use"
-      ){
-
-        message =
-          "এই Email দিয়ে আগে থেকেই account আছে।";
-
-      }
-      else if(
-        error.code ===
-        "auth/invalid-email"
-      ){
-
-        message =
-          "সঠিক Email দিন।";
-
-      }
-      else if(
-        error.code ===
-        "auth/weak-password"
-      ){
-
-        message =
-          "Password কমপক্ষে ৬ অক্ষরের হতে হবে।";
-
-      }
-
-      errorBox(message);
-
-    }
-    finally{
-
-      btn.disabled = false;
-      btn.textContent =
-        "Registration";
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-$("loginForm").addEventListener(
-  "submit",
-  async e=>{
-
-    e.preventDefault();
-
-    const btn =
-      $("loginBtn");
-
-    const email =
-      $("loginEmail").value.trim();
-
-    const password =
-      $("loginPassword").value;
-
-    if(!email || !password){
-
-      errorBox(
-        "Email এবং Password দিন।"
-      );
-
-      return;
-
-    }
-
-    btn.disabled = true;
-    btn.textContent =
-      "Login হচ্ছে...";
-
-    $("authMessage").innerHTML = "";
-
-    try{
-
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      let message =
-        "Login করা যায়নি।";
-
-      if(
-        error.code ===
-        "auth/invalid-credential" ||
-        error.code ===
-        "auth/wrong-password" ||
-        error.code ===
-        "auth/user-not-found"
-      ){
-
-        message =
-          "Email অথবা Password ভুল।";
-
-      }
-      else if(
-        error.code ===
-        "auth/invalid-email"
-      ){
-
-        message =
-          "সঠিক Email দিন।";
-
-      }
-
-      errorBox(message);
-
-    }
-    finally{
-
-      btn.disabled = false;
-      btn.textContent =
-        "Login";
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   AUTH STATE
-===================================================== */
-
-onAuthStateChanged(
-  auth,
-  async user=>{
-
-    if(!user){
-
-      currentUser = null;
-      currentProfile = null;
-
-      $("appScreen")
-        .classList.add("hidden");
-
-      $("authScreen")
-        .classList.remove("hidden");
-
-      return;
-
-    }
-
-
-    currentUser = user;
-
-
-    try{
-
-      const profileSnap =
-        await get(
-          ref(db,"users/"+user.uid)
-        );
-
-
-      if(profileSnap.exists()){
-
-        currentProfile =
-          profileSnap.val();
-
-      }
-      else{
-
-        currentProfile = {
-
-          name:
-            user.email?.split("@")[0] ||
-            "Student",
-
-          class:"—",
-
-          roll:"—"
-
-        };
-
-      }
-
-
-      $("authScreen")
-        .classList.add("hidden");
-
-      $("appScreen")
-        .classList.remove("hidden");
-
-
-      updateProfile();
-
-
-      if(isAdmin()){
-
-        $("adminPage")
-          .classList.remove("hidden");
-
-        loadStudents();
-        loadAdminChat();
-
-      }
-      else{
-
-        $("adminPage")
-          .classList.add("hidden");
-
-      }
-
-
-      loadNotices();
-      loadTeachers();
-      loadChat();
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      await signOut(auth);
-
-      $("authScreen")
-        .classList.remove("hidden");
-
-      $("appScreen")
-        .classList.add("hidden");
-
-      errorBox(
-        "আপনার profile load করা যায়নি।"
-      );
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-$("logoutBtn").onclick =
-  async()=>{
-
-    await signOut(auth);
-
-  };
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-document
-  .querySelectorAll(".nav-item")
-  .forEach(button=>{
-
-    button.onclick = ()=>{
-
-      const target =
-        button.dataset.page;
-
-
-      document
-        .querySelectorAll(".page")
-        .forEach(page=>{
-          page.classList.add("hidden");
-        });
-
-
-      $(target)
-        .classList.remove("hidden");
-
-
-      document
-        .querySelectorAll(".nav-item")
-        .forEach(item=>{
-          item.classList.remove("active");
-        });
-
-
-      button.classList.add("active");
-
-    };
-
+  return new Date(timestamp).toLocaleString("bn-BD",{
+    dateStyle:"short",
+    timeStyle:"short"
   });
-
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-function updateProfile(){
-
-  const name =
-    currentProfile?.name ||
-    "Student";
-
-  $("welcomeName")
-    .textContent = name;
-
-  $("profileName")
-    .textContent = name;
-
-  $("profileClass")
-    .textContent =
-      currentProfile?.class || "—";
-
-  $("profileRoll")
-    .textContent =
-      currentProfile?.roll || "—";
-
-  $("profileEmail")
-    .textContent =
-      currentUser?.email || "—";
-
 }
 
 
-/* =====================================================
-   NOTICE LOAD
-===================================================== */
+function firebaseError(error){
 
-function loadNotices(){
+  const code=error?.code || "";
 
-  onValue(
-    query(
-      ref(db,"notices"),
-      orderByChild("createdAt")
-    ),
-    snapshot=>{
+  const messages={
 
-      const list =
-        $("noticeList");
+    "auth/invalid-credential":
+      "Email অথবা Password ভুল।",
 
-      list.innerHTML = "";
+    "auth/invalid-email":
+      "Email সঠিক নয়।",
 
-      const data =
-        snapshot.val();
+    "auth/email-already-in-use":
+      "এই Email দিয়ে আগে থেকেই Account আছে।",
 
+    "auth/weak-password":
+      "Password আরও শক্তিশালী দিন।",
 
-      if(!data){
+    "auth/network-request-failed":
+      "Internet connection সমস্যা।",
 
-        list.innerHTML =
-          `<div class="card">
-             <p>এখন কোনো Notice নেই।</p>
-           </div>`;
-
-        return;
-
-      }
-
-
-      Object
-        .entries(data)
-        .reverse()
-        .forEach(([id,n])=>{
-
-          const date =
-            n.createdAt
-            ? new Date(
-                n.createdAt
-              ).toLocaleString("bn-BD")
-            : "";
-
-
-          list.innerHTML += `
-
-            <div class="item">
-
-              <strong>
-                ${esc(n.title)}
-              </strong>
-
-              <small>
-                ${esc(date)}
-              </small>
-
-              <p>
-                ${esc(n.body)}
-              </p>
-
-              ${
-                isAdmin()
-                ?
-                `<br>
-                 <button
-                   class="danger"
-                   onclick="deleteNotice('${id}')">
-                   Delete Notice
-                 </button>`
-                :
-                ""
-              }
-
-            </div>
-
-          `;
-
-        });
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   NOTICE CREATE
-===================================================== */
-
-$("noticeForm").onsubmit =
-  async e=>{
-
-    e.preventDefault();
-
-    if(!isAdmin()) return;
-
-
-    const title =
-      $("noticeTitle")
-        .value.trim();
-
-    const body =
-      $("noticeBody")
-        .value.trim();
-
-
-    if(!title || !body){
-
-      alert(
-        "Title এবং Notice লিখুন।"
-      );
-
-      return;
-
-    }
-
-
-    try{
-
-      const newNotice =
-        push(ref(db,"notices"));
-
-
-      await set(
-        newNotice,
-        {
-
-          title,
-          body,
-
-          createdAt:
-            Date.now(),
-
-          createdBy:
-            currentUser.uid
-
-        }
-      );
-
-
-      $("noticeForm").reset();
-
-      alert(
-        "Notice সফলভাবে Publish হয়েছে।"
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      alert(
-        "Notice Publish করা যায়নি। Firebase Rules চেক করুন।"
-      );
-
-    }
+    "auth/too-many-requests":
+      "অনেকবার চেষ্টা হয়েছে। কিছুক্ষণ পরে আবার চেষ্টা করুন।"
 
   };
 
-
-/* =====================================================
-   NOTICE DELETE
-===================================================== */
-
-window.deleteNotice =
-  async id=>{
-
-    if(!isAdmin()) return;
-
-    if(
-      !confirm(
-        "এই Notice Delete করবেন?"
-      )
-    ) return;
-
-
-    try{
-
-      await remove(
-        ref(db,"notices/"+id)
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      alert(
-        "Notice Delete করা যায়নি।"
-      );
-
-    }
-
-  };
-
-
-/* =====================================================
-   TEACHERS LOAD
-===================================================== */
-
-function loadTeachers(){
-
-  onValue(
-    query(
-      ref(db,"teachers"),
-      orderByChild("createdAt")
-    ),
-    snapshot=>{
-
-      const list =
-        $("teacherList");
-
-      list.innerHTML = "";
-
-      const data =
-        snapshot.val();
-
-
-      if(!data){
-
-        list.innerHTML =
-          `<div class="card">
-             <p>এখন কোনো Teacher তথ্য নেই।</p>
-           </div>`;
-
-        return;
-
-      }
-
-
-      Object
-        .entries(data)
-        .reverse()
-        .forEach(([id,t])=>{
-
-          list.innerHTML += `
-
-            <div class="item">
-
-              <strong>
-                👨‍🏫 ${esc(t.name)}
-              </strong>
-
-              <small>
-                ${esc(t.designation)}
-              </small>
-
-              <p>
-                বিষয়:
-                ${esc(t.subject)}
-              </p>
-
-              ${
-                isAdmin()
-                ?
-                `<br>
-                 <button
-                   class="danger"
-                   onclick="deleteTeacher('${id}')">
-                   Delete Teacher
-                 </button>`
-                :
-                ""
-              }
-
-            </div>
-
-          `;
-
-        });
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   TEACHER CREATE
-===================================================== */
-
-$("teacherForm").onsubmit =
-  async e=>{
-
-    e.preventDefault();
-
-    if(!isAdmin()) return;
-
-
-    const name =
-      $("teacherName")
-        .value.trim();
-
-    const subject =
-      $("teacherSubject")
-        .value.trim();
-
-    const designation =
-      $("teacherDesignation")
-        .value.trim();
-
-
-    if(
-      !name ||
-      !subject ||
-      !designation
-    ){
-
-      alert(
-        "সব তথ্য পূরণ করুন।"
-      );
-
-      return;
-
-    }
-
-
-    try{
-
-      const teacherRef =
-        push(ref(db,"teachers"));
-
-
-      await set(
-        teacherRef,
-        {
-
-          name,
-          subject,
-          designation,
-
-          createdAt:
-            Date.now()
-
-        }
-      );
-
-
-      $("teacherForm").reset();
-
-      alert(
-        "Teacher সফলভাবে Add হয়েছে।"
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      alert(
-        "Teacher Add করা যায়নি। Firebase Rules চেক করুন।"
-      );
-
-    }
-
-  };
-
-
-/* =====================================================
-   TEACHER DELETE
-===================================================== */
-
-window.deleteTeacher =
-  async id=>{
-
-    if(!isAdmin()) return;
-
-    if(
-      !confirm(
-        "এই Teacher Delete করবেন?"
-      )
-    ) return;
-
-
-    try{
-
-      await remove(
-        ref(db,"teachers/"+id)
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      alert(
-        "Teacher Delete করা যায়নি।"
-      );
-
-    }
-
-  };
-
-
-/* =====================================================
-   CHAT
-===================================================== */
-
-const badWords = [
-
-  "fuck",
-  "shit",
-  "bitch",
-  "asshole",
-  "motherfucker"
-
-];
-
-
-function containsBadWord(text){
-
-  const lower =
-    text.toLowerCase();
-
-  return badWords.some(
-    word=>lower.includes(word)
-  );
-
-}
-
-
-function loadChat(){
-
-  onValue(
-    query(
-      ref(db,"groupChat"),
-      orderByChild("createdAt")
-    ),
-    snapshot=>{
-
-      const box =
-        $("chatBox");
-
-      box.innerHTML = "";
-
-      const data =
-        snapshot.val();
-
-
-      if(!data){
-
-        box.innerHTML =
-          `<div style="
-             text-align:center;
-             color:#71869b;
-             padding:30px">
-             এখনো কোনো message নেই।
-           </div>`;
-
-        return;
-
-      }
-
-
-      Object
-        .entries(data)
-        .forEach(([id,m])=>{
-
-          const me =
-            currentUser &&
-            m.uid === currentUser.uid;
-
-
-          const time =
-            m.createdAt
-            ? new Date(
-                m.createdAt
-              ).toLocaleTimeString(
-                "bn-BD",
-                {
-                  hour:"2-digit",
-                  minute:"2-digit"
-                }
-              )
-            : "";
-
-
-          box.innerHTML += `
-
-            <div class="msg ${me ? "me" : ""}">
-
-              <div class="bubble">
-
-                ${
-                  !me
-                  ?
-                  `<div class="msg-name">
-                     ${esc(m.name || "User")}
-                   </div>`
-                  :
-                  ""
-                }
-
-                ${esc(m.text)}
-
-              </div>
-
-              <div class="msg-time">
-
-                ${esc(time)}
-
-                ${
-                  isAdmin()
-                  ?
-                  ` ·
-                   <button
-                     style="
-                       border:0;
-                       background:none;
-                       color:#ff8585;
-                       font-size:10px"
-                     onclick="deleteMessage('${id}')">
-                     Delete
-                   </button>`
-                  :
-                  ""
-                }
-
-              </div>
-
-            </div>
-
-          `;
-
-        });
-
-
-      box.scrollTop =
-        box.scrollHeight;
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   CHAT SEND
-===================================================== */
-
-$("chatForm").onsubmit =
-  async e=>{
-
-    e.preventDefault();
-
-    if(!currentUser) return;
-
-
-    const input =
-      $("chatInput");
-
-    const text =
-      input.value.trim();
-
-
-    if(!text) return;
-
-
-    if(containsBadWord(text)){
-
-      $("chatStatus").innerHTML =
-        `<div class="error">
-          অনুগ্রহ করে অশালীন শব্দ ব্যবহার করবেন না।
-        </div>`;
-
-      return;
-
-    }
-
-
-    $("chatStatus").innerHTML = "";
-
-
-    try{
-
-      /*
-        Ban/Mute status আগে check
-      */
-
-      const modSnap =
-        await get(
-          ref(
-            db,
-            "moderation/"+currentUser.uid
-          )
-        );
-
-
-      if(modSnap.exists()){
-
-        const mod =
-          modSnap.val();
-
-
-        if(mod.banned === true){
-
-          $("chatStatus").innerHTML =
-            `<div class="error">
-               আপনার Group Chat access বন্ধ করা হয়েছে।
-             </div>`;
-
-          return;
-
-        }
-
-
-        if(
-          mod.mutedUntil &&
-          Number(mod.mutedUntil) >
-          Date.now()
-        ){
-
-          const minutes =
-            Math.ceil(
-              (
-                Number(mod.mutedUntil) -
-                Date.now()
-              ) / 60000
-            );
-
-
-          $("chatStatus").innerHTML =
-            `<div class="error">
-               আপনি বর্তমানে muted।
-               আরও প্রায় ${minutes} মিনিট পরে message পাঠাতে পারবেন।
-             </div>`;
-
-          return;
-
-        }
-
-      }
-
-
-      const newMessage =
-        push(ref(db,"groupChat"));
-
-
-      await set(
-        newMessage,
-        {
-
-          uid:
-            currentUser.uid,
-
-          name:
-            currentProfile?.name ||
-            "Student",
-
-          text,
-
-          createdAt:
-            Date.now()
-
-        }
-      );
-
-
-      input.value = "";
-
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      $("chatStatus").innerHTML =
-        `<div class="error">
-           Message পাঠানো যায়নি।
-           Firebase Rules চেক করুন।
-         </div>`;
-
-    }
-
-  };
-
-
-/* =====================================================
-   CHAT DELETE
-===================================================== */
-
-window.deleteMessage =
-  async id=>{
-
-    if(!isAdmin()) return;
-
-
-    if(
-      !confirm(
-        "এই message Delete করবেন?"
-      )
-    ) return;
-
-
-    try{
-
-      await remove(
-        ref(db,"groupChat/"+id)
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      alert(
-        "Message Delete করা যায়নি। Firebase Rules চেক করুন।"
-      );
-
-    }
-
-  };
-
-
-/* =====================================================
-   ADMIN STUDENTS
-===================================================== */
-
-function loadStudents(){
-
-  onValue(
-    ref(db,"users"),
-    async snapshot=>{
-
-      const list =
-        $("studentList");
-
-      list.innerHTML = "";
-
-      const data =
-        snapshot.val();
-
-
-      if(!data){
-
-        list.innerHTML =
-          `<p>কোনো student নেই।</p>`;
-
-        return;
-
-      }
-
-
-      for(
-        const [uid,u]
-        of Object.entries(data)
-      ){
-
-        if(uid === ADMIN_UID)
-          continue;
-
-
-        let mod = {};
-
-
-        try{
-
-          const snap =
-            await get(
-              ref(
-                db,
-                "moderation/"+uid
-              )
-            );
-
-
-          if(snap.exists()){
-            mod = snap.val();
-          }
-
-        }
-        catch(error){
-          console.error(error);
-        }
-
-
-        let status =
-          "🟢 Active";
-
-
-        if(mod.banned === true){
-
-          status =
-            "🚫 Banned";
-
-        }
-        else if(
-          mod.mutedUntil &&
-          Number(mod.mutedUntil) >
-          Date.now()
-        ){
-
-          status =
-            "🔇 Muted";
-
-        }
-
-
-        list.innerHTML += `
-
-          <div class="item">
-
-            <strong>
-              ${esc(u.name || "Student")}
-            </strong>
-
-            <small>
-              Class:
-              ${esc(u.class || "—")}
-              · Roll:
-              ${esc(u.roll || "—")}
-            </small>
-
-            <p>
-              Status:
-              ${status}
-            </p>
-
-            <div class="admin-grid">
-
-              <button
-                class="secondary"
-                onclick="muteStudent('${uid}',900000)">
-                🔇 15m Mute
-              </button>
-
-              <button
-                class="secondary"
-                onclick="muteStudent('${uid}',3600000)">
-                🔇 1h Mute
-              </button>
-
-              <button
-                class="danger"
-                onclick="banStudent('${uid}')">
-                🚫 Ban
-              </button>
-
-              <button
-                class="secondary"
-                onclick="unbanStudent('${uid}')">
-                ✅ Unban
-              </button>
-
-              <button
-                class="secondary"
-                onclick="unmuteStudent('${uid}')">
-                🔊 Unmute
-              </button>
-
-            </div>
-
-          </div>
-
-        `;
-
-      }
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   MUTE
-===================================================== */
-
-window.muteStudent =
-  async(uid,time)=>{
-
-    if(!isAdmin()) return;
-
-
-    try{
-
-      await set(
-        ref(
-          db,
-          "moderation/"+uid
-        ),
-        {
-
-          banned:false,
-
-          mutedUntil:
-            Date.now()+time
-
-        }
-      );
-
-
-      alert(
-        "Student Mute হয়েছে।"
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      alert(
-        "Mute করা যায়নি।"
-      );
-
-    }
-
-  };
-
-
-/* =====================================================
-   BAN
-===================================================== */
-
-window.banStudent =
-  async uid=>{
-
-    if(!isAdmin()) return;
-
-
-    if(
-      !confirm(
-        "এই student-কে Ban করবেন?"
-      )
-    ) return;
-
-
-    try{
-
-      await set(
-        ref(
-          db,
-          "moderation/"+uid
-        ),
-        {
-
-          banned:true,
-
-          mutedUntil:0
-
-        }
-      );
-
-
-      alert(
-        "Student Ban হয়েছে।"
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      alert(
-        "Ban করা যায়নি।"
-      );
-
-    }
-
-  };
-
-
-/* =====================================================
-   UNBAN
-===================================================== */
-
-window.unbanStudent =
-  async uid=>{
-
-    if(!isAdmin()) return;
-
-
-    try{
-
-      await set(
-        ref(
-          db,
-          "moderation/"+uid
-        ),
-        {
-
-          banned:false,
-
-          mutedUntil:0
-
-        }
-      );
-
-
-      alert(
-        "Student Unban হয়েছে।"
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      alert(
-        "Unban করা যায়নি।"
-      );
-
-    }
-
-  };
-
-
-/* =====================================================
-   UNMUTE
-===================================================== */
-
-window.unmuteStudent =
-  async uid=>{
-
-    if(!isAdmin()) return;
-
-
-    try{
-
-      await set(
-        ref(
-          db,
-          "moderation/"+uid
-        ),
-        {
-
-          banned:false,
-
-          mutedUntil:0
-
-        }
-      );
-
-
-      alert(
-        "Student Unmute হয়েছে।"
-      );
-
-    }
-    catch(error){
-
-      console.error(error);
-
-      alert(
-        "Unmute করা যায়নি।"
-      );
-
-    }
-
-  };
-
-
-/* =====================================================
-   ADMIN CHAT MANAGEMENT
-===================================================== */
-
-function loadAdminChat(){
-
-  onValue(
-    query(
-      ref(db,"groupChat"),
-      orderByChild("createdAt")
-    ),
-    snapshot=>{
-
-      const list =
-        $("adminChatList");
-
-      list.innerHTML = "";
-
-      const data =
-        snapshot.val();
-
-
-      if(!data){
-
-        list.innerHTML =
-          `<p>কোনো chat message নেই।</p>`;
-
-        return;
-
-      }
-
-
-      Object
-        .entries(data)
-        .reverse()
-        .slice(0,100)
-        .forEach(([id,m])=>{
-
-          list.innerHTML += `
-
-            <div class="item">
-
-              <strong>
-                ${esc(m.name || "User")}
-              </strong>
-
-              <p>
-                ${esc(m.text || "")}
-              </p>
-
-              <button
-                class="danger"
-                onclick="deleteMessage('${id}')">
-                🗑️ Delete Message
-              </button>
-
-            </div>
-
-          `;
-
-        });
-
-    }
-  );
-
+  return messages[code] || error.message || "একটি সমস্যা হয়েছে।";
 }
 
 </script>
