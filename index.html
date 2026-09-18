@@ -2,249 +2,449 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#08111f">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
 <title>OUR JDM — Jalchatra Dakhil Madrasha</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
 body{
   font-family:Inter,'Noto Sans Bengali',sans-serif;
   background:#07111f;
   color:#eef5ff;
   min-height:100vh;
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+
+button,input,textarea,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* HEADER */
 
 .header{
-  position:sticky;top:0;z-index:50;
-  padding:15px 16px;
-  background:rgba(7,17,31,.92);
+  position:sticky;
+  top:0;
+  z-index:100;
+  padding:14px 16px;
+  background:rgba(7,17,31,.94);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid #1d3048;
+  border-bottom:1px solid #1c3047;
 }
+
 .brand{
-  display:flex;align-items:center;gap:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
+
 .logo{
-  width:48px;height:48px;border-radius:15px;
-  display:grid;place-items:center;
-  background:linear-gradient(135deg,#16a3ff,#725cff);
-  font-size:22px;font-weight:800;
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#1598ff,#765cff);
+  font-size:18px;
+  font-weight:800;
   box-shadow:0 8px 25px #0005;
 }
-.brand h1{font-size:19px}
-.brand p{font-size:11px;color:#8fa4be;margin-top:3px}
+
+.brand h1{
+  font-size:19px;
+}
+
+.brand p{
+  color:#8fa5be;
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* CONTAINER */
 
 .container{
   width:min(1100px,94%);
   margin:auto;
-  padding:22px 0 100px;
+  padding:22px 0 80px;
 }
 
+/* CARD */
+
 .card{
-  background:linear-gradient(145deg,#0d1b2e,#0a1626);
-  border:1px solid #1b3049;
+  background:linear-gradient(145deg,#0d1c2f,#091625);
+  border:1px solid #1c324b;
   border-radius:20px;
   padding:18px;
   margin-bottom:16px;
   box-shadow:0 12px 35px #0003;
 }
 
+/* HERO */
+
+.hero{
+  padding:25px;
+  border-radius:21px;
+  margin-bottom:18px;
+  background:
+    radial-gradient(circle at 90% 10%,#405cff55,transparent 35%),
+    radial-gradient(circle at 10% 90%,#00b9ff35,transparent 35%),
+    #0b1a2c;
+  border:1px solid #203b58;
+}
+
+.hero h2{
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#91a7c0;
+  line-height:1.6;
+}
+
+/* AUTH */
+
 .auth-wrap{
   max-width:440px;
   margin:35px auto;
 }
+
 .tabs{
-  display:flex;gap:7px;
-  background:#081525;
-  padding:5px;border-radius:14px;
+  display:flex;
+  gap:6px;
+  background:#071321;
+  padding:5px;
+  border-radius:14px;
   margin-bottom:18px;
 }
+
 .tab{
-  flex:1;border:0;background:transparent;
-  color:#8fa4be;padding:11px;border-radius:10px;
-}
-.tab.active{
-  background:#17304d;color:#fff;
+  flex:1;
+  border:0;
+  padding:11px;
+  border-radius:10px;
+  background:transparent;
+  color:#8da4bc;
 }
 
-.field{margin-bottom:13px}
-.field label{
-  display:block;font-size:12px;
-  color:#91a7c0;margin-bottom:7px;
+.tab.active{
+  background:#183552;
+  color:white;
 }
-.field input,.field select,.field textarea{
+
+/* INPUT */
+
+.field{
+  margin-bottom:13px;
+}
+
+.field label{
+  display:block;
+  font-size:12px;
+  color:#91a7bf;
+  margin-bottom:7px;
+}
+
+.field input,
+.field textarea,
+.field select{
   width:100%;
-  background:#081525;
-  border:1px solid #203852;
-  color:#fff;
+  border:1px solid #203952;
+  background:#071523;
+  color:white;
   border-radius:12px;
   padding:12px;
   outline:none;
 }
-.field textarea{min-height:100px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{
-  border-color:#3aaeff;
+
+.field input:focus,
+.field textarea:focus{
+  border-color:#35aaff;
 }
+
+.field textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+/* BUTTON */
 
 .btn{
-  border:0;border-radius:12px;
+  border:0;
+  border-radius:12px;
   padding:12px 16px;
   font-weight:700;
-  color:#fff;
-  background:linear-gradient(135deg,#168fff,#625cff);
-}
-.btn.secondary{background:#172a40}
-.btn.danger{background:#9d2635}
-.btn.warning{background:#986c12}
-.btn.success{background:#167b55}
-.btn.small{padding:8px 11px;font-size:12px}
-
-.hidden{display:none!important}
-
-.nav{
-  display:flex;gap:8px;
-  overflow-x:auto;
-  padding:5px 0 15px;
-  scrollbar-width:none;
-}
-.nav button{
-  white-space:nowrap;
-  border:1px solid #1c334d;
-  background:#0b1a2c;
-  color:#9bb0c8;
-  border-radius:12px;
-  padding:10px 14px;
-}
-.nav button.active{
-  background:#173453;
-  color:#fff;
-  border-color:#2c79b9;
+  color:white;
+  background:linear-gradient(135deg,#1597ff,#665cff);
 }
 
-.hero{
-  padding:26px;
-  border-radius:22px;
-  background:
-    radial-gradient(circle at 90% 10%,#315cff55,transparent 35%),
-    radial-gradient(circle at 10% 90%,#00b8ff33,transparent 35%),
-    #0b192b;
-  border:1px solid #1e3854;
-  margin-bottom:18px;
+.btn.small{
+  padding:8px 11px;
+  font-size:12px;
 }
-.hero h2{font-size:26px;margin-bottom:8px}
-.hero p{color:#91a8c0;line-height:1.6}
+
+.btn.secondary{
+  background:#172b41;
+}
+
+.btn.danger{
+  background:#982b3a;
+}
+
+.btn.warning{
+  background:#936d16;
+}
+
+.btn.success{
+  background:#167a55;
+}
+
+/* PROFILE */
 
 .profile{
-  display:flex;align-items:center;gap:13px;
+  display:flex;
+  align-items:center;
+  gap:13px;
 }
+
 .avatar{
-  width:52px;height:52px;
+  width:52px;
+  height:52px;
   border-radius:50%;
-  display:grid;place-items:center;
-  background:linear-gradient(135deg,#1b9dff,#765cff);
-  font-size:20px;font-weight:800;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#149aff,#765cff);
+  font-size:20px;
+  font-weight:800;
 }
-.muted{color:#8da2ba;font-size:13px}
+
+.profile-info{
+  flex:1;
+}
+
+.muted{
+  color:#8da3bb;
+  font-size:12px;
+}
+
+/* NAV */
+
+.nav{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:4px 0 15px;
+  scrollbar-width:none;
+}
+
+.nav button{
+  white-space:nowrap;
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid #1d344d;
+  background:#0b1a2b;
+  color:#91a7bf;
+}
+
+.nav button.active{
+  color:white;
+  background:#183654;
+  border-color:#2b75ae;
+}
+
+/* STATUS */
+
+.status{
+  padding:11px 13px;
+  border-radius:12px;
+  background:#10283d;
+  color:#a9c9e1;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.status.error{
+  background:#371a24;
+  color:#ffb5c2;
+}
+
+.status.success{
+  background:#10382a;
+  color:#a8e6cb;
+}
+
+/* NOTICE */
 
 .notice{
-  padding:15px;
-  border:1px solid #1c334b;
-  background:#0a1728;
+  background:#091827;
+  border:1px solid #1c344c;
   border-radius:15px;
+  padding:15px;
   margin-bottom:10px;
 }
-.notice h3{font-size:15px;margin-bottom:7px}
-.notice p{color:#b5c5d6;line-height:1.55;font-size:14px}
-.notice .meta{
-  color:#7189a4;font-size:11px;margin-top:9px;
+
+.notice h3{
+  font-size:15px;
+  margin-bottom:7px;
 }
 
+.notice p{
+  font-size:14px;
+  line-height:1.55;
+  color:#b4c4d5;
+  white-space:pre-wrap;
+}
+
+.notice .meta{
+  color:#7188a2;
+  font-size:10px;
+  margin-top:9px;
+}
+
+/* CHAT */
+
 .chat-box{
-  height:58vh;
+  height:55vh;
   min-height:400px;
   overflow-y:auto;
   padding:12px;
-  background:#06101d;
+  background:#050f1b;
   border:1px solid #1a3047;
   border-radius:17px;
 }
+
 .msg{
   max-width:82%;
   margin:8px 0;
   padding:10px 12px;
   border-radius:15px;
-  background:#112338;
-  border:1px solid #1c3955;
+  background:#112438;
+  border:1px solid #1d3953;
 }
+
 .msg.mine{
   margin-left:auto;
   background:#173c5b;
 }
+
 .msg-name{
-  font-size:11px;color:#55b8ff;
-  margin-bottom:4px;font-weight:700;
+  color:#55baff;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:4px;
 }
+
 .msg-text{
   font-size:14px;
   line-height:1.5;
   white-space:pre-wrap;
   word-break:break-word;
 }
+
 .msg-time{
-  font-size:9px;color:#718ba5;
+  color:#718ba4;
+  font-size:9px;
   margin-top:5px;
 }
+
 .chat-input{
-  display:flex;gap:8px;margin-top:10px;
+  display:flex;
+  gap:8px;
+  margin-top:10px;
 }
-.chat-input input{flex:1}
+
+.chat-input input{
+  flex:1;
+  min-width:0;
+  border:1px solid #203952;
+  background:#071523;
+  color:white;
+  border-radius:12px;
+  padding:12px;
+  outline:none;
+}
+
+/* TEACHER */
 
 .teacher{
-  display:flex;align-items:center;gap:13px;
+  display:flex;
+  align-items:center;
+  gap:13px;
   padding:14px;
-  border:1px solid #1b334d;
+  border:1px solid #1b344c;
   border-radius:15px;
-  background:#0a1728;
+  background:#091827;
   margin-bottom:10px;
 }
+
 .teacher-icon{
-  width:45px;height:45px;border-radius:13px;
-  display:grid;place-items:center;
-  background:#173957;font-size:21px;
+  width:46px;
+  height:46px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:#173957;
+  font-size:21px;
 }
-.teacher h3{font-size:15px}
-.teacher p{font-size:12px;color:#91a6bd;margin-top:4px}
+
+.teacher h3{
+  font-size:15px;
+}
+
+.teacher p{
+  color:#91a7bd;
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* ADMIN */
 
 .admin-row{
-  display:flex;align-items:center;
+  display:flex;
+  align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:12px;
   padding:13px;
-  border:1px solid #1b334d;
-  background:#0a1728;
   border-radius:14px;
+  background:#091827;
+  border:1px solid #1b344c;
   margin-bottom:9px;
 }
+
 .admin-actions{
-  display:flex;gap:5px;flex-wrap:wrap;
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
   justify-content:flex-end;
 }
 
-.status{
-  padding:11px 13px;
-  border-radius:12px;
-  background:#10273b;
-  color:#9fc1dd;
-  font-size:13px;
+/* SECTION */
+
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
   margin-bottom:13px;
 }
-.status.error{background:#351923;color:#ffb4c0}
-.status.success{background:#103528;color:#a8e7cb}
+
+.section-title h2{
+  font-size:18px;
+}
 
 .empty{
   text-align:center;
@@ -252,26 +452,36 @@ button{cursor:pointer}
   padding:30px 10px;
 }
 
-.section-title{
-  display:flex;justify-content:space-between;
-  align-items:center;gap:10px;
-  margin-bottom:13px;
-}
-.section-title h2{font-size:18px}
-
 .footer{
   text-align:center;
-  color:#617891;
+  color:#607892;
   font-size:11px;
   margin-top:30px;
 }
 
 @media(max-width:600px){
-  .container{width:94%}
-  .hero h2{font-size:22px}
-  .chat-box{height:55vh}
-  .admin-row{align-items:flex-start;flex-direction:column}
-  .admin-actions{justify-content:flex-start}
+
+  .container{
+    width:94%;
+  }
+
+  .hero h2{
+    font-size:22px;
+  }
+
+  .chat-box{
+    height:53vh;
+  }
+
+  .admin-row{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .admin-actions{
+    justify-content:flex-start;
+  }
+
 }
 </style>
 </head>
@@ -281,6 +491,7 @@ button{cursor:pointer}
 <header class="header">
   <div class="brand">
     <div class="logo">JDM</div>
+
     <div>
       <h1>OUR JDM</h1>
       <p>Jalchatra Dakhil Madrasha</p>
@@ -288,39 +499,71 @@ button{cursor:pointer}
   </div>
 </header>
 
+
 <main class="container">
 
-<!-- AUTH -->
+<!-- ================= AUTH ================= -->
+
 <section id="authSection" class="auth-wrap">
+
   <div class="card">
 
     <div class="hero">
       <h2>স্বাগতম 👋</h2>
-      <p>OUR JDM-এ Student অথবা Admin হিসেবে Login করুন।</p>
+      <p>
+        OUR JDM Student Community Portal-এ
+        Login অথবা Student Registration করুন।
+      </p>
     </div>
 
     <div class="tabs">
-      <button id="loginTab" class="tab active">Login</button>
-      <button id="registerTab" class="tab">Student Register</button>
+      <button id="loginTab" class="tab active">
+        Login
+      </button>
+
+      <button id="registerTab" class="tab">
+        Student Register
+      </button>
     </div>
 
     <div id="authStatus"></div>
 
+
+    <!-- LOGIN -->
+
     <form id="loginForm">
+
       <div class="field">
         <label>Email</label>
-        <input id="loginEmail" type="email" required>
+        <input
+          id="loginEmail"
+          type="email"
+          autocomplete="email"
+          required>
       </div>
 
       <div class="field">
         <label>Password</label>
-        <input id="loginPassword" type="password" required>
+        <input
+          id="loginPassword"
+          type="password"
+          autocomplete="current-password"
+          required>
       </div>
 
-      <button class="btn" style="width:100%">Login</button>
+      <button
+        class="btn"
+        style="width:100%">
+        Login
+      </button>
+
     </form>
 
+
+    <!-- REGISTER -->
+
     <form id="registerForm" class="hidden">
+
       <div class="field">
         <label>Student Name</label>
         <input id="regName" required>
@@ -348,125 +591,261 @@ button{cursor:pointer}
 
       <div class="field">
         <label>Password</label>
-        <input id="regPassword" type="password" minlength="6" required>
+        <input
+          id="regPassword"
+          type="password"
+          minlength="6"
+          required>
       </div>
 
-      <button class="btn" style="width:100%">Create Student Account</button>
+      <button
+        class="btn"
+        style="width:100%">
+        Create Student Account
+      </button>
+
     </form>
 
   </div>
+
 </section>
 
 
-<!-- APP -->
+<!-- ================= APP ================= -->
+
 <section id="appSection" class="hidden">
 
+
+  <!-- PROFILE -->
+
   <div class="profile card">
-    <div class="avatar" id="avatar">S</div>
-    <div style="flex:1">
-      <strong id="profileName">Student</strong>
-      <div class="muted" id="profileInfo">Loading...</div>
+
+    <div class="avatar" id="avatar">
+      S
     </div>
-    <button id="logoutBtn" class="btn danger small">Logout</button>
+
+    <div class="profile-info">
+
+      <strong id="profileName">
+        Student
+      </strong>
+
+      <div
+        class="muted"
+        id="profileInfo">
+        Loading...
+      </div>
+
+    </div>
+
+    <button
+      id="logoutBtn"
+      class="btn danger small">
+      Logout
+    </button>
+
   </div>
 
+
+  <!-- NAV -->
+
   <nav class="nav">
-    <button data-page="home" class="active">🏠 Home</button>
-    <button data-page="notice">📢 Notice</button>
-    <button data-page="chat">💬 Group Chat</button>
-    <button data-page="teachers">👨‍🏫 Teachers</button>
-    <button id="adminNav" data-page="admin" class="hidden">👑 Admin</button>
+
+    <button
+      data-page="home"
+      class="active">
+      🏠 Home
+    </button>
+
+    <button data-page="notice">
+      📢 Notice
+    </button>
+
+    <button data-page="chat">
+      💬 Group Chat
+    </button>
+
+    <button data-page="teachers">
+      👨‍🏫 Teachers
+    </button>
+
+    <button
+      id="adminNav"
+      data-page="admin"
+      class="hidden">
+      👑 Admin
+    </button>
+
   </nav>
 
 
-  <!-- HOME -->
-  <section id="page-home" class="page">
+  <!-- ================= HOME ================= -->
+
+  <section
+    id="page-home"
+    class="page">
+
     <div class="hero">
+
       <h2>OUR JDM</h2>
+
       <p>
-        Jalchatra Dakhil Madrasha-এর Student Community Portal।
-        এখানে Notice, Group Chat এবং Teachers-এর তথ্য দেখতে পারবেন।
+        Jalchatra Dakhil Madrasha-এর
+        Student Community Portal।
+        এখানে Notice, Group Chat এবং
+        Teachers-এর তথ্য পাওয়া যাবে।
       </p>
+
     </div>
 
+
     <div class="card">
+
       <div class="section-title">
         <h2>👤 আমার Profile</h2>
       </div>
+
       <p class="muted">নাম</p>
-      <p id="homeName" style="margin-bottom:10px">—</p>
+      <p id="homeName" style="margin-bottom:10px">
+        —
+      </p>
 
       <p class="muted">Class</p>
-      <p id="homeClass" style="margin-bottom:10px">—</p>
+      <p id="homeClass" style="margin-bottom:10px">
+        —
+      </p>
 
       <p class="muted">Roll</p>
-      <p id="homeRoll">—</p>
+      <p id="homeRoll">
+        —
+      </p>
+
     </div>
+
   </section>
 
 
-  <!-- NOTICE -->
-  <section id="page-notice" class="page hidden">
+  <!-- ================= NOTICE ================= -->
+
+  <section
+    id="page-notice"
+    class="page hidden">
+
     <div class="card">
+
       <div class="section-title">
         <h2>📢 Notice Board</h2>
       </div>
+
       <div id="noticeList">
-        <div class="empty">Notice loading...</div>
+        <div class="empty">
+          Notice loading...
+        </div>
       </div>
+
     </div>
+
   </section>
 
 
-  <!-- CHAT -->
-  <section id="page-chat" class="page hidden">
+  <!-- ================= CHAT ================= -->
+
+  <section
+    id="page-chat"
+    class="page hidden">
+
     <div class="card">
+
       <div class="section-title">
         <h2>💬 Group Chat</h2>
       </div>
 
       <div id="moderationStatus"></div>
 
-      <div id="chatBox" class="chat-box">
-        <div class="empty">Messages loading...</div>
+      <div
+        id="chatBox"
+        class="chat-box">
+
+        <div class="empty">
+          Messages loading...
+        </div>
+
       </div>
 
       <div class="chat-input">
-        <input id="chatInput" maxlength="500" placeholder="আপনার message লিখুন...">
-        <button id="sendBtn" class="btn">Send</button>
+
+        <input
+          id="chatInput"
+          maxlength="500"
+          placeholder="আপনার message লিখুন...">
+
+        <button
+          id="sendBtn"
+          class="btn">
+          Send
+        </button>
+
       </div>
 
-      <p class="muted" style="margin-top:8px">
-        ⚠️ খারাপ/অশালীন ভাষা ব্যবহার করলে message পাঠানো যাবে না।
+      <p
+        class="muted"
+        style="margin-top:8px">
+        ⚠️ অশালীন ভাষা ব্যবহার করা যাবে না।
       </p>
+
     </div>
+
   </section>
 
 
-  <!-- TEACHERS -->
-  <section id="page-teachers" class="page hidden">
+  <!-- ================= TEACHERS ================= -->
+
+  <section
+    id="page-teachers"
+    class="page hidden">
+
     <div class="card">
+
       <div class="section-title">
         <h2>👨‍🏫 Teachers</h2>
       </div>
 
       <div id="teacherList">
-        <div class="empty">Teachers loading...</div>
+
+        <div class="empty">
+          Teachers loading...
+        </div>
+
       </div>
+
     </div>
+
   </section>
 
 
-  <!-- ADMIN -->
-  <section id="page-admin" class="page hidden">
+  <!-- ================= ADMIN ================= -->
+
+  <section
+    id="page-admin"
+    class="page hidden">
+
 
     <div class="hero">
+
       <h2>👑 Admin Panel</h2>
-      <p>শুধুমাত্র নির্দিষ্ট Admin UID-এর জন্য এই Panel সক্রিয়।</p>
+
+      <p>
+        Admin UID verification-এর মাধ্যমে
+        এই Panel শুধুমাত্র Admin-এর জন্য।
+      </p>
+
     </div>
 
-    <!-- NOTICE ADMIN -->
+
+    <!-- ADMIN NOTICE -->
+
     <div class="card">
+
       <div class="section-title">
         <h2>📢 Publish Notice</h2>
       </div>
@@ -483,12 +862,19 @@ button{cursor:pointer}
         <textarea id="noticeBody"></textarea>
       </div>
 
-      <button id="publishNotice" class="btn">Publish Notice</button>
+      <button
+        id="publishNotice"
+        class="btn">
+        Publish Notice
+      </button>
+
     </div>
 
 
-    <!-- TEACHER ADMIN -->
+    <!-- ADMIN TEACHER -->
+
     <div class="card">
+
       <div class="section-title">
         <h2>👨‍🏫 Add Teacher</h2>
       </div>
@@ -507,41 +893,66 @@ button{cursor:pointer}
 
       <div class="field">
         <label>Designation</label>
-        <input id="teacherDesignation" placeholder="যেমন: Assistant Teacher">
+        <input id="teacherDesignation">
       </div>
 
-      <button id="addTeacher" class="btn">Add Teacher</button>
+      <button
+        id="addTeacher"
+        class="btn">
+        Add Teacher
+      </button>
+
     </div>
 
 
     <!-- STUDENT MODERATION -->
+
     <div class="card">
+
       <div class="section-title">
         <h2>🛡️ Student Moderation</h2>
       </div>
 
-      <p class="muted" style="margin-bottom:12px">
-        এখানে Student-কে Mute, Unmute, Ban অথবা Unban করা যাবে।
+      <p
+        class="muted"
+        style="margin-bottom:12px">
+        Student-কে Mute, Unmute, Ban অথবা Unban করা যাবে।
       </p>
 
       <div id="studentList">
-        <div class="empty">Students loading...</div>
+
+        <div class="empty">
+          Students loading...
+        </div>
+
       </div>
+
     </div>
 
 
-    <!-- CHAT MANAGEMENT -->
+    <!-- ADMIN CHAT -->
+
     <div class="card">
+
       <div class="section-title">
         <h2>🗑️ Chat Management</h2>
       </div>
 
-      <div id="adminChatBox" class="chat-box" style="height:450px">
-        <div class="empty">Messages loading...</div>
+      <div
+        id="adminChatBox"
+        class="chat-box"
+        style="height:450px">
+
+        <div class="empty">
+          Messages loading...
+        </div>
+
       </div>
+
     </div>
 
   </section>
+
 
   <div class="footer">
     OUR JDM • Jalchatra Dakhil Madrasha
@@ -554,6 +965,10 @@ button{cursor:pointer}
 
 <script type="module">
 
+/* =========================
+   FIREBASE
+========================= */
+
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 
@@ -563,7 +978,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+}
+from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
 import {
   getDatabase,
@@ -573,63 +989,103 @@ import {
   onValue,
   remove,
   get
-} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+}
+from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 
 /* =========================
-   FIREBASE CONFIG
+   CONFIG
 ========================= */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDZKSWOQtDjpylWLBa39v9_XeZclzojkxQ",
-  authDomain: "our-jdm.firebaseapp.com",
-  databaseURL: "https://our-jdm-default-rtdb.firebaseio.com",
-  projectId: "our-jdm",
-  storageBucket: "our-jdm.firebasestorage.app",
-  messagingSenderId: "286298440794",
-  appId: "1:286298440794:web:12e5e0af59e2c77d2d0463"
+
+  apiKey:
+    "AIzaSyDZKSWOQtDjpylWLBa39v9_XeZclzojkxQ",
+
+  authDomain:
+    "our-jdm.firebaseapp.com",
+
+  databaseURL:
+    "https://our-jdm-default-rtdb.firebaseio.com",
+
+  projectId:
+    "our-jdm",
+
+  storageBucket:
+    "our-jdm.firebasestorage.app",
+
+  messagingSenderId:
+    "286298440794",
+
+  appId:
+    "1:286298440794:web:12e5e0af59e2c77d2d0463"
 };
 
 
 /* =========================
-   ADMIN UID
+   YOUR ADMIN UID
 ========================= */
 
-const ADMIN_UID = "Jgp2MozPFlTwrxTir7q8d3OHMsf1";
+const ADMIN_UID =
+  "hslTOIPhIMY7Z60wZxBivMlA2IG3";
 
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getDatabase(app);
+const app =
+  initializeApp(firebaseConfig);
+
+const auth =
+  getAuth(app);
+
+const db =
+  getDatabase(app);
 
 
 /* =========================
    HELPERS
 ========================= */
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+  document.getElementById(id);
+
 
 function escapeHTML(value){
+
   return String(value ?? "")
     .replaceAll("&","&amp;")
     .replaceAll("<","&lt;")
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#039;");
+
 }
 
-function showStatus(element,message,type=""){
+
+function showStatus(
+  element,
+  message,
+  type=""
+){
+
   if(!element)return;
+
   element.innerHTML =
-    `<div class="status ${type}">${escapeHTML(message)}</div>`;
+    `<div class="status ${type}">
+      ${escapeHTML(message)}
+    </div>`;
+
 }
+
 
 function timeText(ts){
+
   if(!ts)return "";
-  return new Date(ts).toLocaleString("bn-BD",{
-    dateStyle:"medium",
-    timeStyle:"short"
-  });
+
+  return new Date(ts)
+    .toLocaleString("bn-BD",{
+      dateStyle:"medium",
+      timeStyle:"short"
+    });
+
 }
 
 
@@ -638,18 +1094,25 @@ function timeText(ts){
 ========================= */
 
 const PROFANITY_WORDS = [
+
   "fuck",
   "shit",
   "bitch",
   "asshole",
   "bastard"
+
 ];
 
+
 function containsProfanity(text){
-  const normalized = text.toLowerCase();
-  return PROFANITY_WORDS.some(word =>
-    normalized.includes(word)
+
+  const value =
+    text.toLowerCase();
+
+  return PROFANITY_WORDS.some(
+    word => value.includes(word)
   );
+
 }
 
 
@@ -657,18 +1120,37 @@ function containsProfanity(text){
    AUTH TABS
 ========================= */
 
-$("loginTab").onclick = () => {
-  $("loginTab").classList.add("active");
-  $("registerTab").classList.remove("active");
-  $("loginForm").classList.remove("hidden");
-  $("registerForm").classList.add("hidden");
+$("loginTab").onclick = ()=>{
+
+  $("loginTab")
+    .classList.add("active");
+
+  $("registerTab")
+    .classList.remove("active");
+
+  $("loginForm")
+    .classList.remove("hidden");
+
+  $("registerForm")
+    .classList.add("hidden");
+
 };
 
-$("registerTab").onclick = () => {
-  $("registerTab").classList.add("active");
-  $("loginTab").classList.remove("active");
-  $("registerForm").classList.remove("hidden");
-  $("loginForm").classList.add("hidden");
+
+$("registerTab").onclick = ()=>{
+
+  $("registerTab")
+    .classList.add("active");
+
+  $("loginTab")
+    .classList.remove("active");
+
+  $("registerForm")
+    .classList.remove("hidden");
+
+  $("loginForm")
+    .classList.add("hidden");
+
 };
 
 
@@ -676,114 +1158,183 @@ $("registerTab").onclick = () => {
    LOGIN
 ========================= */
 
-$("loginForm").addEventListener("submit",async e=>{
-  e.preventDefault();
+$("loginForm")
+.addEventListener(
+  "submit",
+  async e=>{
 
-  try{
-    await signInWithEmailAndPassword(
-      auth,
-      $("loginEmail").value.trim(),
-      $("loginPassword").value
-    );
-  }catch(err){
-    showStatus(
-      $("authStatus"),
-      "Login failed: " + err.message,
-      "error"
-    );
+    e.preventDefault();
+
+    try{
+
+      await signInWithEmailAndPassword(
+
+        auth,
+
+        $("loginEmail")
+          .value
+          .trim(),
+
+        $("loginPassword")
+          .value
+
+      );
+
+    }catch(err){
+
+      showStatus(
+        $("authStatus"),
+        "Login failed: "+err.message,
+        "error"
+      );
+
+    }
+
   }
-});
+);
 
 
 /* =========================
    REGISTER
 ========================= */
 
-$("registerForm").addEventListener("submit",async e=>{
-  e.preventDefault();
+$("registerForm")
+.addEventListener(
+  "submit",
+  async e=>{
 
-  try{
+    e.preventDefault();
 
-    const name = $("regName").value.trim();
-    const studentClass = $("regClass").value.trim();
-    const roll = $("regRoll").value.trim();
-    const phone = $("regPhone").value.trim();
-    const email = $("regEmail").value.trim();
-    const password = $("regPassword").value;
+    try{
 
-    const credential =
-      await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
+      const name =
+        $("regName").value.trim();
+
+      const studentClass =
+        $("regClass").value.trim();
+
+      const roll =
+        $("regRoll").value.trim();
+
+      const phone =
+        $("regPhone").value.trim();
+
+      const email =
+        $("regEmail").value.trim();
+
+      const password =
+        $("regPassword").value;
+
+
+      const credential =
+        await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+
+      const uid =
+        credential.user.uid;
+
+
+      /* PUBLIC PROFILE
+         Phone is NOT stored here.
+      */
+
+      await set(
+        ref(db,"users/"+uid),
+        {
+          name:name,
+          class:studentClass,
+          roll:roll,
+          createdAt:Date.now()
+        }
       );
 
-    const uid = credential.user.uid;
 
-    /* Public student profile:
-       phone is NOT stored here.
-    */
+      /* PRIVATE DATA */
 
-    await set(ref(db,"users/"+uid),{
-      name,
-      class:studentClass,
-      roll,
-      createdAt:Date.now()
-    });
+      await set(
+        ref(db,"privateUsers/"+uid),
+        {
+          email:email,
+          phone:phone,
+          createdAt:Date.now()
+        }
+      );
 
-    /* Private information */
-    await set(ref(db,"privateUsers/"+uid),{
-      email,
-      phone,
-      createdAt:Date.now()
-    });
 
-    showStatus(
-      $("authStatus"),
-      "Account created successfully.",
-      "success"
-    );
+      showStatus(
+        $("authStatus"),
+        "Student account created successfully.",
+        "success"
+      );
 
-  }catch(err){
 
-    showStatus(
-      $("authStatus"),
-      "Registration failed: " + err.message,
-      "error"
-    );
+    }catch(err){
+
+      showStatus(
+        $("authStatus"),
+        "Registration failed: "+err.message,
+        "error"
+      );
+
+    }
 
   }
-});
+);
 
 
 /* =========================
    LOGOUT
 ========================= */
 
-$("logoutBtn").onclick = () => signOut(auth);
+$("logoutBtn").onclick = ()=>{
+
+  signOut(auth);
+
+};
 
 
 /* =========================
    NAVIGATION
 ========================= */
 
-document.querySelectorAll(".nav button").forEach(btn=>{
+document
+.querySelectorAll(".nav button")
+.forEach(button=>{
 
-  btn.addEventListener("click",()=>{
+  button.addEventListener(
+    "click",
+    ()=>{
 
-    const page = btn.dataset.page;
+      const page =
+        button.dataset.page;
 
-    document.querySelectorAll(".nav button")
-      .forEach(x=>x.classList.remove("active"));
 
-    btn.classList.add("active");
+      document
+        .querySelectorAll(".nav button")
+        .forEach(x=>
+          x.classList.remove("active")
+        );
 
-    document.querySelectorAll(".page")
-      .forEach(x=>x.classList.add("hidden"));
 
-    $("page-"+page).classList.remove("hidden");
+      button.classList.add("active");
 
-  });
+
+      document
+        .querySelectorAll(".page")
+        .forEach(x=>
+          x.classList.add("hidden")
+        );
+
+
+      $("page-"+page)
+        .classList.remove("hidden");
+
+    }
+  );
 
 });
 
@@ -793,74 +1344,132 @@ document.querySelectorAll(".nav button").forEach(btn=>{
 ========================= */
 
 let currentUser = null;
+
 let currentProfile = null;
+
 let moderationData = {};
 
-onAuthStateChanged(auth,async user=>{
 
-  currentUser = user;
+onAuthStateChanged(
+  auth,
+  async user=>{
 
-  if(!user){
+    currentUser = user;
 
-    $("authSection").classList.remove("hidden");
-    $("appSection").classList.add("hidden");
 
-    return;
+    if(!user){
+
+      $("authSection")
+        .classList.remove("hidden");
+
+      $("appSection")
+        .classList.add("hidden");
+
+      return;
+
+    }
+
+
+    $("authSection")
+      .classList.add("hidden");
+
+    $("appSection")
+      .classList.remove("hidden");
+
+
+    const snap =
+      await get(
+        ref(db,"users/"+user.uid)
+      );
+
+
+    if(snap.exists()){
+
+      currentProfile =
+        snap.val();
+
+    }else{
+
+      currentProfile = {
+
+        name:
+          user.email?.split("@")[0]
+          || "Student",
+
+        class:"—",
+
+        roll:"—"
+
+      };
+
+    }
+
+
+    $("profileName")
+      .textContent =
+      currentProfile.name;
+
+
+    $("profileInfo")
+      .textContent =
+      `Class: ${currentProfile.class} • Roll: ${currentProfile.roll}`;
+
+
+    $("avatar")
+      .textContent =
+      (
+        currentProfile.name
+        || "S"
+      )
+      .charAt(0)
+      .toUpperCase();
+
+
+    $("homeName")
+      .textContent =
+      currentProfile.name;
+
+
+    $("homeClass")
+      .textContent =
+      currentProfile.class;
+
+
+    $("homeRoll")
+      .textContent =
+      currentProfile.roll;
+
+
+    /* ADMIN MENU */
+
+    if(user.uid === ADMIN_UID){
+
+      $("adminNav")
+        .classList.remove("hidden");
+
+    }else{
+
+      $("adminNav")
+        .classList.add("hidden");
+
+    }
+
+
+    listenModeration();
+    listenNotices();
+    listenTeachers();
+    listenChat();
+
+
+    if(user.uid === ADMIN_UID){
+
+      listenStudents();
+      listenAdminChat();
+
+    }
+
   }
-
-  $("authSection").classList.add("hidden");
-  $("appSection").classList.remove("hidden");
-
-  const snap =
-    await get(ref(db,"users/"+user.uid));
-
-  if(snap.exists()){
-    currentProfile = snap.val();
-  }else{
-    currentProfile = {
-      name:user.email?.split("@")[0] || "Student",
-      class:"—",
-      roll:"—"
-    };
-  }
-
-  $("profileName").textContent =
-    currentProfile.name;
-
-  $("profileInfo").textContent =
-    `Class: ${currentProfile.class} • Roll: ${currentProfile.roll}`;
-
-  $("avatar").textContent =
-    (currentProfile.name || "S").charAt(0).toUpperCase();
-
-  $("homeName").textContent =
-    currentProfile.name;
-
-  $("homeClass").textContent =
-    currentProfile.class;
-
-  $("homeRoll").textContent =
-    currentProfile.roll;
-
-
-  /* ADMIN */
-  if(user.uid === ADMIN_UID){
-    $("adminNav").classList.remove("hidden");
-  }else{
-    $("adminNav").classList.add("hidden");
-  }
-
-  listenModeration();
-  listenNotices();
-  listenTeachers();
-  listenChat();
-
-  if(user.uid === ADMIN_UID){
-    listenStudents();
-    listenAdminChat();
-  }
-
-});
+);
 
 
 /* =========================
@@ -870,31 +1479,45 @@ onAuthStateChanged(auth,async user=>{
 function listenModeration(){
 
   onValue(
-    ref(db,"moderation/"+currentUser.uid),
+
+    ref(
+      db,
+      "moderation/"+currentUser.uid
+    ),
+
     snap=>{
 
-      moderationData = snap.exists()
+      moderationData =
+        snap.exists()
         ? snap.val()
         : {};
 
       updateModerationUI();
 
     }
+
   );
 
 }
 
+
 function updateModerationUI(){
 
-  const statusBox = $("moderationStatus");
-  const input = $("chatInput");
-  const send = $("sendBtn");
+  const box =
+    $("moderationStatus");
+
+  const input =
+    $("chatInput");
+
+  const send =
+    $("sendBtn");
+
 
   if(moderationData.banned){
 
     showStatus(
-      statusBox,
-      "আপনার account বর্তমানে Admin দ্বারা banned করা হয়েছে।",
+      box,
+      "আপনার account Admin দ্বারা banned করা হয়েছে।",
       "error"
     );
 
@@ -902,16 +1525,22 @@ function updateModerationUI(){
     send.disabled = true;
 
     return;
+
   }
 
+
   const mutedUntil =
-    Number(moderationData.mutedUntil || 0);
+    Number(
+      moderationData.mutedUntil || 0
+    );
+
 
   if(mutedUntil > Date.now()){
 
     showStatus(
-      statusBox,
-      `আপনি mute অবস্থায় আছেন। সময় শেষ হবে: ${timeText(mutedUntil)}`,
+      box,
+      "আপনি muted আছেন। সময় শেষ হবে: "
+      + timeText(mutedUntil),
       "error"
     );
 
@@ -920,11 +1549,7 @@ function updateModerationUI(){
 
   }else{
 
-    if(moderationData.mutedUntil){
-      remove(ref(db,"moderation/"+currentUser.uid+"/mutedUntil"));
-    }
-
-    statusBox.innerHTML = "";
+    box.innerHTML = "";
 
     input.disabled = false;
     send.disabled = false;
@@ -935,59 +1560,83 @@ function updateModerationUI(){
 
 
 /* =========================
-   NOTICE
+   NOTICE LIST
 ========================= */
 
 function listenNotices(){
 
   onValue(
+
     ref(db,"notices"),
+
     snap=>{
 
-      const list = $("noticeList");
+      const list =
+        $("noticeList");
+
 
       if(!snap.exists()){
+
         list.innerHTML =
-          `<div class="empty">কোনো Notice নেই।</div>`;
+          `<div class="empty">
+             কোনো Notice নেই।
+           </div>`;
+
         return;
+
       }
 
-      const data = snap.val();
 
-      const items = Object.entries(data)
-        .map(([id,n])=>({id,...n}))
-        .sort((a,b)=>
-          (b.createdAt||0)-(a.createdAt||0)
+      const notices =
+        Object.entries(snap.val())
+        .map(([id,n])=>({
+          id,
+          ...n
+        }))
+        .sort(
+          (a,b)=>
+            (b.createdAt||0)
+            -
+            (a.createdAt||0)
         );
 
-      list.innerHTML = items.map(n=>`
 
-        <div class="notice">
+      list.innerHTML =
+        notices.map(n=>`
 
-          <h3>${escapeHTML(n.title)}</h3>
+          <div class="notice">
 
-          <p>${escapeHTML(n.body)}</p>
+            <h3>
+              ${escapeHTML(n.title)}
+            </h3>
 
-          <div class="meta">
-            ${timeText(n.createdAt)}
+            <p>
+              ${escapeHTML(n.body)}
+            </p>
+
+            <div class="meta">
+              ${timeText(n.createdAt)}
+            </div>
+
+            ${
+              currentUser.uid === ADMIN_UID
+              ?
+              `<button
+                 class="btn danger small"
+                 style="margin-top:10px"
+                 onclick="deleteNotice('${n.id}')">
+                 Delete
+               </button>`
+              :
+              ""
+            }
+
           </div>
 
-          ${
-            currentUser.uid === ADMIN_UID
-            ? `<button
-                class="btn danger small"
-                style="margin-top:10px"
-                onclick="deleteNotice('${n.id}')">
-                Delete
-               </button>`
-            : ""
-          }
-
-        </div>
-
-      `).join("");
+        `).join("");
 
     }
+
   );
 
 }
@@ -997,12 +1646,26 @@ function listenNotices(){
    ADMIN NOTICE
 ========================= */
 
-$("publishNotice").onclick = async()=>{
+$("publishNotice").onclick =
+async()=>{
 
-  if(currentUser?.uid !== ADMIN_UID)return;
+  if(
+    currentUser?.uid
+    !== ADMIN_UID
+  )return;
 
-  const title = $("noticeTitle").value.trim();
-  const body = $("noticeBody").value.trim();
+
+  const title =
+    $("noticeTitle")
+      .value
+      .trim();
+
+
+  const body =
+    $("noticeBody")
+      .value
+      .trim();
+
 
   if(!title || !body){
 
@@ -1013,27 +1676,38 @@ $("publishNotice").onclick = async()=>{
     );
 
     return;
+
   }
+
 
   try{
 
-    const id = push(ref(db,"notices")).key;
+    const id =
+      push(ref(db,"notices"))
+      .key;
 
-    await set(ref(db,"notices/"+id),{
-      title,
-      body,
-      createdAt:Date.now(),
-      createdBy:ADMIN_UID
-    });
 
-    $("noticeTitle").value="";
-    $("noticeBody").value="";
+    await set(
+      ref(db,"notices/"+id),
+      {
+        title,
+        body,
+        createdAt:Date.now(),
+        createdBy:ADMIN_UID
+      }
+    );
+
+
+    $("noticeTitle").value = "";
+    $("noticeBody").value = "";
+
 
     showStatus(
       $("adminNoticeStatus"),
-      "Notice published.",
+      "Notice published successfully.",
       "success"
     );
+
 
   }catch(err){
 
@@ -1047,11 +1721,19 @@ $("publishNotice").onclick = async()=>{
 
 };
 
-window.deleteNotice = async id => {
 
-  if(currentUser?.uid !== ADMIN_UID)return;
+window.deleteNotice =
+async id=>{
 
-  await remove(ref(db,"notices/"+id));
+  if(
+    currentUser?.uid
+    !== ADMIN_UID
+  )return;
+
+
+  await remove(
+    ref(db,"notices/"+id)
+  );
 
 };
 
@@ -1063,68 +1745,121 @@ window.deleteNotice = async id => {
 function listenTeachers(){
 
   onValue(
+
     ref(db,"teachers"),
+
     snap=>{
 
-      const list = $("teacherList");
+      const list =
+        $("teacherList");
+
 
       if(!snap.exists()){
 
         list.innerHTML =
-          `<div class="empty">Teacher information নেই।</div>`;
+          `<div class="empty">
+             Teacher information নেই।
+           </div>`;
 
         return;
+
       }
 
-      const teachers = Object.entries(snap.val())
-        .map(([id,t])=>({id,...t}));
 
-      list.innerHTML = teachers.map(t=>`
+      const teachers =
+        Object.entries(snap.val())
+        .map(([id,t])=>({
+          id,
+          ...t
+        }));
 
-        <div class="teacher">
 
-          <div class="teacher-icon">👨‍🏫</div>
+      list.innerHTML =
+        teachers.map(t=>`
 
-          <div style="flex:1">
-            <h3>${escapeHTML(t.name)}</h3>
+          <div class="teacher">
 
-            <p>
-              ${escapeHTML(t.subject || "Subject not added")}
-              ${t.designation
-                ? " • "+escapeHTML(t.designation)
-                : ""}
-            </p>
+            <div class="teacher-icon">
+              👨‍🏫
+            </div>
 
-            ${
-              currentUser.uid === ADMIN_UID
-              ? `<button
+            <div style="flex:1">
+
+              <h3>
+                ${escapeHTML(t.name)}
+              </h3>
+
+              <p>
+                ${escapeHTML(
+                  t.subject || "Subject not added"
+                )}
+
+                ${
+                  t.designation
+                  ?
+                  " • "+
+                  escapeHTML(t.designation)
+                  :
+                  ""
+                }
+              </p>
+
+              ${
+                currentUser.uid === ADMIN_UID
+                ?
+                `<button
                    class="btn danger small"
                    style="margin-top:7px"
                    onclick="deleteTeacher('${t.id}')">
                    Delete
                  </button>`
-              : ""
-            }
+                :
+                ""
+              }
+
+            </div>
 
           </div>
 
-        </div>
-
-      `).join("");
+        `).join("");
 
     }
+
   );
 
 }
 
 
-$("addTeacher").onclick = async()=>{
+/* =========================
+   ADD TEACHER
+========================= */
 
-  if(currentUser?.uid !== ADMIN_UID)return;
+$("addTeacher").onclick =
+async()=>{
 
-  const name = $("teacherName").value.trim();
-  const subject = $("teacherSubject").value.trim();
-  const designation = $("teacherDesignation").value.trim();
+  if(
+    currentUser?.uid
+    !== ADMIN_UID
+  )return;
+
+
+  const name =
+    $("teacherName")
+      .value
+      .trim();
+
+
+  const subject =
+    $("teacherSubject")
+      .value
+      .trim();
+
+
+  const designation =
+    $("teacherDesignation")
+      .value
+      .trim();
+
 
   if(!name){
 
@@ -1135,28 +1870,39 @@ $("addTeacher").onclick = async()=>{
     );
 
     return;
+
   }
+
 
   try{
 
-    const id = push(ref(db,"teachers")).key;
+    const id =
+      push(ref(db,"teachers"))
+      .key;
 
-    await set(ref(db,"teachers/"+id),{
-      name,
-      subject,
-      designation,
-      createdAt:Date.now()
-    });
 
-    $("teacherName").value="";
-    $("teacherSubject").value="";
-    $("teacherDesignation").value="";
+    await set(
+      ref(db,"teachers/"+id),
+      {
+        name,
+        subject,
+        designation,
+        createdAt:Date.now()
+      }
+    );
+
+
+    $("teacherName").value = "";
+    $("teacherSubject").value = "";
+    $("teacherDesignation").value = "";
+
 
     showStatus(
       $("teacherAdminStatus"),
-      "Teacher added.",
+      "Teacher added successfully.",
       "success"
     );
+
 
   }catch(err){
 
@@ -1170,11 +1916,19 @@ $("addTeacher").onclick = async()=>{
 
 };
 
-window.deleteTeacher = async id => {
 
-  if(currentUser?.uid !== ADMIN_UID)return;
+window.deleteTeacher =
+async id=>{
 
-  await remove(ref(db,"teachers/"+id));
+  if(
+    currentUser?.uid
+    !== ADMIN_UID
+  )return;
+
+
+  await remove(
+    ref(db,"teachers/"+id)
+  );
 
 };
 
@@ -1186,74 +1940,110 @@ window.deleteTeacher = async id => {
 function listenChat(){
 
   onValue(
+
     ref(db,"groupChat"),
+
     snap=>{
 
-      const box = $("chatBox");
+      const box =
+        $("chatBox");
+
 
       if(!snap.exists()){
 
         box.innerHTML =
-          `<div class="empty">এখনো কোনো message নেই।</div>`;
+          `<div class="empty">
+             এখনো কোনো message নেই।
+           </div>`;
 
         return;
+
       }
 
-      const messages = Object.entries(snap.val())
-        .map(([id,m])=>({id,...m}))
-        .sort((a,b)=>
-          (a.createdAt||0)-(b.createdAt||0)
+
+      const messages =
+        Object.entries(snap.val())
+        .map(([id,m])=>({
+          id,
+          ...m
+        }))
+        .sort(
+          (a,b)=>
+            (a.createdAt||0)
+            -
+            (b.createdAt||0)
         );
 
-      box.innerHTML = messages.map(m=>`
 
-        <div class="msg ${
-          m.uid === currentUser.uid ? "mine" : ""
-        }">
+      box.innerHTML =
+        messages.map(m=>`
 
-          <div class="msg-name">
-            ${escapeHTML(m.name || "Student")}
+          <div class="msg ${
+            m.uid === currentUser.uid
+            ? "mine"
+            : ""
+          }">
+
+            <div class="msg-name">
+              ${escapeHTML(
+                m.name || "Student"
+              )}
+            </div>
+
+            <div class="msg-text">
+              ${escapeHTML(m.text)}
+            </div>
+
+            <div class="msg-time">
+              ${timeText(m.createdAt)}
+            </div>
+
           </div>
 
-          <div class="msg-text">
-            ${escapeHTML(m.text)}
-          </div>
+        `).join("");
 
-          <div class="msg-time">
-            ${timeText(m.createdAt)}
-          </div>
 
-        </div>
-
-      `).join("");
-
-      box.scrollTop = box.scrollHeight;
+      box.scrollTop =
+        box.scrollHeight;
 
     }
+
   );
 
 }
 
 
 /* =========================
-   SEND CHAT
+   SEND MESSAGE
 ========================= */
 
 async function sendMessage(){
 
   if(!currentUser)return;
 
+
   if(moderationData.banned)return;
 
+
   const mutedUntil =
-    Number(moderationData.mutedUntil || 0);
+    Number(
+      moderationData.mutedUntil || 0
+    );
+
 
   if(mutedUntil > Date.now())return;
 
-  const input = $("chatInput");
-  const text = input.value.trim();
+
+  const input =
+    $("chatInput");
+
+
+  const text =
+    input.value.trim();
+
 
   if(!text)return;
+
 
   if(containsProfanity(text)){
 
@@ -1264,23 +2054,32 @@ async function sendMessage(){
     );
 
     return;
+
   }
+
 
   try{
 
     const id =
-      push(ref(db,"groupChat")).key;
+      push(ref(db,"groupChat"))
+      .key;
 
-    await set(ref(db,"groupChat/"+id),{
 
-      uid:currentUser.uid,
-      name:currentProfile?.name || "Student",
-      text:text,
-      createdAt:Date.now()
+    await set(
+      ref(db,"groupChat/"+id),
+      {
+        uid:currentUser.uid,
+        name:
+          currentProfile?.name
+          || "Student",
+        text,
+        createdAt:Date.now()
+      }
+    );
 
-    });
 
-    input.value="";
+    input.value = "";
+
 
   }catch(err){
 
@@ -1294,130 +2093,184 @@ async function sendMessage(){
 
 }
 
-$("sendBtn").onclick = sendMessage;
 
-$("chatInput").addEventListener("keydown",e=>{
-  if(e.key==="Enter"){
-    e.preventDefault();
-    sendMessage();
+$("sendBtn").onclick =
+sendMessage;
+
+
+$("chatInput")
+.addEventListener(
+  "keydown",
+  e=>{
+
+    if(e.key === "Enter"){
+
+      e.preventDefault();
+
+      sendMessage();
+
+    }
+
   }
-});
+);
 
 
 /* =========================
-   ADMIN STUDENT LIST
+   ADMIN STUDENTS
 ========================= */
 
 function listenStudents(){
 
   onValue(
+
     ref(db,"users"),
+
     snap=>{
 
-      const list = $("studentList");
+      const list =
+        $("studentList");
+
 
       if(!snap.exists()){
 
         list.innerHTML =
-          `<div class="empty">কোনো Student নেই।</div>`;
+          `<div class="empty">
+             কোনো Student নেই।
+           </div>`;
 
         return;
+
       }
+
 
       const students =
         Object.entries(snap.val())
-          .map(([uid,u])=>({uid,...u}))
-          .filter(s=>s.uid !== ADMIN_UID);
+        .map(([uid,u])=>({
+          uid,
+          ...u
+        }))
+        .filter(
+          s=>s.uid !== ADMIN_UID
+        );
+
 
       if(!students.length){
 
         list.innerHTML =
-          `<div class="empty">কোনো Student নেই।</div>`;
+          `<div class="empty">
+             কোনো Student নেই।
+           </div>`;
 
         return;
+
       }
 
-      list.innerHTML = students.map(s=>`
 
-        <div class="admin-row">
+      list.innerHTML =
+        students.map(s=>`
 
-          <div>
+          <div class="admin-row">
 
-            <strong>${escapeHTML(s.name)}</strong>
+            <div>
 
-            <div class="muted">
-              Class: ${escapeHTML(s.class)}
-              • Roll: ${escapeHTML(s.roll)}
+              <strong>
+                ${escapeHTML(s.name)}
+              </strong>
+
+              <div class="muted">
+                Class:
+                ${escapeHTML(s.class)}
+                • Roll:
+                ${escapeHTML(s.roll)}
+              </div>
+
+              <div
+                id="mod-${s.uid}"
+                class="muted"
+                style="margin-top:5px">
+                Loading...
+              </div>
+
             </div>
 
-            <div
-              id="mod-${s.uid}"
-              class="muted"
-              style="margin-top:5px">
-              Loading status...
+
+            <div class="admin-actions">
+
+              <button
+                class="btn warning small"
+                onclick="muteStudent('${s.uid}',15)">
+                15m Mute
+              </button>
+
+              <button
+                class="btn warning small"
+                onclick="muteStudent('${s.uid}',60)">
+                1h Mute
+              </button>
+
+              <button
+                class="btn danger small"
+                onclick="banStudent('${s.uid}')">
+                Ban
+              </button>
+
+              <button
+                class="btn success small"
+                onclick="unbanStudent('${s.uid}')">
+                Unban
+              </button>
+
+              <button
+                class="btn secondary small"
+                onclick="unmuteStudent('${s.uid}')">
+                Unmute
+              </button>
+
             </div>
 
           </div>
 
-          <div class="admin-actions">
+        `).join("");
 
-            <button
-              class="btn warning small"
-              onclick="muteStudent('${s.uid}',15)">
-              15m Mute
-            </button>
 
-            <button
-              class="btn warning small"
-              onclick="muteStudent('${s.uid}',60)">
-              1h Mute
-            </button>
-
-            <button
-              class="btn danger small"
-              onclick="banStudent('${s.uid}')">
-              Ban
-            </button>
-
-            <button
-              class="btn success small"
-              onclick="unbanStudent('${s.uid}')">
-              Unban
-            </button>
-
-            <button
-              class="btn secondary small"
-              onclick="unmuteStudent('${s.uid}')">
-              Unmute
-            </button>
-
-          </div>
-
-        </div>
-
-      `).join("");
-
-      /* Listen to each student's moderation state */
       students.forEach(s=>{
 
         onValue(
-          ref(db,"moderation/"+s.uid),
+
+          ref(
+            db,
+            "moderation/"+s.uid
+          ),
+
           snap=>{
 
-            const el = $("mod-"+s.uid);
+            const el =
+              $("mod-"+s.uid);
+
+
             if(!el)return;
 
-            const m = snap.exists()?snap.val():{};
+
+            const m =
+              snap.exists()
+              ? snap.val()
+              : {};
+
 
             if(m.banned){
 
               el.textContent =
                 "🔴 BANNED";
 
-            }else if(Number(m.mutedUntil||0)>Date.now()){
+            }else if(
+              Number(m.mutedUntil||0)
+              > Date.now()
+            ){
 
               el.textContent =
-                "🟡 MUTED until "+timeText(m.mutedUntil);
+                "🟡 MUTED until "
+                +
+                timeText(m.mutedUntil);
 
             }else{
 
@@ -1427,61 +2280,101 @@ function listenStudents(){
             }
 
           }
+
         );
 
       });
 
     }
+
   );
 
 }
 
 
 /* =========================
-   ADMIN MODERATION ACTIONS
+   MODERATION ACTIONS
 ========================= */
 
-window.muteStudent = async(uid,minutes)=>{
+window.muteStudent =
+async(uid,minutes)=>{
 
-  if(currentUser?.uid !== ADMIN_UID)return;
+  if(
+    currentUser?.uid
+    !== ADMIN_UID
+  )return;
+
 
   const until =
-    Date.now() + minutes*60*1000;
+    Date.now()
+    +
+    minutes*60*1000;
+
 
   await set(
-    ref(db,"moderation/"+uid+"/mutedUntil"),
+    ref(
+      db,
+      "moderation/"+uid+"/mutedUntil"
+    ),
     until
   );
 
 };
 
-window.unmuteStudent = async uid=>{
 
-  if(currentUser?.uid !== ADMIN_UID)return;
+window.unmuteStudent =
+async uid=>{
+
+  if(
+    currentUser?.uid
+    !== ADMIN_UID
+  )return;
+
 
   await remove(
-    ref(db,"moderation/"+uid+"/mutedUntil")
+    ref(
+      db,
+      "moderation/"+uid+"/mutedUntil"
+    )
   );
 
 };
 
-window.banStudent = async uid=>{
 
-  if(currentUser?.uid !== ADMIN_UID)return;
+window.banStudent =
+async uid=>{
+
+  if(
+    currentUser?.uid
+    !== ADMIN_UID
+  )return;
+
 
   await set(
-    ref(db,"moderation/"+uid+"/banned"),
+    ref(
+      db,
+      "moderation/"+uid+"/banned"
+    ),
     true
   );
 
 };
 
-window.unbanStudent = async uid=>{
 
-  if(currentUser?.uid !== ADMIN_UID)return;
+window.unbanStudent =
+async uid=>{
+
+  if(
+    currentUser?.uid
+    !== ADMIN_UID
+  )return;
+
 
   await remove(
-    ref(db,"moderation/"+uid+"/banned")
+    ref(
+      db,
+      "moderation/"+uid+"/banned"
+    )
   );
 
 };
@@ -1494,61 +2387,86 @@ window.unbanStudent = async uid=>{
 function listenAdminChat(){
 
   onValue(
+
     ref(db,"groupChat"),
+
     snap=>{
 
-      const box = $("adminChatBox");
+      const box =
+        $("adminChatBox");
+
 
       if(!snap.exists()){
 
         box.innerHTML =
-          `<div class="empty">কোনো message নেই।</div>`;
+          `<div class="empty">
+             কোনো message নেই।
+           </div>`;
 
         return;
+
       }
 
-      const messages = Object.entries(snap.val())
-        .map(([id,m])=>({id,...m}))
-        .sort((a,b)=>
-          (b.createdAt||0)-(a.createdAt||0)
+
+      const messages =
+        Object.entries(snap.val())
+        .map(([id,m])=>({
+          id,
+          ...m
+        }))
+        .sort(
+          (a,b)=>
+            (b.createdAt||0)
+            -
+            (a.createdAt||0)
         );
 
-      box.innerHTML = messages.map(m=>`
 
-        <div class="msg">
+      box.innerHTML =
+        messages.map(m=>`
 
-          <div class="msg-name">
-            ${escapeHTML(m.name || "Student")}
+          <div class="msg">
+
+            <div class="msg-name">
+              ${escapeHTML(
+                m.name || "Student"
+              )}
+            </div>
+
+            <div class="msg-text">
+              ${escapeHTML(m.text)}
+            </div>
+
+            <div class="msg-time">
+              ${timeText(m.createdAt)}
+            </div>
+
+            <button
+              class="btn danger small"
+              style="margin-top:7px"
+              onclick="deleteChatMessage('${m.id}')">
+              🗑️ Delete
+            </button>
+
           </div>
 
-          <div class="msg-text">
-            ${escapeHTML(m.text)}
-          </div>
-
-          <div class="msg-time">
-            ${timeText(m.createdAt)}
-          </div>
-
-          <button
-            class="btn danger small"
-            style="margin-top:7px"
-            onclick="deleteChatMessage('${m.id}')">
-            🗑️ Delete
-          </button>
-
-        </div>
-
-      `).join("");
+        `).join("");
 
     }
+
   );
 
 }
 
 
-window.deleteChatMessage = async id=>{
+window.deleteChatMessage =
+async id=>{
 
-  if(currentUser?.uid !== ADMIN_UID)return;
+  if(
+    currentUser?.uid
+    !== ADMIN_UID
+  )return;
+
 
   await remove(
     ref(db,"groupChat/"+id)
