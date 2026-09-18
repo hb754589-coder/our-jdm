@@ -2,8 +2,8 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#07111f">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#06101d">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -13,40 +13,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
 
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
   -webkit-tap-highlight-color:transparent;
 }
 
 :root{
-  --bg:#06101d;
-  --bg2:#0a1728;
-  --card:rgba(14,29,48,.78);
-  --card2:rgba(20,38,61,.75);
-  --border:rgba(255,255,255,.09);
-  --text:#f5f8ff;
-  --muted:#91a1b7;
-  --primary:#5ee7d0;
-  --primary2:#55a7ff;
-  --danger:#ff647c;
-  --warning:#ffc857;
-  --shadow:0 20px 60px rgba(0,0,0,.35);
-}
-
-html{
-  scroll-behavior:smooth;
+  --bg:#050c16;
+  --bg2:#091827;
+  --card:rgba(14,29,48,.82);
+  --line:rgba(255,255,255,.09);
+  --text:#f4f8ff;
+  --muted:#91a1b6;
+  --cyan:#5ee7d0;
+  --blue:#62aaff;
+  --red:#ff6179;
+  --yellow:#ffd166;
 }
 
 body{
   min-height:100vh;
-  background:
-    radial-gradient(circle at 10% 0%,rgba(70,150,255,.16),transparent 30%),
-    radial-gradient(circle at 90% 10%,rgba(70,255,214,.12),transparent 28%),
-    linear-gradient(145deg,#040b14,#081525 50%,#06101d);
   color:var(--text);
   font-family:Inter,"Noto Sans Bengali",sans-serif;
-  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 0 0,rgba(70,150,255,.16),transparent 30%),
+    radial-gradient(circle at 100% 10%,rgba(94,231,208,.12),transparent 30%),
+    linear-gradient(145deg,#040a12,#081525 55%,#050e19);
 }
 
 button,input{
@@ -61,36 +54,31 @@ button{
   display:none!important;
 }
 
-.app{
-  min-height:100vh;
-}
-
 /* ================= HEADER ================= */
 
 .header{
   position:sticky;
   top:0;
   z-index:1000;
-  padding:14px 16px;
-  background:rgba(5,13,24,.72);
+  padding:13px 15px;
+  background:rgba(4,11,20,.76);
   backdrop-filter:blur(22px);
   -webkit-backdrop-filter:blur(22px);
-  border-bottom:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid var(--line);
 }
 
 .header-inner{
-  max-width:1100px;
+  width:min(1100px,100%);
   margin:auto;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:12px;
+  align-items:center;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:11px;
 }
 
 .logo{
@@ -99,43 +87,44 @@ button{
   border-radius:15px;
   display:grid;
   place-items:center;
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  color:#06111e;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  color:#06121e;
   font-weight:900;
-  box-shadow:0 10px 30px rgba(85,167,255,.25);
+  box-shadow:0 10px 28px rgba(70,170,255,.22);
 }
 
 .brand h1{
   font-size:16px;
   font-weight:800;
-  letter-spacing:.3px;
 }
 
 .brand p{
   margin-top:2px;
+  font-size:10px;
   color:var(--muted);
-  font-size:11px;
 }
 
-.header-user{
+.online{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:7px;
+  font-size:10px;
+  color:var(--muted);
 }
 
-.status-dot{
+.dot{
   width:8px;
   height:8px;
-  background:#50e3a4;
   border-radius:50%;
+  background:#50e3a4;
   box-shadow:0 0 12px #50e3a4;
 }
 
 /* ================= NAV ================= */
 
 .nav{
-  max-width:1100px;
-  margin:12px auto 0;
+  width:min(1100px,100%);
+  margin:11px auto 0;
   display:flex;
   gap:7px;
   overflow-x:auto;
@@ -148,43 +137,42 @@ button{
 
 .nav button{
   flex:0 0 auto;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.035);
-  color:#b7c4d7;
   padding:9px 13px;
   border-radius:12px;
-  font-size:12px;
-  transition:.2s;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  color:#b7c4d7;
+  font-size:11px;
+  font-weight:700;
 }
 
-.nav button.active,
-.nav button:hover{
-  color:#07131f;
+.nav button.active{
+  color:#06121d;
+  background:linear-gradient(135deg,var(--cyan),#7bbaff);
   border-color:transparent;
-  background:linear-gradient(135deg,var(--primary),#79b8ff);
 }
 
 /* ================= MAIN ================= */
 
 main{
-  width:min(1100px,calc(100% - 28px));
-  margin:0 auto;
-  padding:24px 0 100px;
+  width:min(1100px,calc(100% - 22px));
+  margin:auto;
+  padding:20px 0 80px;
 }
 
 .section{
   display:none;
-  animation:fade .3s ease;
+  animation:show .3s ease;
 }
 
 .section.active{
   display:block;
 }
 
-@keyframes fade{
+@keyframes show{
   from{
     opacity:0;
-    transform:translateY(7px);
+    transform:translateY(8px);
   }
   to{
     opacity:1;
@@ -192,225 +180,74 @@ main{
   }
 }
 
-/* ================= HERO ================= */
+/* ================= LOGIN ================= */
 
-.hero{
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
-  border-radius:28px;
-  padding:30px 22px;
-  background:
-    linear-gradient(135deg,rgba(44,92,143,.28),rgba(18,37,62,.5)),
-    rgba(9,21,35,.8);
-  box-shadow:var(--shadow);
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:230px;
-  height:230px;
-  border-radius:50%;
-  background:rgba(94,231,208,.10);
-  filter:blur(5px);
-  right:-80px;
-  top:-100px;
-}
-
-.hero-tag{
-  display:inline-flex;
-  padding:7px 11px;
-  border-radius:99px;
-  background:rgba(94,231,208,.09);
-  color:var(--primary);
-  border:1px solid rgba(94,231,208,.15);
-  font-size:11px;
-  font-weight:700;
-}
-
-.hero h2{
-  margin-top:17px;
-  font-size:clamp(28px,7vw,48px);
-  line-height:1.1;
-  letter-spacing:-1.5px;
-}
-
-.hero h2 span{
-  background:linear-gradient(90deg,var(--primary),#78b9ff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.hero p{
-  margin-top:13px;
-  color:#aab8ca;
-  font-size:14px;
-  line-height:1.8;
-  max-width:650px;
-}
-
-.hero-actions{
-  margin-top:22px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-/* ================= CARDS ================= */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-  margin-top:16px;
-}
-
-.card{
-  border:1px solid var(--border);
-  background:var(--card);
-  border-radius:22px;
-  padding:18px;
-  box-shadow:0 12px 35px rgba(0,0,0,.18);
-  backdrop-filter:blur(14px);
-}
-
-.card-title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:14px;
-}
-
-.card-title h3{
-  font-size:15px;
-}
-
-.muted{
-  color:var(--muted);
-  font-size:12px;
-}
-
-.icon-box{
-  width:40px;
-  height:40px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  background:rgba(94,231,208,.08);
-  border:1px solid rgba(94,231,208,.12);
-  font-size:19px;
-}
-
-.stat{
-  font-size:24px;
-  font-weight:800;
-}
-
-.btn{
-  border:0;
-  padding:11px 15px;
-  border-radius:13px;
-  font-weight:700;
-  font-size:12px;
-  transition:.2s;
-}
-
-.btn:active{
-  transform:scale(.97);
-}
-
-.btn-primary{
-  color:#06131d;
-  background:linear-gradient(135deg,var(--primary),#80c0ff);
-}
-
-.btn-dark{
-  color:#dce8f6;
-  background:rgba(255,255,255,.06);
-  border:1px solid var(--border);
-}
-
-.btn-danger{
-  color:#fff;
-  background:rgba(255,100,124,.14);
-  border:1px solid rgba(255,100,124,.25);
-}
-
-.btn-warning{
-  color:#1b1404;
-  background:var(--warning);
-}
-
-.full{
-  width:100%;
-}
-
-/* ================= AUTH ================= */
-
-.auth-wrap{
-  min-height:calc(100vh - 130px);
+.auth-screen{
+  min-height:calc(100vh - 100px);
   display:grid;
   place-items:center;
 }
 
 .auth-card{
-  width:min(460px,100%);
-  padding:24px;
-  border-radius:27px;
-  border:1px solid var(--border);
-  background:rgba(10,23,39,.85);
-  box-shadow:var(--shadow);
+  width:min(450px,100%);
+  padding:25px;
+  border-radius:28px;
+  background:rgba(8,21,35,.9);
+  border:1px solid var(--line);
+  box-shadow:0 25px 70px rgba(0,0,0,.38);
 }
 
 .auth-logo{
-  width:62px;
-  height:62px;
-  border-radius:20px;
+  width:68px;
+  height:68px;
+  margin:0 auto 17px;
+  border-radius:22px;
   display:grid;
   place-items:center;
-  margin:0 auto 16px;
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  color:#06111e;
-  font-size:22px;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  color:#06121d;
   font-weight:900;
+  font-size:20px;
+  box-shadow:0 12px 35px rgba(80,180,255,.2);
 }
 
 .auth-card h2{
   text-align:center;
-  font-size:22px;
+  font-size:23px;
 }
 
-.auth-card > p{
+.auth-card .sub{
   text-align:center;
+  margin-top:6px;
+  margin-bottom:21px;
   color:var(--muted);
-  margin:7px 0 20px;
-  font-size:12px;
+  font-size:11px;
+  line-height:1.6;
 }
 
 .tabs{
   display:grid;
   grid-template-columns:1fr 1fr;
+  gap:4px;
   padding:4px;
   background:rgba(255,255,255,.04);
-  border-radius:13px;
-  margin-bottom:17px;
+  border-radius:14px;
+  margin-bottom:18px;
 }
 
 .tabs button{
   border:0;
-  padding:10px;
   border-radius:10px;
-  background:transparent;
+  padding:10px;
   color:var(--muted);
-  font-weight:700;
+  background:transparent;
   font-size:12px;
+  font-weight:800;
 }
 
 .tabs button.active{
+  color:white;
   background:rgba(255,255,255,.09);
-  color:#fff;
 }
 
 .field{
@@ -419,67 +256,218 @@ main{
 
 .field label{
   display:block;
-  margin-bottom:7px;
-  font-size:11px;
+  margin-bottom:6px;
   color:#aebbd0;
+  font-size:10px;
+  font-weight:700;
 }
 
 .field input{
   width:100%;
   padding:13px 14px;
   border-radius:13px;
-  border:1px solid var(--border);
   outline:none;
-  color:#fff;
+  border:1px solid var(--line);
   background:rgba(255,255,255,.045);
+  color:white;
 }
 
 .field input:focus{
   border-color:rgba(94,231,208,.55);
-  box-shadow:0 0 0 3px rgba(94,231,208,.07);
+  box-shadow:0 0 0 3px rgba(94,231,208,.06);
 }
 
-/* ================= PAGE TITLE ================= */
+/* ================= BUTTON ================= */
+
+.btn{
+  border:0;
+  border-radius:13px;
+  padding:11px 15px;
+  font-size:11px;
+  font-weight:800;
+  transition:.18s;
+}
+
+.btn:active{
+  transform:scale(.97);
+}
+
+.primary{
+  color:#06121d;
+  background:linear-gradient(135deg,var(--cyan),#7bbaff);
+}
+
+.dark{
+  color:#dce7f5;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+}
+
+.danger{
+  color:#fff;
+  background:rgba(255,97,121,.14);
+  border:1px solid rgba(255,97,121,.25);
+}
+
+.full{
+  width:100%;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:29px 21px;
+  border-radius:27px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(135deg,rgba(55,108,165,.25),rgba(13,29,48,.65)),
+    rgba(7,19,32,.82);
+  box-shadow:0 22px 60px rgba(0,0,0,.25);
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  background:rgba(94,231,208,.08);
+  right:-75px;
+  top:-80px;
+}
+
+.badge{
+  display:inline-flex;
+  padding:7px 11px;
+  border-radius:99px;
+  border:1px solid rgba(94,231,208,.16);
+  background:rgba(94,231,208,.07);
+  color:var(--cyan);
+  font-size:10px;
+  font-weight:800;
+}
+
+.hero h2{
+  margin-top:16px;
+  font-size:clamp(29px,8vw,48px);
+  line-height:1.1;
+  letter-spacing:-1.5px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,var(--cyan),#79b8ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:650px;
+  margin-top:13px;
+  color:#aebbd0;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:21px;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+  margin-top:14px;
+}
+
+.card{
+  padding:18px;
+  border-radius:21px;
+  border:1px solid var(--line);
+  background:var(--card);
+  box-shadow:0 12px 35px rgba(0,0,0,.16);
+}
+
+.card h3{
+  font-size:14px;
+}
+
+.card-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:13px;
+}
+
+.icon{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:rgba(94,231,208,.07);
+  border:1px solid rgba(94,231,208,.12);
+}
+
+.muted{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.stat{
+  margin-top:4px;
+  font-size:23px;
+  font-weight:800;
+}
+
+/* ================= PAGE ================= */
 
 .page-head{
-  margin-bottom:18px;
+  margin-bottom:16px;
 }
 
 .page-head h2{
-  font-size:24px;
+  font-size:23px;
 }
 
 .page-head p{
   margin-top:5px;
   color:var(--muted);
-  font-size:12px;
+  font-size:11px;
 }
 
 /* ================= NOTICE ================= */
 
-.notice-item{
-  padding:16px;
-  border:1px solid var(--border);
+.notice{
+  padding:15px;
   border-radius:17px;
   background:rgba(255,255,255,.025);
-  margin-bottom:10px;
+  border:1px solid var(--line);
+  margin-bottom:9px;
 }
 
-.notice-item h3{
-  font-size:14px;
+.notice h3{
+  font-size:13px;
 }
 
-.notice-item p{
-  margin-top:8px;
-  color:#b6c2d3;
-  font-size:12px;
+.notice p{
+  margin-top:7px;
+  color:#b5c1d2;
+  font-size:11px;
   line-height:1.7;
 }
 
-.notice-date{
-  margin-top:9px;
-  font-size:10px;
-  color:#6f8097;
+.date{
+  margin-top:8px;
+  color:#6e7e94;
+  font-size:9px;
 }
 
 /* ================= CHAT ================= */
@@ -489,20 +477,25 @@ main{
   overflow:hidden;
 }
 
-.chat-top{
-  padding:17px;
-  border-bottom:1px solid var(--border);
+.chat-head{
+  padding:16px;
+  border-bottom:1px solid var(--line);
 }
 
-.chat-messages{
-  height:430px;
+.chat-head strong{
+  font-size:13px;
+}
+
+.chat-box{
+  height:55vh;
+  min-height:360px;
   overflow-y:auto;
-  padding:16px;
+  padding:15px;
 }
 
 .message{
   display:flex;
-  margin-bottom:13px;
+  margin-bottom:12px;
 }
 
 .message.mine{
@@ -513,57 +506,57 @@ main{
   max-width:82%;
   padding:10px 12px;
   border-radius:16px;
-  background:rgba(255,255,255,.06);
-  border:1px solid var(--border);
+  background:rgba(255,255,255,.055);
+  border:1px solid var(--line);
 }
 
 .mine .bubble{
-  background:linear-gradient(135deg,rgba(94,231,208,.16),rgba(85,167,255,.13));
+  background:linear-gradient(135deg,rgba(94,231,208,.15),rgba(98,170,255,.13));
 }
 
 .msg-name{
-  color:var(--primary);
-  font-size:10px;
-  font-weight:800;
   margin-bottom:4px;
+  color:var(--cyan);
+  font-size:9px;
+  font-weight:800;
 }
 
 .msg-text{
-  font-size:13px;
+  font-size:12px;
   line-height:1.55;
   word-break:break-word;
 }
 
 .msg-time{
-  color:#718299;
-  font-size:9px;
   margin-top:5px;
+  color:#718198;
+  font-size:8px;
 }
 
 .msg-delete{
-  margin-top:6px;
   border:0;
   background:transparent;
-  color:var(--danger);
-  font-size:10px;
+  color:var(--red);
+  font-size:9px;
+  margin-top:5px;
 }
 
 .chat-input{
   display:flex;
   gap:8px;
-  padding:12px;
-  border-top:1px solid var(--border);
+  padding:11px;
+  border-top:1px solid var(--line);
 }
 
 .chat-input input{
-  flex:1;
   min-width:0;
-  padding:12px 13px;
-  border:1px solid var(--border);
+  flex:1;
+  padding:12px;
   border-radius:13px;
+  border:1px solid var(--line);
+  outline:none;
   background:rgba(255,255,255,.04);
   color:#fff;
-  outline:none;
 }
 
 /* ================= TEACHERS ================= */
@@ -571,76 +564,105 @@ main{
 .teacher-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:11px;
 }
 
 .teacher{
   display:flex;
   align-items:center;
-  gap:13px;
-  padding:15px;
-  border:1px solid var(--border);
-  border-radius:18px;
+  gap:12px;
+  padding:14px;
+  border-radius:17px;
+  border:1px solid var(--line);
   background:rgba(255,255,255,.025);
 }
 
 .teacher-avatar{
-  width:45px;
-  height:45px;
-  border-radius:15px;
+  flex:0 0 auto;
+  width:44px;
+  height:44px;
+  border-radius:14px;
   display:grid;
   place-items:center;
-  background:linear-gradient(135deg,rgba(94,231,208,.18),rgba(85,167,255,.18));
-  font-weight:800;
-  color:var(--primary);
+  color:var(--cyan);
+  font-weight:900;
+  background:linear-gradient(135deg,rgba(94,231,208,.13),rgba(98,170,255,.13));
 }
 
 .teacher h3{
-  font-size:13px;
+  font-size:12px;
 }
 
 .teacher p{
-  color:var(--muted);
-  font-size:11px;
   margin-top:3px;
+  color:var(--muted);
+  font-size:10px;
+}
+
+/* ================= PROFILE ================= */
+
+.profile-top{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.avatar{
+  width:62px;
+  height:62px;
+  border-radius:20px;
+  display:grid;
+  place-items:center;
+  color:#06121d;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  font-size:21px;
+  font-weight:900;
+}
+
+.profile-name{
+  font-size:18px;
+  font-weight:800;
+}
+
+.profile-email{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:10px;
 }
 
 /* ================= ADMIN ================= */
 
 .admin-banner{
-  border:1px solid rgba(255,200,87,.2);
-  background:linear-gradient(135deg,rgba(255,200,87,.08),rgba(255,255,255,.025));
-  padding:17px;
-  border-radius:19px;
-  margin-bottom:14px;
+  padding:16px;
+  margin-bottom:13px;
+  border-radius:18px;
+  border:1px solid rgba(255,209,102,.2);
+  background:rgba(255,209,102,.06);
 }
 
 .admin-banner strong{
-  color:var(--warning);
+  color:var(--yellow);
+  font-size:12px;
 }
 
 .admin-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:14px;
+  gap:13px;
 }
 
 .list{
-  max-height:330px;
+  max-height:340px;
   overflow:auto;
 }
 
 .user-row{
+  padding:11px 0;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:10px;
-  padding:12px 0;
   border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-.user-row:last-child{
-  border-bottom:0;
 }
 
 .user-info{
@@ -649,63 +671,31 @@ main{
 
 .user-info strong{
   display:block;
-  font-size:12px;
+  font-size:11px;
 }
 
 .user-info small{
   display:block;
   margin-top:3px;
   color:var(--muted);
-  font-size:9px;
+  font-size:8px;
   word-break:break-all;
 }
 
 .user-actions{
   display:flex;
-  gap:5px;
   flex-wrap:wrap;
   justify-content:flex-end;
+  gap:4px;
 }
 
 .user-actions button{
-  padding:7px 9px;
-  border-radius:9px;
-  border:1px solid var(--border);
+  padding:6px 8px;
+  border-radius:8px;
+  border:1px solid var(--line);
   background:rgba(255,255,255,.05);
-  color:#d8e3f1;
-  font-size:9px;
-}
-
-/* ================= PROFILE ================= */
-
-.profile-top{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  margin-bottom:18px;
-}
-
-.profile-avatar{
-  width:62px;
-  height:62px;
-  border-radius:20px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  color:#06111e;
-  font-weight:900;
-  font-size:22px;
-}
-
-.profile-name{
-  font-size:19px;
-  font-weight:800;
-}
-
-.profile-email{
-  margin-top:4px;
-  color:var(--muted);
-  font-size:11px;
+  color:#dce6f2;
+  font-size:8px;
 }
 
 /* ================= TOAST ================= */
@@ -713,20 +703,21 @@ main{
 #toast{
   position:fixed;
   left:50%;
-  bottom:24px;
-  transform:translate(-50%,20px);
+  bottom:23px;
   z-index:9999;
+  width:min(90%,400px);
+  padding:12px 15px;
+  border-radius:13px;
+  text-align:center;
+  color:#eef5ff;
+  background:rgba(9,22,37,.96);
+  border:1px solid var(--line);
+  box-shadow:0 18px 45px rgba(0,0,0,.4);
   opacity:0;
   pointer-events:none;
+  transform:translate(-50%,20px);
   transition:.25s;
-  width:min(90%,420px);
-  padding:13px 16px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  background:rgba(11,24,40,.94);
-  box-shadow:var(--shadow);
-  text-align:center;
-  font-size:12px;
+  font-size:11px;
 }
 
 #toast.show{
@@ -734,47 +725,30 @@ main{
   transform:translate(-50%,0);
 }
 
-/* ================= FOOTER ================= */
-
 .footer{
-  margin-top:30px;
-  padding:22px;
+  margin-top:28px;
+  padding:20px;
   text-align:center;
-  color:#617188;
-  font-size:10px;
+  color:#607087;
+  font-size:9px;
 }
 
-/* ================= RESPONSIVE ================= */
-
 @media(max-width:760px){
-  .grid{
-    grid-template-columns:1fr;
-  }
 
+  .grid,
   .admin-grid,
   .teacher-grid{
     grid-template-columns:1fr;
   }
 
-  .hero{
-    padding:25px 18px;
-    border-radius:23px;
-  }
-
-  main{
-    width:min(100% - 20px,1100px);
-    padding-top:17px;
-  }
-
-  .chat-messages{
-    height:55vh;
-  }
 }
 
 @media(min-width:761px){
+
   .hero{
     padding:42px;
   }
+
 }
 </style>
 </head>
@@ -783,73 +757,115 @@ main{
 
 <div id="toast"></div>
 
-<div class="app">
-
 <header class="header">
+
   <div class="header-inner">
 
     <div class="brand">
+
       <div class="logo">JDM</div>
+
       <div>
         <h1>OUR JDM</h1>
         <p>Jalchatra Dakhil Madrasha</p>
       </div>
+
     </div>
 
-    <div id="headerUser" class="header-user hidden">
-      <span class="status-dot"></span>
-      <span id="headerName" class="muted">Student</span>
+    <div id="onlineUser" class="online hidden">
+      <span class="dot"></span>
+      <span id="headerName">Student</span>
     </div>
 
   </div>
 
+
   <nav id="nav" class="nav hidden">
+
     <button data-page="home" class="active">Home</button>
     <button data-page="notice">Notice</button>
     <button data-page="chat">Group Chat</button>
     <button data-page="teachers">Teachers</button>
     <button data-page="profile">Profile</button>
-    <button id="adminNav" data-page="admin" class="hidden">Admin</button>
+    <button id="adminNav" data-page="admin" class="hidden">⚡ Admin</button>
+
   </nav>
+
 </header>
 
 
 <main>
 
+
 <!-- ================= AUTH ================= -->
 
 <section id="authSection" class="section active">
 
-  <div class="auth-wrap">
+  <div class="auth-screen">
 
     <div class="auth-card">
 
-      <div class="auth-logo">JDM</div>
+      <div class="auth-logo">
+        JDM
+      </div>
 
       <h2>Welcome to OUR JDM</h2>
-      <p>Jalchatra Dakhil Madrasha Digital Community</p>
+
+      <p class="sub">
+        Jalchatra Dakhil Madrasha<br>
+        Digital Community
+      </p>
+
 
       <div class="tabs">
-        <button id="loginTab" class="active">Login</button>
-        <button id="registerTab">Register</button>
+
+        <button id="loginTab" class="active">
+          Login
+        </button>
+
+        <button id="registerTab">
+          Registration
+        </button>
+
       </div>
+
 
       <!-- LOGIN -->
 
       <form id="loginForm">
 
         <div class="field">
+
           <label>Email</label>
-          <input id="loginEmail" type="email" required placeholder="Enter your email">
+
+          <input
+            id="loginEmail"
+            type="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+          >
+
         </div>
+
 
         <div class="field">
+
           <label>Password</label>
-          <input id="loginPassword" type="password" required placeholder="Enter password">
+
+          <input
+            id="loginPassword"
+            type="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+
         </div>
 
-        <button class="btn btn-primary full" type="submit">
-          Login
+
+        <button class="btn primary full" type="submit">
+          Login to OUR JDM
         </button>
 
       </form>
@@ -861,7 +877,7 @@ main{
 
         <div class="field">
           <label>Student Name</label>
-          <input id="regName" required placeholder="Enter your name">
+          <input id="regName" required placeholder="Your full name">
         </div>
 
         <div class="field">
@@ -871,17 +887,17 @@ main{
 
         <div class="field">
           <label>Roll</label>
-          <input id="regRoll" required placeholder="Enter roll">
+          <input id="regRoll" required placeholder="Your roll number">
         </div>
 
         <div class="field">
           <label>Phone</label>
-          <input id="regPhone" type="tel" required placeholder="Enter phone number">
+          <input id="regPhone" type="tel" required placeholder="Your phone number">
         </div>
 
         <div class="field">
           <label>Email</label>
-          <input id="regEmail" type="email" required placeholder="Enter email">
+          <input id="regEmail" type="email" required placeholder="Your email">
         </div>
 
         <div class="field">
@@ -889,7 +905,7 @@ main{
           <input id="regPassword" type="password" minlength="6" required placeholder="Minimum 6 characters">
         </div>
 
-        <button class="btn btn-primary full" type="submit">
+        <button class="btn primary full" type="submit">
           Create Student Account
         </button>
 
@@ -908,26 +924,36 @@ main{
 
   <div class="hero">
 
-    <span class="hero-tag">✦ DIGITAL MADRASHA COMMUNITY</span>
+    <span class="badge">
+      ✦ DIGITAL MADRASHA COMMUNITY
+    </span>
 
     <h2>
       Welcome to<br>
-      <span>OUR JDM</span>
+      <span class="gradient">OUR JDM</span>
     </h2>
 
     <p>
-      Jalchatra Dakhil Madrasha-এর শিক্ষার্থী ও শিক্ষকদের জন্য
-      একটি সুন্দর, নিরাপদ এবং আধুনিক ডিজিটাল কমিউনিটি।
+      Jalchatra Dakhil Madrasha-এর শিক্ষার্থী ও শিক্ষকদের
+      জন্য একটি আধুনিক ডিজিটাল কমিউনিটি প্ল্যাটফর্ম।
     </p>
 
-    <div class="hero-actions">
-      <button class="btn btn-primary" onclick="showPage('notice')">
-        View Notice
+    <div class="actions">
+
+      <button
+        class="btn primary"
+        onclick="showPage('notice')"
+      >
+        📢 View Notice
       </button>
 
-      <button class="btn btn-dark" onclick="showPage('chat')">
-        Open Group Chat
+      <button
+        class="btn dark"
+        onclick="showPage('chat')"
+      >
+        💬 Group Chat
       </button>
+
     </div>
 
   </div>
@@ -936,36 +962,62 @@ main{
   <div class="grid">
 
     <div class="card">
+
       <div class="card-title">
+
         <div>
           <div class="muted">COMMUNITY</div>
           <div class="stat">JDM</div>
         </div>
-        <div class="icon-box">🏫</div>
+
+        <div class="icon">🏫</div>
+
       </div>
-      <p class="muted">আমাদের মাদ্রাসার ডিজিটাল প্ল্যাটফর্ম</p>
+
+      <div class="muted">
+        আমাদের ডিজিটাল মাদ্রাসা প্ল্যাটফর্ম
+      </div>
+
     </div>
 
+
     <div class="card">
+
       <div class="card-title">
+
         <div>
           <div class="muted">NOTICE</div>
-          <div class="stat" id="noticeCount">0</div>
+          <div id="noticeCount" class="stat">0</div>
         </div>
-        <div class="icon-box">📢</div>
+
+        <div class="icon">📢</div>
+
       </div>
-      <p class="muted">সর্বশেষ নোটিশ ও আপডেট</p>
+
+      <div class="muted">
+        সর্বশেষ নোটিশ ও আপডেট
+      </div>
+
     </div>
 
+
     <div class="card">
+
       <div class="card-title">
+
         <div>
           <div class="muted">CHAT</div>
           <div class="stat">LIVE</div>
         </div>
-        <div class="icon-box">💬</div>
+
+        <div class="icon">💬</div>
+
       </div>
-      <p class="muted">শিক্ষার্থীদের Real-time Group Chat</p>
+
+      <div class="muted">
+        Real-time student group chat
+      </div>
+
     </div>
 
   </div>
@@ -978,14 +1030,24 @@ main{
 <section id="notice" class="section">
 
   <div class="page-head">
+
     <h2>📢 Notice Board</h2>
-    <p>মাদ্রাসার সর্বশেষ নোটিশ ও গুরুত্বপূর্ণ তথ্য</p>
+
+    <p>
+      মাদ্রাসার সর্বশেষ নোটিশ ও গুরুত্বপূর্ণ তথ্য
+    </p>
+
   </div>
 
+
   <div class="card">
+
     <div id="noticeList">
-      <div class="muted">Loading notices...</div>
+      <div class="muted">
+        Loading notices...
+      </div>
     </div>
+
   </div>
 
 </section>
@@ -996,24 +1058,55 @@ main{
 <section id="chat" class="section">
 
   <div class="page-head">
+
     <h2>💬 Group Chat</h2>
-    <p>OUR JDM student community</p>
+
+    <p>
+      OUR JDM Student Community
+    </p>
+
   </div>
+
 
   <div class="card chat-card">
 
-    <div class="chat-top">
-      <strong>JDM Community Chat</strong>
-      <div class="muted">Be respectful. Bad language is not allowed.</div>
+    <div class="chat-head">
+
+      <strong>
+        JDM Community Chat
+      </strong>
+
+      <div class="muted">
+        Please be respectful.
+      </div>
+
     </div>
 
-    <div id="chatMessages" class="chat-messages">
-      <div class="muted">Loading messages...</div>
+
+    <div id="chatMessages" class="chat-box">
+
+      <div class="muted">
+        Loading messages...
+      </div>
+
     </div>
+
 
     <div class="chat-input">
-      <input id="chatInput" maxlength="500" placeholder="Write a message...">
-      <button id="sendChat" class="btn btn-primary">Send</button>
+
+      <input
+        id="chatInput"
+        maxlength="500"
+        placeholder="Write a message..."
+      >
+
+      <button
+        id="sendChat"
+        class="btn primary"
+      >
+        Send
+      </button>
+
     </div>
 
   </div>
@@ -1026,14 +1119,24 @@ main{
 <section id="teachers" class="section">
 
   <div class="page-head">
+
     <h2>👨‍🏫 Teachers</h2>
-    <p>Our respected teachers</p>
+
+    <p>
+      Our respected teachers
+    </p>
+
   </div>
+
 
   <div class="card">
 
     <div id="teacherList" class="teacher-grid">
-      <div class="muted">Loading teachers...</div>
+
+      <div class="muted">
+        Loading teachers...
+      </div>
+
     </div>
 
   </div>
@@ -1046,22 +1149,38 @@ main{
 <section id="profile" class="section">
 
   <div class="page-head">
+
     <h2>👤 My Profile</h2>
-    <p>Your private account information</p>
+
+    <p>
+      Your account information
+    </p>
+
   </div>
+
 
   <div class="card">
 
     <div class="profile-top">
 
-      <div id="profileAvatar" class="profile-avatar">U</div>
+      <div id="profileAvatar" class="avatar">
+        U
+      </div>
 
       <div>
-        <div id="profileName" class="profile-name">Student</div>
-        <div id="profileEmail" class="profile-email">—</div>
+
+        <div id="profileName" class="profile-name">
+          Student
+        </div>
+
+        <div id="profileEmail" class="profile-email">
+          —
+        </div>
+
       </div>
 
     </div>
+
 
     <div class="grid">
 
@@ -1076,15 +1195,19 @@ main{
       </div>
 
       <div class="card">
-        <div class="muted">ACCOUNT</div>
+        <div class="muted">STATUS</div>
         <div class="stat">Active</div>
       </div>
 
     </div>
 
+
     <br>
 
-    <button id="logoutBtn" class="btn btn-danger full">
+    <button
+      id="logoutBtn"
+      class="btn danger full"
+    >
       Logout
     </button>
 
@@ -1098,41 +1221,75 @@ main{
 <section id="admin" class="section">
 
   <div class="page-head">
+
     <h2>⚡ Admin Control Center</h2>
-    <p>Only authorized Admin UID can access this panel</p>
+
+    <p>
+      Authorized Admin only
+    </p>
+
   </div>
 
+
   <div class="admin-banner">
-    <strong>ADMIN MODE ACTIVE</strong>
+
+    <strong>
+      ADMIN MODE ACTIVE
+    </strong>
+
     <div class="muted">
-      You are signed in with the authorized Admin account.
+      Authorized Firebase Admin account detected.
     </div>
+
   </div>
 
 
   <div class="admin-grid">
+
 
     <!-- NOTICE -->
 
     <div class="card">
 
       <div class="card-title">
+
         <h3>📢 Publish Notice</h3>
+
       </div>
+
 
       <form id="noticeForm">
 
         <div class="field">
+
           <label>Notice Title</label>
-          <input id="noticeTitle" required placeholder="Notice title">
+
+          <input
+            id="noticeTitle"
+            required
+            placeholder="Notice title"
+          >
+
         </div>
+
 
         <div class="field">
+
           <label>Notice Body</label>
-          <input id="noticeBody" required placeholder="Write notice">
+
+          <input
+            id="noticeBody"
+            required
+            placeholder="Write notice"
+          >
+
         </div>
 
-        <button class="btn btn-primary full">
+
+        <button
+          class="btn primary full"
+          type="submit"
+        >
           Publish Notice
         </button>
 
@@ -1146,27 +1303,57 @@ main{
     <div class="card">
 
       <div class="card-title">
+
         <h3>👨‍🏫 Add Teacher</h3>
+
       </div>
+
 
       <form id="teacherForm">
 
         <div class="field">
+
           <label>Teacher Name</label>
-          <input id="teacherName" required placeholder="Teacher name">
+
+          <input
+            id="teacherName"
+            required
+            placeholder="Teacher name"
+          >
+
         </div>
 
+
         <div class="field">
+
           <label>Subject</label>
-          <input id="teacherSubject" required placeholder="Subject">
+
+          <input
+            id="teacherSubject"
+            required
+            placeholder="Subject"
+          >
+
         </div>
+
 
         <div class="field">
+
           <label>Designation</label>
-          <input id="teacherDesignation" required placeholder="Designation">
+
+          <input
+            id="teacherDesignation"
+            required
+            placeholder="Designation"
+          >
+
         </div>
 
-        <button class="btn btn-primary full">
+
+        <button
+          class="btn primary full"
+          type="submit"
+        >
           Add Teacher
         </button>
 
@@ -1180,19 +1367,31 @@ main{
   <br>
 
 
-  <!-- STUDENT MODERATION -->
+  <!-- MODERATION -->
 
   <div class="card">
 
     <div class="card-title">
+
       <div>
+
         <h3>🛡 Student Moderation</h3>
-        <div class="muted">Mute / Ban / Unban students</div>
+
+        <div class="muted">
+          Mute / Ban / Unban students
+        </div>
+
       </div>
+
     </div>
 
+
     <div id="studentList" class="list">
-      <div class="muted">Loading students...</div>
+
+      <div class="muted">
+        Loading students...
+      </div>
+
     </div>
 
   </div>
@@ -1206,14 +1405,26 @@ main{
   <div class="card">
 
     <div class="card-title">
+
       <div>
+
         <h3>🗑 Chat Management</h3>
-        <div class="muted">Admin can delete inappropriate messages</div>
+
+        <div class="muted">
+          Delete inappropriate messages
+        </div>
+
       </div>
+
     </div>
 
+
     <div id="adminChatList" class="list">
-      <div class="muted">Loading chat...</div>
+
+      <div class="muted">
+        Loading chat...
+      </div>
+
     </div>
 
   </div>
@@ -1226,8 +1437,6 @@ main{
 </div>
 
 </main>
-
-</div>
 
 
 <script type="module">
@@ -1257,43 +1466,63 @@ from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 
 /* =========================================================
-   FIREBASE
+   FIREBASE CONFIG
 ========================================================= */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDZKSWOQtDjpylWLBa39v9_XeZclzojkxQ",
-  authDomain: "our-jdm.firebaseapp.com",
-  databaseURL: "https://our-jdm-default-rtdb.firebaseio.com",
-  projectId: "our-jdm",
-  storageBucket: "our-jdm.firebasestorage.app",
-  messagingSenderId: "286298440794",
-  appId: "1:286298440794:web:12e5e0af59e2c77d2d0463"
+
+  apiKey:
+    "AIzaSyDZKSWOQtDjpylWLBa39v9_XeZclzojkxQ",
+
+  authDomain:
+    "our-jdm.firebaseapp.com",
+
+  databaseURL:
+    "https://our-jdm-default-rtdb.firebaseio.com",
+
+  projectId:
+    "our-jdm",
+
+  storageBucket:
+    "our-jdm.firebasestorage.app",
+
+  messagingSenderId:
+    "286298440794",
+
+  appId:
+    "1:286298440794:web:12e5e0af59e2c77d2d0463"
+
 };
 
 
 /* =========================================================
-   IMPORTANT ADMIN UID
+   ADMIN UID
 ========================================================= */
 
 const ADMIN_UID =
   "OvGBm4CurNRZzz64vztAxk0vIok1";
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const auth =
+  getAuth(app);
 
-const db = getDatabase(app);
+const db =
+  getDatabase(app);
+
+
+let currentUser = null;
+let currentProfile = null;
 
 
 /* =========================================================
    HELPERS
 ========================================================= */
 
-const $ = id => document.getElementById(id);
-
-let currentUser = null;
-let currentProfile = null;
+const $ = id =>
+  document.getElementById(id);
 
 
 function toast(message){
@@ -1302,11 +1531,12 @@ function toast(message){
 
   $("toast").classList.add("show");
 
-  clearTimeout(window.toastTimer);
+  clearTimeout(window.__toast);
 
-  window.toastTimer = setTimeout(()=>{
-    $("toast").classList.remove("show");
-  },3000);
+  window.__toast =
+    setTimeout(()=>{
+      $("toast").classList.remove("show");
+    },3000);
 }
 
 
@@ -1326,52 +1556,36 @@ function formatTime(time){
   if(!time) return "";
 
   try{
-    return new Date(time).toLocaleString("bn-BD",{
-      dateStyle:"short",
-      timeStyle:"short"
-    });
+
+    return new Date(time)
+      .toLocaleString("bn-BD",{
+        dateStyle:"short",
+        timeStyle:"short"
+      });
+
   }catch{
+
     return "";
+
   }
+
 }
 
 
 /* =========================================================
-   PROFANITY FILTER
-========================================================= */
-
-const badWords = [
-  "fuck",
-  "shit",
-  "bitch",
-  "asshole",
-  "bastard",
-  "motherfucker"
-];
-
-
-function containsBadWord(text){
-
-  const lower = text.toLowerCase();
-
-  return badWords.some(word =>
-    lower.includes(word)
-  );
-}
-
-
-/* =========================================================
-   PAGE NAVIGATION
+   NAVIGATION
 ========================================================= */
 
 window.showPage = function(page){
 
   if(!currentUser) return;
 
+
   document.querySelectorAll(".section")
     .forEach(section=>{
       section.classList.remove("active");
     });
+
 
   const target = $(page);
 
@@ -1379,29 +1593,35 @@ window.showPage = function(page){
     target.classList.add("active");
   }
 
+
   document.querySelectorAll(".nav button")
-    .forEach(btn=>{
-      btn.classList.toggle(
+    .forEach(button=>{
+
+      button.classList.toggle(
         "active",
-        btn.dataset.page === page
+        button.dataset.page === page
       );
+
     });
+
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
+
 };
 
 
 document.querySelectorAll(".nav button")
 .forEach(button=>{
 
-  button.addEventListener("click",()=>{
-
-    showPage(button.dataset.page);
-
-  });
+  button.addEventListener(
+    "click",
+    ()=>{
+      showPage(button.dataset.page);
+    }
+  );
 
 });
 
@@ -1436,243 +1656,325 @@ $("registerTab").onclick = ()=>{
    REGISTER
 ========================================================= */
 
-$("registerForm").addEventListener("submit",async e=>{
+$("registerForm").addEventListener(
+  "submit",
+  async event=>{
 
-  e.preventDefault();
+    event.preventDefault();
 
-  const name = $("regName").value.trim();
-  const studentClass = $("regClass").value.trim();
-  const roll = $("regRoll").value.trim();
-  const phone = $("regPhone").value.trim();
-  const email = $("regEmail").value.trim();
-  const password = $("regPassword").value;
 
-  try{
+    const name =
+      $("regName").value.trim();
 
-    const credential =
-      await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
+    const studentClass =
+      $("regClass").value.trim();
+
+    const roll =
+      $("regRoll").value.trim();
+
+    const phone =
+      $("regPhone").value.trim();
+
+    const email =
+      $("regEmail").value.trim();
+
+    const password =
+      $("regPassword").value;
+
+
+    try{
+
+      const credential =
+        await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+
+      const uid =
+        credential.user.uid;
+
+
+      await set(
+        ref(db,`users/${uid}`),
+        {
+          name,
+          class:studentClass,
+          roll,
+          createdAt:Date.now()
+        }
       );
 
-    const uid = credential.user.uid;
 
-    await set(
-      ref(db,`users/${uid}`),
-      {
-        name,
-        class:studentClass,
-        roll,
-        createdAt:Date.now()
-      }
-    );
+      await set(
+        ref(db,`privateUsers/${uid}`),
+        {
+          email,
+          phone,
+          createdAt:Date.now()
+        }
+      );
 
-    await set(
-      ref(db,`privateUsers/${uid}`),
-      {
-        email,
-        phone,
-        createdAt:Date.now()
-      }
-    );
 
-    toast("Registration successful!");
+      toast(
+        "Registration successful!"
+      );
 
-  }catch(error){
 
-    console.error(error);
+    }catch(error){
 
-    toast(error.message || "Registration failed");
+      console.error(error);
+
+      toast(
+        error.message ||
+        "Registration failed"
+      );
+
+    }
 
   }
-
-});
+);
 
 
 /* =========================================================
    LOGIN
 ========================================================= */
 
-$("loginForm").addEventListener("submit",async e=>{
+$("loginForm").addEventListener(
+  "submit",
+  async event=>{
 
-  e.preventDefault();
+    event.preventDefault();
 
-  const email = $("loginEmail").value.trim();
-  const password = $("loginPassword").value;
 
-  try{
+    const email =
+      $("loginEmail").value.trim();
 
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    const password =
+      $("loginPassword").value;
 
-    toast("Login successful!");
 
-  }catch(error){
+    try{
 
-    console.error(error);
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-    toast(error.message || "Login failed");
+
+      toast(
+        "Login successful!"
+      );
+
+
+    }catch(error){
+
+      console.error(error);
+
+      toast(
+        error.message ||
+        "Login failed"
+      );
+
+    }
 
   }
-
-});
+);
 
 
 /* =========================================================
    AUTH STATE
 ========================================================= */
 
-onAuthStateChanged(auth,async user=>{
+onAuthStateChanged(
+  auth,
+  async user=>{
 
-  currentUser = user;
-
-  if(!user){
-
-    $("authSection").classList.add("active");
-
-    $("nav").classList.add("hidden");
-
-    $("headerUser").classList.add("hidden");
-
-    document.querySelectorAll(
-      ".section:not(#authSection)"
-    ).forEach(section=>{
-      section.classList.remove("active");
-    });
-
-    $("adminNav").classList.add("hidden");
-
-    return;
-  }
+    currentUser = user;
 
 
-  /* USER LOGGED IN */
+    /* ============================================
+       NOT LOGGED IN
+    ============================================ */
 
-  $("authSection").classList.remove("active");
+    if(!user){
 
-  $("nav").classList.remove("hidden");
+      $("authSection")
+        .classList.add("active");
 
-  $("headerUser").classList.remove("hidden");
+      $("nav")
+        .classList.add("hidden");
 
-
-  /* =======================================================
-     ADMIN CHECK
-  ======================================================= */
-
-  const isAdmin =
-    user.uid.trim() === ADMIN_UID.trim();
-
-
-  console.log("Current Firebase UID:",user.uid);
-
-  console.log("Admin UID:",ADMIN_UID);
-
-  console.log("Is Admin:",isAdmin);
+      $("onlineUser")
+        .classList.add("hidden");
 
 
-  if(isAdmin){
+      document
+        .querySelectorAll(
+          ".section:not(#authSection)"
+        )
+        .forEach(section=>{
+          section.classList.remove("active");
+        });
 
-    $("adminNav").classList.remove("hidden");
 
-  }else{
+      $("adminNav")
+        .classList.add("hidden");
 
-    $("adminNav").classList.add("hidden");
 
-    /* Never leave Admin page open for non-admin */
-
-    if($("admin").classList.contains("active")){
-      showPage("home");
+      return;
     }
 
+
+    /* ============================================
+       LOGGED IN
+    ============================================ */
+
+    $("authSection")
+      .classList.remove("active");
+
+    $("nav")
+      .classList.remove("hidden");
+
+    $("onlineUser")
+      .classList.remove("hidden");
+
+
+    /* ============================================
+       ADMIN CHECK
+    ============================================ */
+
+    const isAdmin =
+      user.uid === ADMIN_UID;
+
+
+    console.log(
+      "Current UID:",
+      user.uid
+    );
+
+    console.log(
+      "Admin UID:",
+      ADMIN_UID
+    );
+
+    console.log(
+      "Admin:",
+      isAdmin
+    );
+
+
+    if(isAdmin){
+
+      $("adminNav")
+        .classList.remove("hidden");
+
+    }else{
+
+      $("adminNav")
+        .classList.add("hidden");
+
+    }
+
+
+    /* ============================================
+       PROFILE
+    ============================================ */
+
+    const profileSnapshot =
+      await get(
+        ref(db,`users/${user.uid}`)
+      );
+
+
+    currentProfile =
+      profileSnapshot.exists()
+        ? profileSnapshot.val()
+        : null;
+
+
+    if(currentProfile){
+
+      const name =
+        currentProfile.name ||
+        "Student";
+
+
+      $("headerName")
+        .textContent = name;
+
+
+      $("profileName")
+        .textContent = name;
+
+
+      $("profileClass")
+        .textContent =
+          currentProfile.class || "—";
+
+
+      $("profileRoll")
+        .textContent =
+          currentProfile.roll || "—";
+
+
+      $("profileAvatar")
+        .textContent =
+          name.charAt(0).toUpperCase();
+
+    }
+
+
+    $("profileEmail")
+      .textContent =
+        user.email || "—";
+
+
+    loadNotices();
+    loadTeachers();
+    loadChat();
+
+
+    if(isAdmin){
+
+      loadStudents();
+      loadAdminChat();
+
+    }
+
+
+    showPage("home");
+
   }
-
-
-  /* LOAD PROFILE */
-
-  const profileSnap =
-    await get(ref(db,`users/${user.uid}`));
-
-  currentProfile =
-    profileSnap.exists()
-      ? profileSnap.val()
-      : null;
-
-
-  if(currentProfile){
-
-    $("headerName").textContent =
-      currentProfile.name || "Student";
-
-    $("profileName").textContent =
-      currentProfile.name || "Student";
-
-    $("profileClass").textContent =
-      currentProfile.class || "—";
-
-    $("profileRoll").textContent =
-      currentProfile.roll || "—";
-
-    const first =
-      (currentProfile.name || "U")
-      .trim()
-      .charAt(0)
-      .toUpperCase();
-
-    $("profileAvatar").textContent = first;
-
-  }
-
-  $("profileEmail").textContent =
-    user.email || "—";
-
-
-  /* LOAD ALL */
-
-  loadNotices();
-  loadTeachers();
-  loadChat();
-
-  if(isAdmin){
-
-    loadStudents();
-
-    loadAdminChat();
-
-  }
-
-
-  showPage("home");
-
-});
+);
 
 
 /* =========================================================
    LOGOUT
 ========================================================= */
 
-$("logoutBtn").onclick = async()=>{
+$("logoutBtn").onclick =
+  async()=>{
 
-  try{
+    try{
 
-    await signOut(auth);
+      await signOut(auth);
 
-    toast("Logged out");
+      toast("Logged out");
 
-  }catch(error){
+    }catch(error){
 
-    toast(error.message);
+      toast(error.message);
 
-  }
+    }
 
-};
+  };
 
 
 /* =========================================================
-   NOTICE LIST
+   NOTICE
 ========================================================= */
 
 function loadNotices(){
@@ -1683,6 +1985,7 @@ function loadNotices(){
 
       const list = [];
 
+
       snapshot.forEach(child=>{
 
         list.push({
@@ -1692,35 +1995,45 @@ function loadNotices(){
 
       });
 
+
       list.sort(
-        (a,b)=>(b.createdAt||0)-(a.createdAt||0)
+        (a,b)=>
+          (b.createdAt || 0) -
+          (a.createdAt || 0)
       );
 
 
-      $("noticeCount").textContent =
-        list.length;
+      $("noticeCount")
+        .textContent = list.length;
 
 
       if(!list.length){
 
         $("noticeList").innerHTML =
-          `<div class="muted">No notice available.</div>`;
+          `<div class="muted">
+             No notice available.
+           </div>`;
 
         return;
+
       }
 
 
       $("noticeList").innerHTML =
-        list.map(notice=>`
+        list.map(item=>`
 
-          <div class="notice-item">
+          <div class="notice">
 
-            <h3>${escapeHTML(notice.title)}</h3>
+            <h3>
+              ${escapeHTML(item.title)}
+            </h3>
 
-            <p>${escapeHTML(notice.body)}</p>
+            <p>
+              ${escapeHTML(item.body)}
+            </p>
 
-            <div class="notice-date">
-              ${formatTime(notice.createdAt)}
+            <div class="date">
+              ${formatTime(item.createdAt)}
             </div>
 
           </div>
@@ -1734,59 +2047,71 @@ function loadNotices(){
 
 
 /* =========================================================
-   ADMIN PUBLISH NOTICE
+   ADMIN NOTICE
 ========================================================= */
 
-$("noticeForm").addEventListener("submit",async e=>{
+$("noticeForm").addEventListener(
+  "submit",
+  async event=>{
 
-  e.preventDefault();
+    event.preventDefault();
 
-  if(!currentUser || currentUser.uid !== ADMIN_UID){
 
-    toast("Admin access required");
+    if(
+      !currentUser ||
+      currentUser.uid !== ADMIN_UID
+    ){
 
-    return;
+      toast("Admin access required");
+
+      return;
+
+    }
+
+
+    const title =
+      $("noticeTitle").value.trim();
+
+    const body =
+      $("noticeBody").value.trim();
+
+
+    try{
+
+      const newRef =
+        push(ref(db,"notices"));
+
+
+      await set(
+        newRef,
+        {
+          title,
+          body,
+          createdAt:Date.now(),
+          createdBy:currentUser.uid
+        }
+      );
+
+
+      $("noticeForm").reset();
+
+      toast(
+        "Notice published!"
+      );
+
+
+    }catch(error){
+
+      console.error(error);
+
+      toast(
+        "Permission denied. Check Firebase Rules."
+      );
+
+    }
+
   }
-
-
-  const title =
-    $("noticeTitle").value.trim();
-
-  const body =
-    $("noticeBody").value.trim();
-
-
-  if(!title || !body) return;
-
-
-  try{
-
-    const noticeRef =
-      push(ref(db,"notices"));
-
-    await set(noticeRef,{
-      title,
-      body,
-      createdAt:Date.now(),
-      createdBy:currentUser.uid
-    });
-
-
-    $("noticeForm").reset();
-
-    toast("Notice published!");
-
-  }catch(error){
-
-    console.error(error);
-
-    toast(
-      "Permission denied. Check Firebase Rules."
-    );
-
-  }
-
-});
+);
 
 
 /* =========================================================
@@ -1801,6 +2126,7 @@ function loadTeachers(){
 
       const list = [];
 
+
       snapshot.forEach(child=>{
 
         list.push({
@@ -1814,9 +2140,12 @@ function loadTeachers(){
       if(!list.length){
 
         $("teacherList").innerHTML =
-          `<div class="muted">No teachers added yet.</div>`;
+          `<div class="muted">
+             No teachers added yet.
+           </div>`;
 
         return;
+
       }
 
 
@@ -1826,23 +2155,31 @@ function loadTeachers(){
           <div class="teacher">
 
             <div class="teacher-avatar">
+
               ${escapeHTML(
                 (teacher.name || "T")
-                .charAt(0)
-                .toUpperCase()
+                  .charAt(0)
+                  .toUpperCase()
               )}
+
             </div>
 
             <div style="flex:1">
 
               <h3>
-                ${escapeHTML(teacher.name)}
+                ${escapeHTML(
+                  teacher.name
+                )}
               </h3>
 
               <p>
-                ${escapeHTML(teacher.subject)}
+                ${escapeHTML(
+                  teacher.subject
+                )}
                 •
-                ${escapeHTML(teacher.designation)}
+                ${escapeHTML(
+                  teacher.designation
+                )}
               </p>
 
             </div>
@@ -1853,8 +2190,8 @@ function loadTeachers(){
               ?
               `
               <button
-                class="btn btn-danger"
-                style="padding:7px 9px;font-size:9px"
+                class="btn danger"
+                style="padding:7px 8px;font-size:8px"
                 onclick="deleteTeacher('${teacher.id}')"
               >
                 Delete
@@ -1878,88 +2215,115 @@ function loadTeachers(){
    ADD TEACHER
 ========================================================= */
 
-$("teacherForm").addEventListener("submit",async e=>{
+$("teacherForm").addEventListener(
+  "submit",
+  async event=>{
 
-  e.preventDefault();
-
-  if(!currentUser || currentUser.uid !== ADMIN_UID){
-
-    toast("Admin access required");
-
-    return;
-  }
+    event.preventDefault();
 
 
-  const name =
-    $("teacherName").value.trim();
+    if(
+      !currentUser ||
+      currentUser.uid !== ADMIN_UID
+    ){
 
-  const subject =
-    $("teacherSubject").value.trim();
+      toast(
+        "Admin access required"
+      );
 
-  const designation =
-    $("teacherDesignation").value.trim();
+      return;
 
-
-  try{
-
-    const teacherRef =
-      push(ref(db,"teachers"));
-
-    await set(teacherRef,{
-      name,
-      subject,
-      designation,
-      createdAt:Date.now()
-    });
+    }
 
 
-    $("teacherForm").reset();
+    try{
 
-    toast("Teacher added!");
-
-  }catch(error){
-
-    console.error(error);
-
-    toast("Could not add teacher.");
-
-  }
-
-});
+      const teacherRef =
+        push(ref(db,"teachers"));
 
 
-window.deleteTeacher = async function(id){
+      await set(
+        teacherRef,
+        {
+          name:
+            $("teacherName")
+              .value.trim(),
 
-  if(!currentUser || currentUser.uid !== ADMIN_UID){
+          subject:
+            $("teacherSubject")
+              .value.trim(),
 
-    toast("Admin access required");
+          designation:
+            $("teacherDesignation")
+              .value.trim(),
 
-    return;
-  }
+          createdAt:
+            Date.now()
+        }
+      );
 
 
-  if(!confirm("Delete this teacher?")) return;
+      $("teacherForm").reset();
+
+      toast(
+        "Teacher added!"
+      );
 
 
-  try{
+    }catch(error){
 
-    await remove(ref(db,`teachers/${id}`));
+      console.error(error);
 
-    toast("Teacher deleted");
+      toast(
+        "Could not add teacher."
+      );
 
-  }catch(error){
-
-    console.error(error);
-
-    toast("Delete failed");
+    }
 
   }
+);
 
-};
+
+window.deleteTeacher =
+  async id=>{
+
+    if(
+      !currentUser ||
+      currentUser.uid !== ADMIN_UID
+    ){
+
+      toast(
+        "Admin access required"
+      );
+
+      return;
+
+    }
+
+
+    try{
+
+      await remove(
+        ref(db,`teachers/${id}`)
+      );
+
+      toast(
+        "Teacher deleted"
+      );
+
+    }catch(error){
+
+      toast(
+        "Delete failed"
+      );
+
+    }
+
+  };
 
 
 /* =========================================================
-   GROUP CHAT
+   CHAT
 ========================================================= */
 
 function loadChat(){
@@ -1969,6 +2333,7 @@ function loadChat(){
     snapshot=>{
 
       const list = [];
+
 
       snapshot.forEach(child=>{
 
@@ -1981,16 +2346,21 @@ function loadChat(){
 
 
       list.sort(
-        (a,b)=>(a.createdAt||0)-(b.createdAt||0)
+        (a,b)=>
+          (a.createdAt || 0) -
+          (b.createdAt || 0)
       );
 
 
       if(!list.length){
 
         $("chatMessages").innerHTML =
-          `<div class="muted">No messages yet. Start the conversation.</div>`;
+          `<div class="muted">
+             No messages yet.
+           </div>`;
 
         return;
+
       }
 
 
@@ -2009,15 +2379,21 @@ function loadChat(){
               <div class="bubble">
 
                 <div class="msg-name">
-                  ${escapeHTML(msg.name || "Student")}
+                  ${escapeHTML(
+                    msg.name || "Student"
+                  )}
                 </div>
 
                 <div class="msg-text">
-                  ${escapeHTML(msg.text)}
+                  ${escapeHTML(
+                    msg.text
+                  )}
                 </div>
 
                 <div class="msg-time">
-                  ${formatTime(msg.createdAt)}
+                  ${formatTime(
+                    msg.createdAt
+                  )}
                 </div>
 
                 ${
@@ -2045,11 +2421,9 @@ function loadChat(){
         }).join("");
 
 
-      const box =
-        $("chatMessages");
-
-      box.scrollTop =
-        box.scrollHeight;
+      $("chatMessages")
+        .scrollTop =
+          $("chatMessages").scrollHeight;
 
     }
   );
@@ -2058,63 +2432,108 @@ function loadChat(){
 
 
 /* =========================================================
-   SEND CHAT
+   SEND MESSAGE
 ========================================================= */
+
+const badWords = [
+  "fuck",
+  "shit",
+  "bitch",
+  "asshole",
+  "bastard",
+  "motherfucker"
+];
+
+
+$("sendChat").onclick =
+  sendMessage;
+
+
+$("chatInput").addEventListener(
+  "keydown",
+  event=>{
+
+    if(event.key === "Enter"){
+
+      event.preventDefault();
+
+      sendMessage();
+
+    }
+
+  }
+);
+
 
 async function sendMessage(){
 
   if(!currentUser){
 
-    toast("Please login first");
+    toast(
+      "Please login first"
+    );
 
     return;
+
   }
 
 
   const text =
-    $("chatInput").value.trim();
+    $("chatInput")
+      .value.trim();
 
 
   if(!text) return;
 
 
-  if(containsBadWord(text)){
+  const lower =
+    text.toLowerCase();
+
+
+  if(
+    badWords.some(word=>
+      lower.includes(word)
+    )
+  ){
 
     toast(
       "Please avoid inappropriate language."
     );
 
     return;
+
   }
 
 
-  /* Check moderation */
-
-  const moderationSnap =
+  const moderation =
     await get(
-      ref(db,`moderation/${currentUser.uid}`)
+      ref(
+        db,
+        `moderation/${currentUser.uid}`
+      )
     );
 
 
-  if(moderationSnap.exists()){
+  if(moderation.exists()){
 
-    const moderation =
-      moderationSnap.val();
+    const data =
+      moderation.val();
 
 
-    if(moderation.banned){
+    if(data.banned){
 
       toast(
         "Your account is banned from chat."
       );
 
       return;
+
     }
 
 
     if(
-      moderation.mutedUntil &&
-      moderation.mutedUntil > Date.now()
+      data.mutedUntil &&
+      data.mutedUntil > Date.now()
     ){
 
       toast(
@@ -2122,6 +2541,7 @@ async function sendMessage(){
       );
 
       return;
+
     }
 
   }
@@ -2132,15 +2552,22 @@ async function sendMessage(){
     const messageRef =
       push(ref(db,"groupChat"));
 
-    await set(messageRef,{
-      uid:currentUser.uid,
-      name:currentProfile?.name || "Student",
-      text,
-      createdAt:Date.now()
-    });
+
+    await set(
+      messageRef,
+      {
+        uid:currentUser.uid,
+        name:
+          currentProfile?.name ||
+          "Student",
+        text,
+        createdAt:Date.now()
+      }
+    );
 
 
     $("chatInput").value = "";
+
 
   }catch(error){
 
@@ -2155,72 +2582,60 @@ async function sendMessage(){
 }
 
 
-$("sendChat").onclick =
-  sendMessage;
+/* =========================================================
+   DELETE MESSAGE
+========================================================= */
 
+window.deleteMessage =
+  async id=>{
 
-$("chatInput").addEventListener(
-  "keydown",
-  e=>{
+    if(
+      !currentUser ||
+      currentUser.uid !== ADMIN_UID
+    ){
 
-    if(e.key === "Enter"){
+      toast(
+        "Admin access required"
+      );
 
-      e.preventDefault();
-
-      sendMessage();
+      return;
 
     }
 
-  }
-);
+
+    try{
+
+      await remove(
+        ref(db,`groupChat/${id}`)
+      );
+
+      toast(
+        "Message deleted"
+      );
+
+    }catch(error){
+
+      toast(
+        "Delete failed"
+      );
+
+    }
+
+  };
 
 
 /* =========================================================
-   ADMIN DELETE MESSAGE
-========================================================= */
-
-window.deleteMessage = async function(id){
-
-  if(!currentUser || currentUser.uid !== ADMIN_UID){
-
-    toast("Admin access required");
-
-    return;
-  }
-
-
-  try{
-
-    await remove(
-      ref(db,`groupChat/${id}`)
-    );
-
-    toast("Message deleted");
-
-  }catch(error){
-
-    console.error(error);
-
-    toast(
-      "Delete failed. Check Firebase Rules."
-    );
-
-  }
-
-};
-
-
-/* =========================================================
-   ADMIN STUDENT LIST
+   STUDENTS
 ========================================================= */
 
 function loadStudents(){
 
   onValue(
     ref(db,"users"),
-    async snapshot=>{
+    snapshot=>{
 
       const students = [];
+
 
       snapshot.forEach(child=>{
 
@@ -2239,9 +2654,12 @@ function loadStudents(){
       if(!students.length){
 
         $("studentList").innerHTML =
-          `<div class="muted">No students found.</div>`;
+          `<div class="muted">
+             No students found.
+           </div>`;
 
         return;
+
       }
 
 
@@ -2253,19 +2671,28 @@ function loadStudents(){
             <div class="user-info">
 
               <strong>
-                ${escapeHTML(student.name || "Student")}
+                ${escapeHTML(
+                  student.name ||
+                  "Student"
+                )}
               </strong>
 
               <small>
                 Class:
-                ${escapeHTML(student.class || "—")}
+                ${escapeHTML(
+                  student.class || "—"
+                )}
                 • Roll:
-                ${escapeHTML(student.roll || "—")}
+                ${escapeHTML(
+                  student.roll || "—"
+                )}
               </small>
 
               <small>
                 UID:
-                ${escapeHTML(student.uid)}
+                ${escapeHTML(
+                  student.uid
+                )}
               </small>
 
             </div>
@@ -2276,13 +2703,13 @@ function loadStudents(){
               <button
                 onclick="muteStudent('${student.uid}',15)"
               >
-                15m Mute
+                15m
               </button>
 
               <button
                 onclick="muteStudent('${student.uid}',60)"
               >
-                1h Mute
+                1h
               </button>
 
               <button
@@ -2319,149 +2746,194 @@ function loadStudents(){
    MODERATION
 ========================================================= */
 
-async function adminModerationCheck(){
+window.muteStudent =
+  async(uid,minutes)=>{
 
-  return currentUser &&
-         currentUser.uid === ADMIN_UID;
+    if(
+      !currentUser ||
+      currentUser.uid !== ADMIN_UID
+    ){
 
-}
+      toast(
+        "Admin access required"
+      );
 
+      return;
 
-window.muteStudent = async function(uid,minutes){
-
-  if(!await adminModerationCheck()){
-
-    toast("Admin access required");
-
-    return;
-  }
-
-
-  try{
-
-    await set(
-      ref(db,`moderation/${uid}`),
-      {
-        banned:false,
-        mutedUntil:
-          Date.now() + minutes * 60 * 1000
-      }
-    );
-
-    toast(`Student muted for ${minutes} minutes`);
-
-  }catch(error){
-
-    console.error(error);
-
-    toast("Moderation action failed");
-
-  }
-
-};
+    }
 
 
-window.unmuteStudent = async function(uid){
+    try{
 
-  if(!await adminModerationCheck()){
-
-    toast("Admin access required");
-
-    return;
-  }
-
-
-  try{
-
-    await set(
-      ref(db,`moderation/${uid}`),
-      {
-        banned:false,
-        mutedUntil:0
-      }
-    );
-
-    toast("Student unmuted");
-
-  }catch(error){
-
-    console.error(error);
-
-    toast("Action failed");
-
-  }
-
-};
+      await set(
+        ref(
+          db,
+          `moderation/${uid}`
+        ),
+        {
+          banned:false,
+          mutedUntil:
+            Date.now() +
+            minutes * 60 * 1000
+        }
+      );
 
 
-window.banStudent = async function(uid){
+      toast(
+        `Muted for ${minutes} minutes`
+      );
 
-  if(!await adminModerationCheck()){
+    }catch(error){
 
-    toast("Admin access required");
+      toast(
+        "Action failed"
+      );
 
-    return;
-  }
+    }
 
-
-  try{
-
-    await set(
-      ref(db,`moderation/${uid}`),
-      {
-        banned:true,
-        mutedUntil:0
-      }
-    );
-
-    toast("Student banned");
-
-  }catch(error){
-
-    console.error(error);
-
-    toast("Ban failed");
-
-  }
-
-};
+  };
 
 
-window.unbanStudent = async function(uid){
+window.unmuteStudent =
+  async uid=>{
 
-  if(!await adminModerationCheck()){
+    if(
+      !currentUser ||
+      currentUser.uid !== ADMIN_UID
+    ){
 
-    toast("Admin access required");
+      toast(
+        "Admin access required"
+      );
 
-    return;
-  }
+      return;
+
+    }
 
 
-  try{
+    try{
 
-    await set(
-      ref(db,`moderation/${uid}`),
-      {
-        banned:false,
-        mutedUntil:0
-      }
-    );
+      await set(
+        ref(
+          db,
+          `moderation/${uid}`
+        ),
+        {
+          banned:false,
+          mutedUntil:0
+        }
+      );
 
-    toast("Student unbanned");
 
-  }catch(error){
+      toast(
+        "Student unmuted"
+      );
 
-    console.error(error);
+    }catch(error){
 
-    toast("Unban failed");
+      toast(
+        "Action failed"
+      );
 
-  }
+    }
 
-};
+  };
+
+
+window.banStudent =
+  async uid=>{
+
+    if(
+      !currentUser ||
+      currentUser.uid !== ADMIN_UID
+    ){
+
+      toast(
+        "Admin access required"
+      );
+
+      return;
+
+    }
+
+
+    try{
+
+      await set(
+        ref(
+          db,
+          `moderation/${uid}`
+        ),
+        {
+          banned:true,
+          mutedUntil:0
+        }
+      );
+
+
+      toast(
+        "Student banned"
+      );
+
+    }catch(error){
+
+      toast(
+        "Ban failed"
+      );
+
+    }
+
+  };
+
+
+window.unbanStudent =
+  async uid=>{
+
+    if(
+      !currentUser ||
+      currentUser.uid !== ADMIN_UID
+    ){
+
+      toast(
+        "Admin access required"
+      );
+
+      return;
+
+    }
+
+
+    try{
+
+      await set(
+        ref(
+          db,
+          `moderation/${uid}`
+        ),
+        {
+          banned:false,
+          mutedUntil:0
+        }
+      );
+
+
+      toast(
+        "Student unbanned"
+      );
+
+    }catch(error){
+
+      toast(
+        "Unban failed"
+      );
+
+    }
+
+  };
 
 
 /* =========================================================
-   ADMIN CHAT LIST
+   ADMIN CHAT
 ========================================================= */
 
 function loadAdminChat(){
@@ -2471,6 +2943,7 @@ function loadAdminChat(){
     snapshot=>{
 
       const list = [];
+
 
       snapshot.forEach(child=>{
 
@@ -2483,16 +2956,21 @@ function loadAdminChat(){
 
 
       list.sort(
-        (a,b)=>(b.createdAt||0)-(a.createdAt||0)
+        (a,b)=>
+          (b.createdAt || 0) -
+          (a.createdAt || 0)
       );
 
 
       if(!list.length){
 
         $("adminChatList").innerHTML =
-          `<div class="muted">No messages.</div>`;
+          `<div class="muted">
+             No messages.
+           </div>`;
 
         return;
+
       }
 
 
@@ -2504,18 +2982,25 @@ function loadAdminChat(){
             <div class="user-info">
 
               <strong>
-                ${escapeHTML(msg.name || "Student")}
+                ${escapeHTML(
+                  msg.name || "Student"
+                )}
               </strong>
 
               <small>
-                ${escapeHTML(msg.text)}
+                ${escapeHTML(
+                  msg.text
+                )}
               </small>
 
               <small>
-                ${formatTime(msg.createdAt)}
+                ${formatTime(
+                  msg.createdAt
+                )}
               </small>
 
             </div>
+
 
             <div class="user-actions">
 
