@@ -2,1443 +2,634 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<meta name="theme-color" content="#06101d">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
 <title>OUR JDM — Jalchatra Dakhil Madrasha</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  -webkit-tap-highlight-color:transparent;
-}
-
-:root{
-  --bg:#050c16;
-  --bg2:#091827;
-  --card:rgba(14,29,48,.82);
-  --line:rgba(255,255,255,.09);
-  --text:#f4f8ff;
-  --muted:#91a1b6;
-  --cyan:#5ee7d0;
-  --blue:#62aaff;
-  --red:#ff6179;
-  --yellow:#ffd166;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  min-height:100vh;
-  color:var(--text);
   font-family:Inter,"Noto Sans Bengali",sans-serif;
   background:
-    radial-gradient(circle at 0 0,rgba(70,150,255,.16),transparent 30%),
-    radial-gradient(circle at 100% 10%,rgba(94,231,208,.12),transparent 30%),
-    linear-gradient(145deg,#040a12,#081525 55%,#050e19);
+    radial-gradient(circle at top left,#12365a 0,transparent 35%),
+    radial-gradient(circle at bottom right,#183f36 0,transparent 35%),
+    #050b14;
+  color:#fff;
+  min-height:100vh;
+}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+
+.container{
+  width:min(1100px,94%);
+  margin:auto;
 }
 
-button,input{
-  font:inherit;
+/* AUTH */
+#authScreen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
-
-button{
-  cursor:pointer;
+.auth-box{
+  width:min(450px,100%);
+  padding:28px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:28px;
+  background:rgba(11,21,35,.82);
+  backdrop-filter:blur(20px);
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
 }
-
-.hidden{
-  display:none!important;
+.logo{
+  width:75px;
+  height:75px;
+  border-radius:24px;
+  margin:0 auto 15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  font-size:30px;
+  font-weight:800;
+  box-shadow:0 10px 35px rgba(0,150,255,.3);
 }
+.auth-box h1{text-align:center;font-size:25px}
+.auth-box .sub{
+  text-align:center;
+  color:#9caec4;
+  margin:8px 0 24px;
+  font-size:14px;
+}
+.tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  padding:5px;
+  background:#091321;
+  border-radius:14px;
+  margin-bottom:20px;
+}
+.tab{
+  border:0;
+  padding:11px;
+  border-radius:10px;
+  background:transparent;
+  color:#8fa2b8;
+}
+.tab.active{
+  background:#182b42;
+  color:#fff;
+}
+.field{margin-bottom:14px}
+.field label{
+  display:block;
+  font-size:13px;
+  color:#a9b8ca;
+  margin-bottom:7px;
+}
+.field input,.field select,.field textarea{
+  width:100%;
+  border:1px solid rgba(255,255,255,.11);
+  background:#081321;
+  color:#fff;
+  outline:none;
+  border-radius:13px;
+  padding:13px 14px;
+}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{
+  border-color:#1597ff;
+}
+.primary{
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:14px;
+  background:linear-gradient(135deg,#00a8ff,#006cff);
+  color:white;
+  font-weight:700;
+}
+.primary:disabled{opacity:.55;cursor:not-allowed}
+.error,.success{
+  margin-bottom:14px;
+  padding:11px 13px;
+  border-radius:12px;
+  font-size:13px;
+}
+.error{background:rgba(255,65,65,.1);color:#ff9b9b;border:1px solid rgba(255,65,65,.2)}
+.success{background:rgba(50,220,130,.1);color:#83efb0;border:1px solid rgba(50,220,130,.2)}
 
-/* ================= HEADER ================= */
-
-.header{
+/* APP */
+#appScreen{min-height:100vh}
+header{
   position:sticky;
   top:0;
-  z-index:1000;
-  padding:13px 15px;
-  background:rgba(4,11,20,.76);
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
-  border-bottom:1px solid var(--line);
+  z-index:20;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:rgba(5,12,21,.82);
+  backdrop-filter:blur(18px);
 }
-
-.header-inner{
-  width:min(1100px,100%);
-  margin:auto;
+.nav{
+  min-height:70px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
-
 .brand{
   display:flex;
   align-items:center;
   gap:11px;
 }
-
-.logo{
-  width:46px;
-  height:46px;
-  border-radius:15px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,var(--cyan),var(--blue));
-  color:#06121e;
-  font-weight:900;
-  box-shadow:0 10px 28px rgba(70,170,255,.22);
-}
-
-.brand h1{
-  font-size:16px;
-  font-weight:800;
-}
-
-.brand p{
-  margin-top:2px;
-  font-size:10px;
-  color:var(--muted);
-}
-
-.online{
+.brand-icon{
+  width:43px;
+  height:43px;
+  border-radius:13px;
+  background:linear-gradient(135deg,#00c6ff,#006cff);
   display:flex;
   align-items:center;
-  gap:7px;
-  font-size:10px;
-  color:var(--muted);
-}
-
-.dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#50e3a4;
-  box-shadow:0 0 12px #50e3a4;
-}
-
-/* ================= NAV ================= */
-
-.nav{
-  width:min(1100px,100%);
-  margin:11px auto 0;
-  display:flex;
-  gap:7px;
-  overflow-x:auto;
-  scrollbar-width:none;
-}
-
-.nav::-webkit-scrollbar{
-  display:none;
-}
-
-.nav button{
-  flex:0 0 auto;
-  padding:9px 13px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.035);
-  color:#b7c4d7;
-  font-size:11px;
-  font-weight:700;
-}
-
-.nav button.active{
-  color:#06121d;
-  background:linear-gradient(135deg,var(--cyan),#7bbaff);
-  border-color:transparent;
-}
-
-/* ================= MAIN ================= */
-
-main{
-  width:min(1100px,calc(100% - 22px));
-  margin:auto;
-  padding:20px 0 80px;
-}
-
-.section{
-  display:none;
-  animation:show .3s ease;
-}
-
-.section.active{
-  display:block;
-}
-
-@keyframes show{
-  from{
-    opacity:0;
-    transform:translateY(8px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-/* ================= LOGIN ================= */
-
-.auth-screen{
-  min-height:calc(100vh - 100px);
-  display:grid;
-  place-items:center;
-}
-
-.auth-card{
-  width:min(450px,100%);
-  padding:25px;
-  border-radius:28px;
-  background:rgba(8,21,35,.9);
-  border:1px solid var(--line);
-  box-shadow:0 25px 70px rgba(0,0,0,.38);
-}
-
-.auth-logo{
-  width:68px;
-  height:68px;
-  margin:0 auto 17px;
-  border-radius:22px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,var(--cyan),var(--blue));
-  color:#06121d;
-  font-weight:900;
-  font-size:20px;
-  box-shadow:0 12px 35px rgba(80,180,255,.2);
-}
-
-.auth-card h2{
-  text-align:center;
-  font-size:23px;
-}
-
-.auth-card .sub{
-  text-align:center;
-  margin-top:6px;
-  margin-bottom:21px;
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.6;
-}
-
-.tabs{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:4px;
-  padding:4px;
-  background:rgba(255,255,255,.04);
-  border-radius:14px;
-  margin-bottom:18px;
-}
-
-.tabs button{
-  border:0;
-  border-radius:10px;
-  padding:10px;
-  color:var(--muted);
-  background:transparent;
-  font-size:12px;
+  justify-content:center;
   font-weight:800;
 }
-
-.tabs button.active{
-  color:white;
-  background:rgba(255,255,255,.09);
-}
-
-.field{
-  margin-bottom:12px;
-}
-
-.field label{
-  display:block;
-  margin-bottom:6px;
-  color:#aebbd0;
-  font-size:10px;
-  font-weight:700;
-}
-
-.field input{
-  width:100%;
-  padding:13px 14px;
-  border-radius:13px;
-  outline:none;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.045);
-  color:white;
-}
-
-.field input:focus{
-  border-color:rgba(94,231,208,.55);
-  box-shadow:0 0 0 3px rgba(94,231,208,.06);
-}
-
-/* ================= BUTTON ================= */
-
-.btn{
-  border:0;
-  border-radius:13px;
-  padding:11px 15px;
-  font-size:11px;
-  font-weight:800;
-  transition:.18s;
-}
-
-.btn:active{
-  transform:scale(.97);
-}
-
-.primary{
-  color:#06121d;
-  background:linear-gradient(135deg,var(--cyan),#7bbaff);
-}
-
-.dark{
-  color:#dce7f5;
-  background:rgba(255,255,255,.06);
-  border:1px solid var(--line);
-}
-
-.danger{
+.brand strong{display:block}
+.brand small{color:#7f93aa}
+.nav-actions{display:flex;gap:8px}
+.icon-btn{
+  border:1px solid rgba(255,255,255,.1);
+  background:#0b1727;
   color:#fff;
-  background:rgba(255,97,121,.14);
-  border:1px solid rgba(255,97,121,.25);
+  padding:9px 12px;
+  border-radius:11px;
 }
 
-.full{
-  width:100%;
-}
-
-/* ================= HERO ================= */
+main{padding:24px 0 90px}
 
 .hero{
-  position:relative;
-  overflow:hidden;
-  padding:29px 21px;
-  border-radius:27px;
-  border:1px solid var(--line);
-  background:
-    linear-gradient(135deg,rgba(55,108,165,.25),rgba(13,29,48,.65)),
-    rgba(7,19,32,.82);
-  box-shadow:0 22px 60px rgba(0,0,0,.25);
+  padding:26px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:25px;
+  background:linear-gradient(135deg,rgba(12,35,57,.9),rgba(10,20,34,.85));
+  margin-bottom:20px;
 }
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:190px;
-  height:190px;
-  border-radius:50%;
-  background:rgba(94,231,208,.08);
-  right:-75px;
-  top:-80px;
-}
-
-.badge{
-  display:inline-flex;
-  padding:7px 11px;
-  border-radius:99px;
-  border:1px solid rgba(94,231,208,.16);
-  background:rgba(94,231,208,.07);
-  color:var(--cyan);
-  font-size:10px;
-  font-weight:800;
-}
-
-.hero h2{
-  margin-top:16px;
-  font-size:clamp(29px,8vw,48px);
-  line-height:1.1;
-  letter-spacing:-1.5px;
-}
-
-.gradient{
-  background:linear-gradient(90deg,var(--cyan),#79b8ff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.hero p{
-  max-width:650px;
-  margin-top:13px;
-  color:#aebbd0;
-  font-size:12px;
-  line-height:1.8;
-}
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:21px;
-}
-
-/* ================= GRID ================= */
+.hero h2{font-size:27px;margin-bottom:7px}
+.hero p{color:#9eb0c5;font-size:14px}
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:13px;
-  margin-top:14px;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
 }
-
 .card{
-  padding:18px;
-  border-radius:21px;
-  border:1px solid var(--line);
-  background:var(--card);
-  box-shadow:0 12px 35px rgba(0,0,0,.16);
+  background:rgba(10,20,33,.82);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:20px;
+  padding:20px;
 }
+.card h3{margin-bottom:14px}
+.card p{color:#9fb0c3;font-size:14px;line-height:1.7}
 
-.card h3{
-  font-size:14px;
-}
-
-.card-title{
+.section{margin-bottom:20px}
+.section-title{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:10px;
-  margin-bottom:13px;
-}
-
-.icon{
-  width:40px;
-  height:40px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  background:rgba(94,231,208,.07);
-  border:1px solid rgba(94,231,208,.12);
-}
-
-.muted{
-  color:var(--muted);
-  font-size:11px;
-}
-
-.stat{
-  margin-top:4px;
-  font-size:23px;
-  font-weight:800;
-}
-
-/* ================= PAGE ================= */
-
-.page-head{
-  margin-bottom:16px;
-}
-
-.page-head h2{
-  font-size:23px;
-}
-
-.page-head p{
-  margin-top:5px;
-  color:var(--muted);
-  font-size:11px;
-}
-
-/* ================= NOTICE ================= */
-
-.notice{
-  padding:15px;
-  border-radius:17px;
-  background:rgba(255,255,255,.025);
-  border:1px solid var(--line);
-  margin-bottom:9px;
-}
-
-.notice h3{
-  font-size:13px;
-}
-
-.notice p{
-  margin-top:7px;
-  color:#b5c1d2;
-  font-size:11px;
-  line-height:1.7;
-}
-
-.date{
-  margin-top:8px;
-  color:#6e7e94;
-  font-size:9px;
-}
-
-/* ================= CHAT ================= */
-
-.chat-card{
-  padding:0;
-  overflow:hidden;
-}
-
-.chat-head{
-  padding:16px;
-  border-bottom:1px solid var(--line);
-}
-
-.chat-head strong{
-  font-size:13px;
-}
-
-.chat-box{
-  height:55vh;
-  min-height:360px;
-  overflow-y:auto;
-  padding:15px;
-}
-
-.message{
-  display:flex;
   margin-bottom:12px;
 }
+.section-title h2{font-size:20px}
 
-.message.mine{
-  justify-content:flex-end;
+.list{display:grid;gap:10px}
+.item{
+  background:#0a1727;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:15px;
+  padding:15px;
 }
+.item strong{display:block;margin-bottom:5px}
+.item small{color:#71869d}
+.item p{color:#b7c4d3;line-height:1.6;font-size:14px;margin-top:7px}
 
-.bubble{
+.chat-box{
+  height:430px;
+  overflow-y:auto;
+  background:#07111e;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:14px;
+}
+.msg{
+  margin-bottom:11px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.msg.me{align-items:flex-end}
+.msg-bubble{
   max-width:82%;
-  padding:10px 12px;
-  border-radius:16px;
-  background:rgba(255,255,255,.055);
-  border:1px solid var(--line);
+  padding:10px 13px;
+  border-radius:15px;
+  background:#14253a;
+  line-height:1.5;
+  font-size:14px;
 }
-
-.mine .bubble{
-  background:linear-gradient(135deg,rgba(94,231,208,.15),rgba(98,170,255,.13));
+.msg.me .msg-bubble{background:#075e91}
+.msg-meta{
+  color:#70849a;
+  font-size:10px;
+  margin:4px 5px;
 }
-
-.msg-name{
-  margin-bottom:4px;
-  color:var(--cyan);
-  font-size:9px;
-  font-weight:800;
-}
-
-.msg-text{
-  font-size:12px;
-  line-height:1.55;
-  word-break:break-word;
-}
-
-.msg-time{
-  margin-top:5px;
-  color:#718198;
-  font-size:8px;
-}
-
-.msg-delete{
-  border:0;
-  background:transparent;
-  color:var(--red);
-  font-size:9px;
-  margin-top:5px;
-}
-
-.chat-input{
+.chat-form{
   display:flex;
   gap:8px;
-  padding:11px;
-  border-top:1px solid var(--line);
+  margin-top:10px;
 }
-
-.chat-input input{
-  min-width:0;
+.chat-form input{
   flex:1;
-  padding:12px;
-  border-radius:13px;
-  border:1px solid var(--line);
-  outline:none;
-  background:rgba(255,255,255,.04);
+  background:#081321;
+  border:1px solid rgba(255,255,255,.1);
   color:#fff;
+  border-radius:13px;
+  padding:12px;
+  outline:none;
+}
+.chat-send{
+  border:0;
+  background:#087fc1;
+  color:#fff;
+  padding:0 17px;
+  border-radius:13px;
 }
 
-/* ================= TEACHERS ================= */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:25;
+  background:rgba(5,12,21,.93);
+  border-top:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);
+}
+.bottom-inner{
+  width:min(700px,100%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+}
+.nav-item{
+  border:0;
+  background:transparent;
+  color:#73879c;
+  padding:10px 3px;
+  font-size:11px;
+}
+.nav-item span{
+  display:block;
+  font-size:19px;
+  margin-bottom:3px;
+}
+.nav-item.active{color:#27b6ff}
 
-.teacher-grid{
+.admin-box{
+  border:1px solid rgba(255,180,60,.18);
+  background:rgba(100,65,15,.12);
+}
+
+.admin-actions{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:11px;
-}
-
-.teacher{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px;
-  border-radius:17px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.025);
-}
-
-.teacher-avatar{
-  flex:0 0 auto;
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
-  color:var(--cyan);
-  font-weight:900;
-  background:linear-gradient(135deg,rgba(94,231,208,.13),rgba(98,170,255,.13));
-}
-
-.teacher h3{
-  font-size:12px;
-}
-
-.teacher p{
-  margin-top:3px;
-  color:var(--muted);
-  font-size:10px;
-}
-
-/* ================= PROFILE ================= */
-
-.profile-top{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.avatar{
-  width:62px;
-  height:62px;
-  border-radius:20px;
-  display:grid;
-  place-items:center;
-  color:#06121d;
-  background:linear-gradient(135deg,var(--cyan),var(--blue));
-  font-size:21px;
-  font-weight:900;
-}
-
-.profile-name{
-  font-size:18px;
-  font-weight:800;
-}
-
-.profile-email{
-  margin-top:4px;
-  color:var(--muted);
-  font-size:10px;
-}
-
-/* ================= ADMIN ================= */
-
-.admin-banner{
-  padding:16px;
-  margin-bottom:13px;
-  border-radius:18px;
-  border:1px solid rgba(255,209,102,.2);
-  background:rgba(255,209,102,.06);
-}
-
-.admin-banner strong{
-  color:var(--yellow);
-  font-size:12px;
-}
-
-.admin-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
-}
-
-.list{
-  max-height:340px;
-  overflow:auto;
-}
-
-.user-row{
-  padding:11px 0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
   gap:10px;
-  border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.user-info{
-  min-width:0;
+.danger{
+  border:1px solid rgba(255,80,80,.2);
+  background:rgba(255,60,60,.1);
+  color:#ff9d9d;
+  padding:9px 12px;
+  border-radius:10px;
+}
+.secondary{
+  border:1px solid rgba(255,255,255,.1);
+  background:#101e30;
+  color:#fff;
+  padding:10px 13px;
+  border-radius:11px;
 }
 
-.user-info strong{
-  display:block;
-  font-size:11px;
-}
-
-.user-info small{
-  display:block;
-  margin-top:3px;
-  color:var(--muted);
-  font-size:8px;
-  word-break:break-all;
-}
-
-.user-actions{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-  gap:4px;
-}
-
-.user-actions button{
-  padding:6px 8px;
-  border-radius:8px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.05);
-  color:#dce6f2;
-  font-size:8px;
-}
-
-/* ================= TOAST ================= */
-
-#toast{
-  position:fixed;
-  left:50%;
-  bottom:23px;
-  z-index:9999;
-  width:min(90%,400px);
-  padding:12px 15px;
-  border-radius:13px;
-  text-align:center;
-  color:#eef5ff;
-  background:rgba(9,22,37,.96);
-  border:1px solid var(--line);
-  box-shadow:0 18px 45px rgba(0,0,0,.4);
-  opacity:0;
-  pointer-events:none;
-  transform:translate(-50%,20px);
-  transition:.25s;
-  font-size:11px;
-}
-
-#toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
-}
-
-.footer{
-  margin-top:28px;
-  padding:20px;
-  text-align:center;
-  color:#607087;
-  font-size:9px;
-}
-
-@media(max-width:760px){
-
-  .grid,
-  .admin-grid,
-  .teacher-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-@media(min-width:761px){
-
-  .hero{
-    padding:42px;
-  }
-
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+  .hero h2{font-size:23px}
+  .auth-box{padding:22px}
+  .admin-actions{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<div id="toast"></div>
+<!-- ================= AUTH ================= -->
+<section id="authScreen">
+  <div class="auth-box">
+    <div class="logo">JDM</div>
+    <h1>OUR JDM</h1>
+    <div class="sub">Jalchatra Dakhil Madrasha</div>
 
-<header class="header">
+    <div class="tabs">
+      <button id="loginTab" class="tab active" type="button">Login</button>
+      <button id="registerTab" class="tab" type="button">Registration</button>
+    </div>
 
-  <div class="header-inner">
+    <div id="authMessage"></div>
 
-    <div class="brand">
-
-      <div class="logo">JDM</div>
-
-      <div>
-        <h1>OUR JDM</h1>
-        <p>Jalchatra Dakhil Madrasha</p>
+    <!-- LOGIN -->
+    <form id="loginForm">
+      <div class="field">
+        <label>Email</label>
+        <input id="loginEmail" type="email" autocomplete="email" required>
       </div>
 
-    </div>
+      <div class="field">
+        <label>Password</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" required>
+      </div>
 
-    <div id="onlineUser" class="online hidden">
-      <span class="dot"></span>
-      <span id="headerName">Student</span>
-    </div>
+      <button class="primary" id="loginBtn" type="submit">
+        Login
+      </button>
+    </form>
 
+    <!-- REGISTER -->
+    <form id="registerForm" class="hidden">
+      <div class="field">
+        <label>নাম</label>
+        <input id="regName" type="text" autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label>শ্রেণি</label>
+        <select id="regClass" required>
+          <option value="">শ্রেণি নির্বাচন করুন</option>
+          <option>৬ষ্ঠ</option>
+          <option>৭ম</option>
+          <option>৮ম</option>
+          <option>৯ম</option>
+          <option>১০ম</option>
+          <option>দাখিল</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>রোল</label>
+        <input id="regRoll" type="text" required>
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input id="regEmail" type="email" autocomplete="email" required>
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input id="regPassword" type="password" minlength="6" autocomplete="new-password" required>
+      </div>
+
+      <button class="primary" id="registerBtn" type="submit">
+        Registration
+      </button>
+    </form>
   </div>
+</section>
 
 
-  <nav id="nav" class="nav hidden">
+<!-- ================= APP ================= -->
+<section id="appScreen" class="hidden">
 
-    <button data-page="home" class="active">Home</button>
-    <button data-page="notice">Notice</button>
-    <button data-page="chat">Group Chat</button>
-    <button data-page="teachers">Teachers</button>
-    <button data-page="profile">Profile</button>
-    <button id="adminNav" data-page="admin" class="hidden">⚡ Admin</button>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="brand-icon">J</div>
+      <div>
+        <strong>OUR JDM</strong>
+        <small>Jalchatra Dakhil Madrasha</small>
+      </div>
+    </div>
 
-  </nav>
-
+    <div class="nav-actions">
+      <button class="icon-btn" id="logoutBtn">Logout</button>
+    </div>
+  </div>
 </header>
 
 
-<main>
+<main class="container">
 
-
-<!-- ================= AUTH ================= -->
-
-<section id="authSection" class="section active">
-
-  <div class="auth-screen">
-
-    <div class="auth-card">
-
-      <div class="auth-logo">
-        JDM
-      </div>
-
-      <h2>Welcome to OUR JDM</h2>
-
-      <p class="sub">
-        Jalchatra Dakhil Madrasha<br>
-        Digital Community
-      </p>
-
-
-      <div class="tabs">
-
-        <button id="loginTab" class="active">
-          Login
-        </button>
-
-        <button id="registerTab">
-          Registration
-        </button>
-
-      </div>
-
-
-      <!-- LOGIN -->
-
-      <form id="loginForm">
-
-        <div class="field">
-
-          <label>Email</label>
-
-          <input
-            id="loginEmail"
-            type="email"
-            placeholder="Enter your email"
-            autocomplete="email"
-            required
-          >
-
-        </div>
-
-
-        <div class="field">
-
-          <label>Password</label>
-
-          <input
-            id="loginPassword"
-            type="password"
-            placeholder="Enter your password"
-            autocomplete="current-password"
-            required
-          >
-
-        </div>
-
-
-        <button class="btn primary full" type="submit">
-          Login to OUR JDM
-        </button>
-
-      </form>
-
-
-      <!-- REGISTER -->
-
-      <form id="registerForm" class="hidden">
-
-        <div class="field">
-          <label>Student Name</label>
-          <input id="regName" required placeholder="Your full name">
-        </div>
-
-        <div class="field">
-          <label>Class</label>
-          <input id="regClass" required placeholder="Example: Class 9">
-        </div>
-
-        <div class="field">
-          <label>Roll</label>
-          <input id="regRoll" required placeholder="Your roll number">
-        </div>
-
-        <div class="field">
-          <label>Phone</label>
-          <input id="regPhone" type="tel" required placeholder="Your phone number">
-        </div>
-
-        <div class="field">
-          <label>Email</label>
-          <input id="regEmail" type="email" required placeholder="Your email">
-        </div>
-
-        <div class="field">
-          <label>Password</label>
-          <input id="regPassword" type="password" minlength="6" required placeholder="Minimum 6 characters">
-        </div>
-
-        <button class="btn primary full" type="submit">
-          Create Student Account
-        </button>
-
-      </form>
-
+  <!-- HOME -->
+  <section id="homePage" class="page">
+    <div class="hero">
+      <h2>স্বাগতম, <span id="welcomeName">Student</span> 👋</h2>
+      <p>OUR JDM-এর অনলাইন প্ল্যাটফর্মে আপনাকে স্বাগতম।</p>
     </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= HOME ================= -->
-
-<section id="home" class="section">
-
-  <div class="hero">
-
-    <span class="badge">
-      ✦ DIGITAL MADRASHA COMMUNITY
-    </span>
-
-    <h2>
-      Welcome to<br>
-      <span class="gradient">OUR JDM</span>
-    </h2>
-
-    <p>
-      Jalchatra Dakhil Madrasha-এর শিক্ষার্থী ও শিক্ষকদের
-      জন্য একটি আধুনিক ডিজিটাল কমিউনিটি প্ল্যাটফর্ম।
-    </p>
-
-    <div class="actions">
-
-      <button
-        class="btn primary"
-        onclick="showPage('notice')"
-      >
-        📢 View Notice
-      </button>
-
-      <button
-        class="btn dark"
-        onclick="showPage('chat')"
-      >
-        💬 Group Chat
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <div class="grid">
-
-    <div class="card">
-
-      <div class="card-title">
-
-        <div>
-          <div class="muted">COMMUNITY</div>
-          <div class="stat">JDM</div>
-        </div>
-
-        <div class="icon">🏫</div>
-
-      </div>
-
-      <div class="muted">
-        আমাদের ডিজিটাল মাদ্রাসা প্ল্যাটফর্ম
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-title">
-
-        <div>
-          <div class="muted">NOTICE</div>
-          <div id="noticeCount" class="stat">0</div>
-        </div>
-
-        <div class="icon">📢</div>
-
-      </div>
-
-      <div class="muted">
-        সর্বশেষ নোটিশ ও আপডেট
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-title">
-
-        <div>
-          <div class="muted">CHAT</div>
-          <div class="stat">LIVE</div>
-        </div>
-
-        <div class="icon">💬</div>
-
-      </div>
-
-      <div class="muted">
-        Real-time student group chat
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= NOTICE ================= -->
-
-<section id="notice" class="section">
-
-  <div class="page-head">
-
-    <h2>📢 Notice Board</h2>
-
-    <p>
-      মাদ্রাসার সর্বশেষ নোটিশ ও গুরুত্বপূর্ণ তথ্য
-    </p>
-
-  </div>
-
-
-  <div class="card">
-
-    <div id="noticeList">
-      <div class="muted">
-        Loading notices...
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= CHAT ================= -->
-
-<section id="chat" class="section">
-
-  <div class="page-head">
-
-    <h2>💬 Group Chat</h2>
-
-    <p>
-      OUR JDM Student Community
-    </p>
-
-  </div>
-
-
-  <div class="card chat-card">
-
-    <div class="chat-head">
-
-      <strong>
-        JDM Community Chat
-      </strong>
-
-      <div class="muted">
-        Please be respectful.
-      </div>
-
-    </div>
-
-
-    <div id="chatMessages" class="chat-box">
-
-      <div class="muted">
-        Loading messages...
-      </div>
-
-    </div>
-
-
-    <div class="chat-input">
-
-      <input
-        id="chatInput"
-        maxlength="500"
-        placeholder="Write a message..."
-      >
-
-      <button
-        id="sendChat"
-        class="btn primary"
-      >
-        Send
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= TEACHERS ================= -->
-
-<section id="teachers" class="section">
-
-  <div class="page-head">
-
-    <h2>👨‍🏫 Teachers</h2>
-
-    <p>
-      Our respected teachers
-    </p>
-
-  </div>
-
-
-  <div class="card">
-
-    <div id="teacherList" class="teacher-grid">
-
-      <div class="muted">
-        Loading teachers...
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= PROFILE ================= -->
-
-<section id="profile" class="section">
-
-  <div class="page-head">
-
-    <h2>👤 My Profile</h2>
-
-    <p>
-      Your account information
-    </p>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="profile-top">
-
-      <div id="profileAvatar" class="avatar">
-        U
-      </div>
-
-      <div>
-
-        <div id="profileName" class="profile-name">
-          Student
-        </div>
-
-        <div id="profileEmail" class="profile-email">
-          —
-        </div>
-
-      </div>
-
-    </div>
-
 
     <div class="grid">
-
       <div class="card">
-        <div class="muted">CLASS</div>
-        <div id="profileClass" class="stat">—</div>
+        <h3>📢 Notice</h3>
+        <p>মাদ্রাসার গুরুত্বপূর্ণ নোটিশ এখানে দেখতে পারবেন।</p>
       </div>
 
       <div class="card">
-        <div class="muted">ROLL</div>
-        <div id="profileRoll" class="stat">—</div>
+        <h3>💬 Group Chat</h3>
+        <p>অন্যান্য শিক্ষার্থীদের সঙ্গে Group Chat-এ যোগাযোগ করুন।</p>
       </div>
 
       <div class="card">
-        <div class="muted">STATUS</div>
-        <div class="stat">Active</div>
+        <h3>👨‍🏫 Teachers</h3>
+        <p>শিক্ষকদের তথ্য এখানে দেখতে পারবেন।</p>
       </div>
 
+      <div class="card">
+        <h3>👤 Profile</h3>
+        <p>আপনার নিজের প্রোফাইল তথ্য দেখুন।</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- NOTICE -->
+  <section id="noticePage" class="page hidden">
+    <div class="section-title">
+      <h2>📢 Notice</h2>
+    </div>
+    <div id="noticeList" class="list"></div>
+  </section>
+
+
+  <!-- CHAT -->
+  <section id="chatPage" class="page hidden">
+    <div class="section-title">
+      <h2>💬 Group Chat</h2>
     </div>
 
+    <div id="chatStatus"></div>
 
-    <br>
+    <div id="chatBox" class="chat-box"></div>
 
-    <button
-      id="logoutBtn"
-      class="btn danger full"
-    >
-      Logout
-    </button>
-
-  </div>
-
-</section>
+    <form id="chatForm" class="chat-form">
+      <input id="chatInput" maxlength="300" placeholder="আপনার মেসেজ লিখুন..." autocomplete="off">
+      <button class="chat-send" type="submit">Send</button>
+    </form>
+  </section>
 
 
-<!-- ================= ADMIN ================= -->
-
-<section id="admin" class="section">
-
-  <div class="page-head">
-
-    <h2>⚡ Admin Control Center</h2>
-
-    <p>
-      Authorized Admin only
-    </p>
-
-  </div>
-
-
-  <div class="admin-banner">
-
-    <strong>
-      ADMIN MODE ACTIVE
-    </strong>
-
-    <div class="muted">
-      Authorized Firebase Admin account detected.
+  <!-- TEACHERS -->
+  <section id="teachersPage" class="page hidden">
+    <div class="section-title">
+      <h2>👨‍🏫 Teachers</h2>
     </div>
-
-  </div>
-
-
-  <div class="admin-grid">
+    <div id="teacherList" class="list"></div>
+  </section>
 
 
-    <!-- NOTICE -->
+  <!-- PROFILE -->
+  <section id="profilePage" class="page hidden">
+    <div class="section-title">
+      <h2>👤 Profile</h2>
+    </div>
 
     <div class="card">
-
-      <div class="card-title">
-
-        <h3>📢 Publish Notice</h3>
-
+      <div class="item">
+        <strong>নাম</strong>
+        <span id="profileName">—</span>
       </div>
 
+      <br>
+
+      <div class="item">
+        <strong>শ্রেণি</strong>
+        <span id="profileClass">—</span>
+      </div>
+
+      <br>
+
+      <div class="item">
+        <strong>রোল</strong>
+        <span id="profileRoll">—</span>
+      </div>
+
+      <br>
+
+      <div class="item">
+        <strong>Email</strong>
+        <span id="profileEmail">—</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ADMIN -->
+  <section id="adminPage" class="page hidden">
+
+    <div class="section-title">
+      <h2>🛡️ Admin Panel</h2>
+    </div>
+
+    <!-- NOTICE ADMIN -->
+    <div class="card admin-box section">
+      <h3>📢 নতুন Notice</h3>
 
       <form id="noticeForm">
-
         <div class="field">
-
-          <label>Notice Title</label>
-
-          <input
-            id="noticeTitle"
-            required
-            placeholder="Notice title"
-          >
-
+          <label>Title</label>
+          <input id="noticeTitle" required>
         </div>
 
-
         <div class="field">
-
-          <label>Notice Body</label>
-
-          <input
-            id="noticeBody"
-            required
-            placeholder="Write notice"
-          >
-
+          <label>Notice</label>
+          <textarea id="noticeBody" required></textarea>
         </div>
 
-
-        <button
-          class="btn primary full"
-          type="submit"
-        >
-          Publish Notice
-        </button>
-
+        <button class="primary" type="submit">Publish Notice</button>
       </form>
-
     </div>
 
 
-    <!-- TEACHER -->
-
-    <div class="card">
-
-      <div class="card-title">
-
-        <h3>👨‍🏫 Add Teacher</h3>
-
-      </div>
-
+    <!-- TEACHER ADMIN -->
+    <div class="card admin-box section">
+      <h3>👨‍🏫 Teacher যোগ করুন</h3>
 
       <form id="teacherForm">
-
         <div class="field">
-
           <label>Teacher Name</label>
-
-          <input
-            id="teacherName"
-            required
-            placeholder="Teacher name"
-          >
-
+          <input id="teacherName" required>
         </div>
 
-
         <div class="field">
-
           <label>Subject</label>
-
-          <input
-            id="teacherSubject"
-            required
-            placeholder="Subject"
-          >
-
+          <input id="teacherSubject" required>
         </div>
-
 
         <div class="field">
-
           <label>Designation</label>
-
-          <input
-            id="teacherDesignation"
-            required
-            placeholder="Designation"
-          >
-
+          <input id="teacherDesignation" required>
         </div>
 
-
-        <button
-          class="btn primary full"
-          type="submit"
-        >
-          Add Teacher
-        </button>
-
+        <button class="primary" type="submit">Add Teacher</button>
       </form>
-
-    </div>
-
-  </div>
-
-
-  <br>
-
-
-  <!-- MODERATION -->
-
-  <div class="card">
-
-    <div class="card-title">
-
-      <div>
-
-        <h3>🛡 Student Moderation</h3>
-
-        <div class="muted">
-          Mute / Ban / Unban students
-        </div>
-
-      </div>
-
     </div>
 
 
-    <div id="studentList" class="list">
-
-      <div class="muted">
-        Loading students...
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <br>
-
-
-  <!-- ADMIN CHAT -->
-
-  <div class="card">
-
-    <div class="card-title">
-
-      <div>
-
-        <h3>🗑 Chat Management</h3>
-
-        <div class="muted">
-          Delete inappropriate messages
-        </div>
-
-      </div>
-
+    <!-- STUDENTS -->
+    <div class="card admin-box section">
+      <h3>👥 Students / Moderation</h3>
+      <div id="studentList" class="list"></div>
     </div>
 
 
-    <div id="adminChatList" class="list">
-
-      <div class="muted">
-        Loading chat...
-      </div>
-
+    <!-- CHAT MANAGEMENT -->
+    <div class="card admin-box section">
+      <h3>🗑️ Chat Management</h3>
+      <div id="adminChatList" class="list"></div>
     </div>
 
-  </div>
-
-</section>
-
-
-<div class="footer">
-  © OUR JDM — Jalchatra Dakhil Madrasha
-</div>
+  </section>
 
 </main>
 
 
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <div class="bottom-inner">
+
+    <button class="nav-item active" data-page="homePage">
+      <span>⌂</span>Home
+    </button>
+
+    <button class="nav-item" data-page="noticePage">
+      <span>📢</span>Notice
+    </button>
+
+    <button class="nav-item" data-page="chatPage">
+      <span>💬</span>Chat
+    </button>
+
+    <button class="nav-item" data-page="teachersPage">
+      <span>👨‍🏫</span>Teachers
+    </button>
+
+    <button class="nav-item" data-page="profilePage">
+      <span>👤</span>Profile
+    </button>
+
+  </div>
+</nav>
+
+</section>
+
+
+<!-- ================= FIREBASE ================= -->
 <script type="module">
 
 import { initializeApp }
@@ -1446,6 +637,8 @@ from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 
 import {
   getAuth,
+  setPersistence,
+  inMemoryPersistence,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -1457,92 +650,91 @@ import {
   getDatabase,
   ref,
   set,
+  get,
   push,
-  onValue,
   remove,
-  get
+  onValue,
+  query,
+  orderByChild
 }
 from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 
-/* =========================================================
-   FIREBASE CONFIG
-========================================================= */
+/* ================= FIREBASE CONFIG ================= */
 
 const firebaseConfig = {
-
-  apiKey:
-    "AIzaSyDZKSWOQtDjpylWLBa39v9_XeZclzojkxQ",
-
-  authDomain:
-    "our-jdm.firebaseapp.com",
-
-  databaseURL:
-    "https://our-jdm-default-rtdb.firebaseio.com",
-
-  projectId:
-    "our-jdm",
-
-  storageBucket:
-    "our-jdm.firebasestorage.app",
-
-  messagingSenderId:
-    "286298440794",
-
-  appId:
-    "1:286298440794:web:12e5e0af59e2c77d2d0463"
-
+  apiKey: "AIzaSyDZKSWOQtDjpylWLBa39v9_XeZclzojkxQ",
+  authDomain: "our-jdm.firebaseapp.com",
+  databaseURL: "https://our-jdm-default-rtdb.firebaseio.com",
+  projectId: "our-jdm",
+  storageBucket: "our-jdm.firebasestorage.app",
+  messagingSenderId: "286298440794",
+  appId: "1:286298440794:web:12e5e0af59e2c77d2d0463"
 };
 
-
-/* =========================================================
-   ADMIN UID
-========================================================= */
-
-const ADMIN_UID =
-  "OvGBm4CurNRZzz64vztAxk0vIok1";
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getDatabase(app);
 
 
-const app =
-  initializeApp(firebaseConfig);
+/* ================= ADMIN UID ================= */
 
-const auth =
-  getAuth(app);
+const ADMIN_UID = "OvGBm4CurNRZzz64vztAxk0vIok1";
 
-const db =
-  getDatabase(app);
 
+/* ================= IMPORTANT =================
+   Firebase পুরোনো browser session রাখবে না।
+   ফলে refresh/reopen করলে Login screen থেকে শুরু হবে।
+================================================= */
+
+await setPersistence(auth, inMemoryPersistence);
+
+
+/* ================= ELEMENTS ================= */
+
+const authScreen = document.getElementById("authScreen");
+const appScreen = document.getElementById("appScreen");
+
+const loginTab = document.getElementById("loginTab");
+const registerTab = document.getElementById("registerTab");
+
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
+
+const authMessage = document.getElementById("authMessage");
+
+const homePage = document.getElementById("homePage");
+const noticePage = document.getElementById("noticePage");
+const chatPage = document.getElementById("chatPage");
+const teachersPage = document.getElementById("teachersPage");
+const profilePage = document.getElementById("profilePage");
+const adminPage = document.getElementById("adminPage");
 
 let currentUser = null;
 let currentProfile = null;
 
 
-/* =========================================================
-   HELPERS
-========================================================= */
+/* ================= MESSAGE ================= */
 
-const $ = id =>
-  document.getElementById(id);
+function showError(message){
+  authMessage.innerHTML =
+    `<div class="error">${escapeHTML(message)}</div>`;
+}
 
+function showSuccess(message){
+  authMessage.innerHTML =
+    `<div class="success">${escapeHTML(message)}</div>`;
+}
 
-function toast(message){
-
-  $("toast").textContent = message;
-
-  $("toast").classList.add("show");
-
-  clearTimeout(window.__toast);
-
-  window.__toast =
-    setTimeout(()=>{
-      $("toast").classList.remove("show");
-    },3000);
+function clearMessage(){
+  authMessage.innerHTML = "";
 }
 
 
-function escapeHTML(value){
+/* ================= ESCAPE HTML ================= */
 
-  return String(value ?? "")
+function escapeHTML(text){
+  return String(text ?? "")
     .replaceAll("&","&amp;")
     .replaceAll("<","&lt;")
     .replaceAll(">","&gt;")
@@ -1551,494 +743,361 @@ function escapeHTML(value){
 }
 
 
-function formatTime(time){
+/* ================= AUTH TABS ================= */
 
-  if(!time) return "";
+loginTab.addEventListener("click",()=>{
+  loginTab.classList.add("active");
+  registerTab.classList.remove("active");
 
-  try{
+  loginForm.classList.remove("hidden");
+  registerForm.classList.add("hidden");
 
-    return new Date(time)
-      .toLocaleString("bn-BD",{
-        dateStyle:"short",
-        timeStyle:"short"
-      });
+  clearMessage();
+});
 
-  }catch{
+registerTab.addEventListener("click",()=>{
+  registerTab.classList.add("active");
+  loginTab.classList.remove("active");
 
-    return "";
+  registerForm.classList.remove("hidden");
+  loginForm.classList.add("hidden");
 
-  }
-
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-window.showPage = function(page){
-
-  if(!currentUser) return;
-
-
-  document.querySelectorAll(".section")
-    .forEach(section=>{
-      section.classList.remove("active");
-    });
-
-
-  const target = $(page);
-
-  if(target){
-    target.classList.add("active");
-  }
-
-
-  document.querySelectorAll(".nav button")
-    .forEach(button=>{
-
-      button.classList.toggle(
-        "active",
-        button.dataset.page === page
-      );
-
-    });
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-};
-
-
-document.querySelectorAll(".nav button")
-.forEach(button=>{
-
-  button.addEventListener(
-    "click",
-    ()=>{
-      showPage(button.dataset.page);
-    }
-  );
-
+  clearMessage();
 });
 
 
-/* =========================================================
-   AUTH TABS
-========================================================= */
+/* ================= REGISTRATION ================= */
 
-$("loginTab").onclick = ()=>{
+registerForm.addEventListener("submit", async e=>{
 
-  $("loginTab").classList.add("active");
-  $("registerTab").classList.remove("active");
+  e.preventDefault();
 
-  $("loginForm").classList.remove("hidden");
-  $("registerForm").classList.add("hidden");
+  const btn = document.getElementById("registerBtn");
 
-};
+  const name = document.getElementById("regName").value.trim();
+  const studentClass = document.getElementById("regClass").value;
+  const roll = document.getElementById("regRoll").value.trim();
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword").value;
 
-
-$("registerTab").onclick = ()=>{
-
-  $("registerTab").classList.add("active");
-  $("loginTab").classList.remove("active");
-
-  $("registerForm").classList.remove("hidden");
-  $("loginForm").classList.add("hidden");
-
-};
-
-
-/* =========================================================
-   REGISTER
-========================================================= */
-
-$("registerForm").addEventListener(
-  "submit",
-  async event=>{
-
-    event.preventDefault();
-
-
-    const name =
-      $("regName").value.trim();
-
-    const studentClass =
-      $("regClass").value.trim();
-
-    const roll =
-      $("regRoll").value.trim();
-
-    const phone =
-      $("regPhone").value.trim();
-
-    const email =
-      $("regEmail").value.trim();
-
-    const password =
-      $("regPassword").value;
-
-
-    try{
-
-      const credential =
-        await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-
-
-      const uid =
-        credential.user.uid;
-
-
-      await set(
-        ref(db,`users/${uid}`),
-        {
-          name,
-          class:studentClass,
-          roll,
-          createdAt:Date.now()
-        }
-      );
-
-
-      await set(
-        ref(db,`privateUsers/${uid}`),
-        {
-          email,
-          phone,
-          createdAt:Date.now()
-        }
-      );
-
-
-      toast(
-        "Registration successful!"
-      );
-
-
-    }catch(error){
-
-      console.error(error);
-
-      toast(
-        error.message ||
-        "Registration failed"
-      );
-
-    }
-
+  if(!name || !studentClass || !roll || !email || !password){
+    showError("সব তথ্য পূরণ করুন।");
+    return;
   }
-);
 
+  if(password.length < 6){
+    showError("Password কমপক্ষে ৬ অক্ষরের হতে হবে।");
+    return;
+  }
 
-/* =========================================================
-   LOGIN
-========================================================= */
+  btn.disabled = true;
+  btn.textContent = "Registration হচ্ছে...";
 
-$("loginForm").addEventListener(
-  "submit",
-  async event=>{
+  try{
 
-    event.preventDefault();
-
-
-    const email =
-      $("loginEmail").value.trim();
-
-    const password =
-      $("loginPassword").value;
-
-
-    try{
-
-      await signInWithEmailAndPassword(
+    const credential =
+      await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
 
+    const uid = credential.user.uid;
 
-      toast(
-        "Login successful!"
-      );
+    await set(ref(db,"users/"+uid),{
+      name:name,
+      class:studentClass,
+      roll:roll,
+      createdAt:Date.now()
+    });
 
+    /*
+      Registration-এর পরে automatic login বন্ধ করছি।
+      প্রথমে Login screen দেখাবে।
+    */
+    await signOut(auth);
 
-    }catch(error){
+    registerForm.reset();
 
-      console.error(error);
+    loginTab.click();
 
-      toast(
-        error.message ||
-        "Login failed"
-      );
+    document.getElementById("loginEmail").value = email;
 
+    showSuccess(
+      "Registration সফল হয়েছে। এখন আপনার Email ও Password দিয়ে Login করুন।"
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    let msg = "Registration করা যায়নি।";
+
+    if(error.code === "auth/email-already-in-use"){
+      msg = "এই Email দিয়ে আগে থেকেই account আছে। Login করুন।";
     }
+    else if(error.code === "auth/invalid-email"){
+      msg = "সঠিক Email দিন।";
+    }
+    else if(error.code === "auth/weak-password"){
+      msg = "Password আরও শক্তিশালী দিন।";
+    }
+
+    showError(msg);
+
+  }finally{
+
+    btn.disabled = false;
+    btn.textContent = "Registration";
 
   }
-);
+
+});
 
 
-/* =========================================================
-   AUTH STATE
-========================================================= */
+/* ================= LOGIN ================= */
 
-onAuthStateChanged(
-  auth,
-  async user=>{
+loginForm.addEventListener("submit", async e=>{
 
-    currentUser = user;
+  e.preventDefault();
 
+  const btn = document.getElementById("loginBtn");
 
-    /* ============================================
-       NOT LOGGED IN
-    ============================================ */
+  const email =
+    document.getElementById("loginEmail").value.trim();
 
-    if(!user){
+  const password =
+    document.getElementById("loginPassword").value;
 
-      $("authSection")
-        .classList.add("active");
+  if(!email || !password){
+    showError("Email এবং Password দিন।");
+    return;
+  }
 
-      $("nav")
-        .classList.add("hidden");
+  btn.disabled = true;
+  btn.textContent = "Login হচ্ছে...";
 
-      $("onlineUser")
-        .classList.add("hidden");
+  clearMessage();
 
+  try{
 
-      document
-        .querySelectorAll(
-          ".section:not(#authSection)"
-        )
-        .forEach(section=>{
-          section.classList.remove("active");
-        });
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
 
+  }catch(error){
 
-      $("adminNav")
-        .classList.add("hidden");
+    console.error(error);
 
+    let msg = "Login করা যায়নি।";
 
-      return;
+    if(
+      error.code === "auth/invalid-credential" ||
+      error.code === "auth/wrong-password" ||
+      error.code === "auth/user-not-found"
+    ){
+      msg = "Email অথবা Password ভুল।";
+    }
+    else if(error.code === "auth/invalid-email"){
+      msg = "সঠিক Email দিন।";
     }
 
+    showError(msg);
 
-    /* ============================================
-       LOGGED IN
-    ============================================ */
+  }finally{
 
-    $("authSection")
-      .classList.remove("active");
+    btn.disabled = false;
+    btn.textContent = "Login";
 
-    $("nav")
-      .classList.remove("hidden");
+  }
 
-    $("onlineUser")
-      .classList.remove("hidden");
+});
 
 
-    /* ============================================
-       ADMIN CHECK
-    ============================================ */
+/* ================= AUTH STATE ================= */
 
-    const isAdmin =
-      user.uid === ADMIN_UID;
+onAuthStateChanged(auth, async user=>{
 
+  if(!user){
 
-    console.log(
-      "Current UID:",
-      user.uid
-    );
+    currentUser = null;
+    currentProfile = null;
 
-    console.log(
-      "Admin UID:",
-      ADMIN_UID
-    );
+    appScreen.classList.add("hidden");
+    authScreen.classList.remove("hidden");
 
-    console.log(
-      "Admin:",
-      isAdmin
-    );
+    return;
+  }
 
+  currentUser = user;
 
-    if(isAdmin){
+  try{
 
-      $("adminNav")
-        .classList.remove("hidden");
+    const snap =
+      await get(ref(db,"users/"+user.uid));
 
+    if(snap.exists()){
+      currentProfile = snap.val();
     }else{
-
-      $("adminNav")
-        .classList.add("hidden");
-
+      currentProfile = {
+        name:user.email?.split("@")[0] || "Student",
+        class:"—",
+        roll:"—"
+      };
     }
 
+    authScreen.classList.add("hidden");
+    appScreen.classList.remove("hidden");
 
-    /* ============================================
-       PROFILE
-    ============================================ */
+    updateProfile();
 
-    const profileSnapshot =
-      await get(
-        ref(db,`users/${user.uid}`)
-      );
-
-
-    currentProfile =
-      profileSnapshot.exists()
-        ? profileSnapshot.val()
-        : null;
-
-
-    if(currentProfile){
-
-      const name =
-        currentProfile.name ||
-        "Student";
-
-
-      $("headerName")
-        .textContent = name;
-
-
-      $("profileName")
-        .textContent = name;
-
-
-      $("profileClass")
-        .textContent =
-          currentProfile.class || "—";
-
-
-      $("profileRoll")
-        .textContent =
-          currentProfile.roll || "—";
-
-
-      $("profileAvatar")
-        .textContent =
-          name.charAt(0).toUpperCase();
-
+    if(user.uid === ADMIN_UID){
+      adminPage.classList.remove("hidden");
+    }else{
+      adminPage.classList.add("hidden");
     }
-
-
-    $("profileEmail")
-      .textContent =
-        user.email || "—";
-
 
     loadNotices();
     loadTeachers();
     loadChat();
 
-
-    if(isAdmin){
-
+    if(user.uid === ADMIN_UID){
       loadStudents();
       loadAdminChat();
-
     }
 
+  }catch(error){
 
-    showPage("home");
+    console.error(error);
+
+    await signOut(auth);
+
+    authScreen.classList.remove("hidden");
+    appScreen.classList.add("hidden");
+
+    showError("Profile load করা যায়নি। আবার Login করুন।");
 
   }
-);
+
+});
 
 
-/* =========================================================
-   LOGOUT
-========================================================= */
+/* ================= LOGOUT ================= */
 
-$("logoutBtn").onclick =
-  async()=>{
+document.getElementById("logoutBtn")
+.addEventListener("click",async()=>{
 
-    try{
+  try{
+    await signOut(auth);
+  }catch(error){
+    console.error(error);
+  }
 
-      await signOut(auth);
-
-      toast("Logged out");
-
-    }catch(error){
-
-      toast(error.message);
-
-    }
-
-  };
+});
 
 
-/* =========================================================
-   NOTICE
-========================================================= */
+/* ================= NAVIGATION ================= */
+
+document.querySelectorAll(".nav-item")
+.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    const target = button.dataset.page;
+
+    document.querySelectorAll(".page")
+      .forEach(page=>page.classList.add("hidden"));
+
+    document.getElementById(target)
+      .classList.remove("hidden");
+
+    document.querySelectorAll(".nav-item")
+      .forEach(item=>item.classList.remove("active"));
+
+    button.classList.add("active");
+
+  });
+
+});
+
+
+/* ================= PROFILE ================= */
+
+function updateProfile(){
+
+  const name =
+    currentProfile?.name || "Student";
+
+  document.getElementById("welcomeName")
+    .textContent = name;
+
+  document.getElementById("profileName")
+    .textContent = name;
+
+  document.getElementById("profileClass")
+    .textContent = currentProfile?.class || "—";
+
+  document.getElementById("profileRoll")
+    .textContent = currentProfile?.roll || "—";
+
+  document.getElementById("profileEmail")
+    .textContent = currentUser?.email || "—";
+
+}
+
+
+/* ================= NOTICE ================= */
 
 function loadNotices(){
 
+  const noticeList =
+    document.getElementById("noticeList");
+
   onValue(
-    ref(db,"notices"),
+    query(ref(db,"notices"),orderByChild("createdAt")),
     snapshot=>{
 
-      const list = [];
+      noticeList.innerHTML = "";
 
+      const data = snapshot.val();
 
-      snapshot.forEach(child=>{
-
-        list.push({
-          id:child.key,
-          ...child.val()
-        });
-
-      });
-
-
-      list.sort(
-        (a,b)=>
-          (b.createdAt || 0) -
-          (a.createdAt || 0)
-      );
-
-
-      $("noticeCount")
-        .textContent = list.length;
-
-
-      if(!list.length){
-
-        $("noticeList").innerHTML =
-          `<div class="muted">
-             No notice available.
-           </div>`;
-
+      if(!data){
+        noticeList.innerHTML =
+          `<div class="card"><p>এখন কোনো Notice নেই।</p></div>`;
         return;
-
       }
 
+      const items =
+        Object.entries(data).reverse();
 
-      $("noticeList").innerHTML =
-        list.map(item=>`
+      items.forEach(([id,n])=>{
 
-          <div class="notice">
+        const date =
+          n.createdAt
+          ? new Date(n.createdAt).toLocaleString("bn-BD")
+          : "";
 
-            <h3>
-              ${escapeHTML(item.title)}
-            </h3>
+        noticeList.innerHTML += `
+          <div class="item">
+            <strong>${escapeHTML(n.title)}</strong>
+            <small>${escapeHTML(date)}</small>
+            <p>${escapeHTML(n.body)}</p>
 
-            <p>
-              ${escapeHTML(item.body)}
-            </p>
-
-            <div class="date">
-              ${formatTime(item.createdAt)}
-            </div>
-
+            ${
+              currentUser?.uid === ADMIN_UID
+              ? `<br>
+                 <button class="danger"
+                   onclick="deleteNotice('${id}')">
+                   Delete
+                 </button>`
+              : ""
+            }
           </div>
+        `;
 
-        `).join("");
+      });
 
     }
   );
@@ -2046,695 +1105,271 @@ function loadNotices(){
 }
 
 
-/* =========================================================
-   ADMIN NOTICE
-========================================================= */
+/* ================= DELETE NOTICE ================= */
 
-$("noticeForm").addEventListener(
-  "submit",
-  async event=>{
+window.deleteNotice = async function(id){
 
-    event.preventDefault();
+  if(currentUser?.uid !== ADMIN_UID) return;
 
+  if(!confirm("এই Notice delete করবেন?")) return;
 
-    if(
-      !currentUser ||
-      currentUser.uid !== ADMIN_UID
-    ){
+  try{
+    await remove(ref(db,"notices/"+id));
+  }catch(error){
+    alert("Delete করা যায়নি।");
+  }
 
-      toast("Admin access required");
-
-      return;
-
-    }
+};
 
 
-    const title =
-      $("noticeTitle").value.trim();
+/* ================= ADMIN NOTICE ================= */
 
-    const body =
-      $("noticeBody").value.trim();
+document.getElementById("noticeForm")
+.addEventListener("submit",async e=>{
 
+  e.preventDefault();
 
-    try{
+  if(currentUser?.uid !== ADMIN_UID){
+    return;
+  }
 
-      const newRef =
-        push(ref(db,"notices"));
+  const title =
+    document.getElementById("noticeTitle").value.trim();
 
+  const body =
+    document.getElementById("noticeBody").value.trim();
 
-      await set(
-        newRef,
-        {
-          title,
-          body,
-          createdAt:Date.now(),
-          createdBy:currentUser.uid
-        }
-      );
+  if(!title || !body) return;
 
+  try{
 
-      $("noticeForm").reset();
+    const newRef = push(ref(db,"notices"));
 
-      toast(
-        "Notice published!"
-      );
+    await set(newRef,{
+      title:title,
+      body:body,
+      createdAt:Date.now(),
+      createdBy:currentUser.uid
+    });
 
+    e.target.reset();
 
-    }catch(error){
+    alert("Notice publish হয়েছে।");
 
-      console.error(error);
+  }catch(error){
 
-      toast(
-        "Permission denied. Check Firebase Rules."
-      );
-
-    }
+    console.error(error);
+    alert("Notice publish করা যায়নি।");
 
   }
-);
+
+});
 
 
-/* =========================================================
-   TEACHERS
-========================================================= */
+/* ================= TEACHERS ================= */
 
 function loadTeachers(){
 
+  const teacherList =
+    document.getElementById("teacherList");
+
   onValue(
-    ref(db,"teachers"),
+    query(ref(db,"teachers"),orderByChild("createdAt")),
     snapshot=>{
 
-      const list = [];
+      teacherList.innerHTML = "";
 
+      const data = snapshot.val();
 
-      snapshot.forEach(child=>{
+      if(!data){
 
-        list.push({
-          id:child.key,
-          ...child.val()
-        });
-
-      });
-
-
-      if(!list.length){
-
-        $("teacherList").innerHTML =
-          `<div class="muted">
-             No teachers added yet.
+        teacherList.innerHTML =
+          `<div class="card">
+             <p>এখন কোনো Teacher তথ্য নেই।</p>
            </div>`;
 
         return;
-
       }
 
+      Object.entries(data)
+      .reverse()
+      .forEach(([id,t])=>{
 
-      $("teacherList").innerHTML =
-        list.map(teacher=>`
-
-          <div class="teacher">
-
-            <div class="teacher-avatar">
-
-              ${escapeHTML(
-                (teacher.name || "T")
-                  .charAt(0)
-                  .toUpperCase()
-              )}
-
-            </div>
-
-            <div style="flex:1">
-
-              <h3>
-                ${escapeHTML(
-                  teacher.name
-                )}
-              </h3>
-
-              <p>
-                ${escapeHTML(
-                  teacher.subject
-                )}
-                •
-                ${escapeHTML(
-                  teacher.designation
-                )}
-              </p>
-
-            </div>
+        teacherList.innerHTML += `
+          <div class="item">
+            <strong>👨‍🏫 ${escapeHTML(t.name)}</strong>
+            <small>${escapeHTML(t.designation || "")}</small>
+            <p>বিষয়: ${escapeHTML(t.subject || "—")}</p>
 
             ${
-              currentUser &&
-              currentUser.uid === ADMIN_UID
-              ?
-              `
-              <button
-                class="btn danger"
-                style="padding:7px 8px;font-size:8px"
-                onclick="deleteTeacher('${teacher.id}')"
-              >
-                Delete
-              </button>
-              `
-              :
-              ""
+              currentUser?.uid === ADMIN_UID
+              ? `<br>
+                 <button class="danger"
+                   onclick="deleteTeacher('${id}')">
+                   Delete
+                 </button>`
+              : ""
             }
-
           </div>
-
-        `).join("");
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   ADD TEACHER
-========================================================= */
-
-$("teacherForm").addEventListener(
-  "submit",
-  async event=>{
-
-    event.preventDefault();
-
-
-    if(
-      !currentUser ||
-      currentUser.uid !== ADMIN_UID
-    ){
-
-      toast(
-        "Admin access required"
-      );
-
-      return;
-
-    }
-
-
-    try{
-
-      const teacherRef =
-        push(ref(db,"teachers"));
-
-
-      await set(
-        teacherRef,
-        {
-          name:
-            $("teacherName")
-              .value.trim(),
-
-          subject:
-            $("teacherSubject")
-              .value.trim(),
-
-          designation:
-            $("teacherDesignation")
-              .value.trim(),
-
-          createdAt:
-            Date.now()
-        }
-      );
-
-
-      $("teacherForm").reset();
-
-      toast(
-        "Teacher added!"
-      );
-
-
-    }catch(error){
-
-      console.error(error);
-
-      toast(
-        "Could not add teacher."
-      );
-
-    }
-
-  }
-);
-
-
-window.deleteTeacher =
-  async id=>{
-
-    if(
-      !currentUser ||
-      currentUser.uid !== ADMIN_UID
-    ){
-
-      toast(
-        "Admin access required"
-      );
-
-      return;
-
-    }
-
-
-    try{
-
-      await remove(
-        ref(db,`teachers/${id}`)
-      );
-
-      toast(
-        "Teacher deleted"
-      );
-
-    }catch(error){
-
-      toast(
-        "Delete failed"
-      );
-
-    }
-
-  };
-
-
-/* =========================================================
-   CHAT
-========================================================= */
-
-function loadChat(){
-
-  onValue(
-    ref(db,"groupChat"),
-    snapshot=>{
-
-      const list = [];
-
-
-      snapshot.forEach(child=>{
-
-        list.push({
-          id:child.key,
-          ...child.val()
-        });
+        `;
 
       });
 
-
-      list.sort(
-        (a,b)=>
-          (a.createdAt || 0) -
-          (b.createdAt || 0)
-      );
-
-
-      if(!list.length){
-
-        $("chatMessages").innerHTML =
-          `<div class="muted">
-             No messages yet.
-           </div>`;
-
-        return;
-
-      }
-
-
-      $("chatMessages").innerHTML =
-        list.map(msg=>{
-
-          const mine =
-            currentUser &&
-            msg.uid === currentUser.uid;
-
-
-          return `
-
-            <div class="message ${mine ? "mine" : ""}">
-
-              <div class="bubble">
-
-                <div class="msg-name">
-                  ${escapeHTML(
-                    msg.name || "Student"
-                  )}
-                </div>
-
-                <div class="msg-text">
-                  ${escapeHTML(
-                    msg.text
-                  )}
-                </div>
-
-                <div class="msg-time">
-                  ${formatTime(
-                    msg.createdAt
-                  )}
-                </div>
-
-                ${
-                  currentUser &&
-                  currentUser.uid === ADMIN_UID
-                  ?
-                  `
-                  <button
-                    class="msg-delete"
-                    onclick="deleteMessage('${msg.id}')"
-                  >
-                    Delete message
-                  </button>
-                  `
-                  :
-                  ""
-                }
-
-              </div>
-
-            </div>
-
-          `;
-
-        }).join("");
-
-
-      $("chatMessages")
-        .scrollTop =
-          $("chatMessages").scrollHeight;
-
     }
   );
 
 }
 
 
-/* =========================================================
-   SEND MESSAGE
-========================================================= */
+/* ================= ADD TEACHER ================= */
+
+document.getElementById("teacherForm")
+.addEventListener("submit",async e=>{
+
+  e.preventDefault();
+
+  if(currentUser?.uid !== ADMIN_UID) return;
+
+  const name =
+    document.getElementById("teacherName").value.trim();
+
+  const subject =
+    document.getElementById("teacherSubject").value.trim();
+
+  const designation =
+    document.getElementById("teacherDesignation").value.trim();
+
+  if(!name || !subject || !designation) return;
+
+  try{
+
+    const newRef = push(ref(db,"teachers"));
+
+    await set(newRef,{
+      name:name,
+      subject:subject,
+      designation:designation,
+      createdAt:Date.now()
+    });
+
+    e.target.reset();
+
+    alert("Teacher যোগ হয়েছে।");
+
+  }catch(error){
+
+    console.error(error);
+    alert("Teacher যোগ করা যায়নি।");
+
+  }
+
+});
+
+
+/* ================= DELETE TEACHER ================= */
+
+window.deleteTeacher = async function(id){
+
+  if(currentUser?.uid !== ADMIN_UID) return;
+
+  if(!confirm("এই Teacher তথ্য delete করবেন?")) return;
+
+  try{
+    await remove(ref(db,"teachers/"+id));
+  }catch(error){
+    alert("Delete করা যায়নি।");
+  }
+
+};
+
+
+/* ================= PROFANITY FILTER ================= */
 
 const badWords = [
   "fuck",
   "shit",
   "bitch",
   "asshole",
-  "bastard",
   "motherfucker"
 ];
 
+function containsBadWord(text){
 
-$("sendChat").onclick =
-  sendMessage;
+  const lower = text.toLowerCase();
 
-
-$("chatInput").addEventListener(
-  "keydown",
-  event=>{
-
-    if(event.key === "Enter"){
-
-      event.preventDefault();
-
-      sendMessage();
-
-    }
-
-  }
-);
-
-
-async function sendMessage(){
-
-  if(!currentUser){
-
-    toast(
-      "Please login first"
-    );
-
-    return;
-
-  }
-
-
-  const text =
-    $("chatInput")
-      .value.trim();
-
-
-  if(!text) return;
-
-
-  const lower =
-    text.toLowerCase();
-
-
-  if(
-    badWords.some(word=>
-      lower.includes(word)
-    )
-  ){
-
-    toast(
-      "Please avoid inappropriate language."
-    );
-
-    return;
-
-  }
-
-
-  const moderation =
-    await get(
-      ref(
-        db,
-        `moderation/${currentUser.uid}`
-      )
-    );
-
-
-  if(moderation.exists()){
-
-    const data =
-      moderation.val();
-
-
-    if(data.banned){
-
-      toast(
-        "Your account is banned from chat."
-      );
-
-      return;
-
-    }
-
-
-    if(
-      data.mutedUntil &&
-      data.mutedUntil > Date.now()
-    ){
-
-      toast(
-        "You are currently muted."
-      );
-
-      return;
-
-    }
-
-  }
-
-
-  try{
-
-    const messageRef =
-      push(ref(db,"groupChat"));
-
-
-    await set(
-      messageRef,
-      {
-        uid:currentUser.uid,
-        name:
-          currentProfile?.name ||
-          "Student",
-        text,
-        createdAt:Date.now()
-      }
-    );
-
-
-    $("chatInput").value = "";
-
-
-  }catch(error){
-
-    console.error(error);
-
-    toast(
-      "Message failed. Check Firebase Rules."
-    );
-
-  }
+  return badWords.some(word =>
+    lower.includes(word)
+  );
 
 }
 
 
-/* =========================================================
-   DELETE MESSAGE
-========================================================= */
+/* ================= CHAT ================= */
 
-window.deleteMessage =
-  async id=>{
+function loadChat(){
 
-    if(
-      !currentUser ||
-      currentUser.uid !== ADMIN_UID
-    ){
-
-      toast(
-        "Admin access required"
-      );
-
-      return;
-
-    }
-
-
-    try{
-
-      await remove(
-        ref(db,`groupChat/${id}`)
-      );
-
-      toast(
-        "Message deleted"
-      );
-
-    }catch(error){
-
-      toast(
-        "Delete failed"
-      );
-
-    }
-
-  };
-
-
-/* =========================================================
-   STUDENTS
-========================================================= */
-
-function loadStudents(){
+  const chatBox =
+    document.getElementById("chatBox");
 
   onValue(
-    ref(db,"users"),
+    query(ref(db,"groupChat"),orderByChild("createdAt")),
     snapshot=>{
 
-      const students = [];
+      chatBox.innerHTML = "";
 
+      const data = snapshot.val();
 
-      snapshot.forEach(child=>{
+      if(!data){
+        chatBox.innerHTML =
+          `<div style="text-align:center;color:#6f849a;padding:30px">
+             এখনো কোনো message নেই।
+           </div>`;
+        return;
+      }
 
-        if(child.key !== ADMIN_UID){
+      Object.entries(data).forEach(([id,m])=>{
 
-          students.push({
-            uid:child.key,
-            ...child.val()
-          });
+        const me =
+          currentUser &&
+          m.uid === currentUser.uid;
 
-        }
+        const date =
+          m.createdAt
+          ? new Date(m.createdAt).toLocaleTimeString("bn-BD",{
+              hour:"2-digit",
+              minute:"2-digit"
+            })
+          : "";
+
+        chatBox.innerHTML += `
+          <div class="msg ${me ? "me" : ""}">
+            <div class="msg-bubble">
+              ${
+                currentUser?.uid === ADMIN_UID
+                ? `<strong>${escapeHTML(m.name || "User")}</strong><br>`
+                : ""
+              }
+              ${escapeHTML(m.text)}
+            </div>
+
+            <div class="msg-meta">
+              ${escapeHTML(m.name || "User")} · ${escapeHTML(date)}
+              ${
+                currentUser?.uid === ADMIN_UID
+                ? ` · <button
+                    style="border:0;background:none;color:#ff8585;font-size:10px"
+                    onclick="deleteMessage('${id}')">
+                    Delete
+                   </button>`
+                : ""
+              }
+            </div>
+          </div>
+        `;
 
       });
 
-
-      if(!students.length){
-
-        $("studentList").innerHTML =
-          `<div class="muted">
-             No students found.
-           </div>`;
-
-        return;
-
-      }
-
-
-      $("studentList").innerHTML =
-        students.map(student=>`
-
-          <div class="user-row">
-
-            <div class="user-info">
-
-              <strong>
-                ${escapeHTML(
-                  student.name ||
-                  "Student"
-                )}
-              </strong>
-
-              <small>
-                Class:
-                ${escapeHTML(
-                  student.class || "—"
-                )}
-                • Roll:
-                ${escapeHTML(
-                  student.roll || "—"
-                )}
-              </small>
-
-              <small>
-                UID:
-                ${escapeHTML(
-                  student.uid
-                )}
-              </small>
-
-            </div>
-
-
-            <div class="user-actions">
-
-              <button
-                onclick="muteStudent('${student.uid}',15)"
-              >
-                15m
-              </button>
-
-              <button
-                onclick="muteStudent('${student.uid}',60)"
-              >
-                1h
-              </button>
-
-              <button
-                onclick="banStudent('${student.uid}')"
-              >
-                Ban
-              </button>
-
-              <button
-                onclick="unbanStudent('${student.uid}')"
-              >
-                Unban
-              </button>
-
-              <button
-                onclick="unmuteStudent('${student.uid}')"
-              >
-                Unmute
-              </button>
-
-            </div>
-
-          </div>
-
-        `).join("");
+      chatBox.scrollTop = chatBox.scrollHeight;
 
     }
   );
@@ -2742,279 +1377,347 @@ function loadStudents(){
 }
 
 
-/* =========================================================
-   MODERATION
-========================================================= */
+/* ================= CHAT SEND ================= */
 
-window.muteStudent =
-  async(uid,minutes)=>{
+document.getElementById("chatForm")
+.addEventListener("submit",async e=>{
 
-    if(
-      !currentUser ||
-      currentUser.uid !== ADMIN_UID
-    ){
+  e.preventDefault();
 
-      toast(
-        "Admin access required"
+  if(!currentUser) return;
+
+  const input =
+    document.getElementById("chatInput");
+
+  const text =
+    input.value.trim();
+
+  if(!text) return;
+
+  if(containsBadWord(text)){
+
+    document.getElementById("chatStatus").innerHTML =
+      `<div class="error">
+        অনুগ্রহ করে খারাপ/অশালীন শব্দ ব্যবহার করবেন না।
+       </div>`;
+
+    return;
+  }
+
+  document.getElementById("chatStatus").innerHTML = "";
+
+  try{
+
+    const moderationSnap =
+      await get(
+        ref(db,"moderation/"+currentUser.uid)
       );
 
-      return;
+    if(moderationSnap.exists()){
 
-    }
+      const mod = moderationSnap.val();
 
+      if(mod.banned === true){
 
-    try{
-
-      await set(
-        ref(
-          db,
-          `moderation/${uid}`
-        ),
-        {
-          banned:false,
-          mutedUntil:
-            Date.now() +
-            minutes * 60 * 1000
-        }
-      );
-
-
-      toast(
-        `Muted for ${minutes} minutes`
-      );
-
-    }catch(error){
-
-      toast(
-        "Action failed"
-      );
-
-    }
-
-  };
-
-
-window.unmuteStudent =
-  async uid=>{
-
-    if(
-      !currentUser ||
-      currentUser.uid !== ADMIN_UID
-    ){
-
-      toast(
-        "Admin access required"
-      );
-
-      return;
-
-    }
-
-
-    try{
-
-      await set(
-        ref(
-          db,
-          `moderation/${uid}`
-        ),
-        {
-          banned:false,
-          mutedUntil:0
-        }
-      );
-
-
-      toast(
-        "Student unmuted"
-      );
-
-    }catch(error){
-
-      toast(
-        "Action failed"
-      );
-
-    }
-
-  };
-
-
-window.banStudent =
-  async uid=>{
-
-    if(
-      !currentUser ||
-      currentUser.uid !== ADMIN_UID
-    ){
-
-      toast(
-        "Admin access required"
-      );
-
-      return;
-
-    }
-
-
-    try{
-
-      await set(
-        ref(
-          db,
-          `moderation/${uid}`
-        ),
-        {
-          banned:true,
-          mutedUntil:0
-        }
-      );
-
-
-      toast(
-        "Student banned"
-      );
-
-    }catch(error){
-
-      toast(
-        "Ban failed"
-      );
-
-    }
-
-  };
-
-
-window.unbanStudent =
-  async uid=>{
-
-    if(
-      !currentUser ||
-      currentUser.uid !== ADMIN_UID
-    ){
-
-      toast(
-        "Admin access required"
-      );
-
-      return;
-
-    }
-
-
-    try{
-
-      await set(
-        ref(
-          db,
-          `moderation/${uid}`
-        ),
-        {
-          banned:false,
-          mutedUntil:0
-        }
-      );
-
-
-      toast(
-        "Student unbanned"
-      );
-
-    }catch(error){
-
-      toast(
-        "Unban failed"
-      );
-
-    }
-
-  };
-
-
-/* =========================================================
-   ADMIN CHAT
-========================================================= */
-
-function loadAdminChat(){
-
-  onValue(
-    ref(db,"groupChat"),
-    snapshot=>{
-
-      const list = [];
-
-
-      snapshot.forEach(child=>{
-
-        list.push({
-          id:child.key,
-          ...child.val()
-        });
-
-      });
-
-
-      list.sort(
-        (a,b)=>
-          (b.createdAt || 0) -
-          (a.createdAt || 0)
-      );
-
-
-      if(!list.length){
-
-        $("adminChatList").innerHTML =
-          `<div class="muted">
-             No messages.
+        document.getElementById("chatStatus").innerHTML =
+          `<div class="error">
+             আপনার Chat access বন্ধ করা হয়েছে।
            </div>`;
 
         return;
-
       }
 
+      if(
+        mod.mutedUntil &&
+        Number(mod.mutedUntil) > Date.now()
+      ){
 
-      $("adminChatList").innerHTML =
-        list.map(msg=>`
+        const remaining =
+          Math.ceil(
+            (Number(mod.mutedUntil)-Date.now())/60000
+          );
 
-          <div class="user-row">
+        document.getElementById("chatStatus").innerHTML =
+          `<div class="error">
+             আপনি বর্তমানে muted। আরও প্রায় ${remaining} মিনিট পরে message পাঠাতে পারবেন।
+           </div>`;
 
-            <div class="user-info">
+        return;
+      }
 
-              <strong>
-                ${escapeHTML(
-                  msg.name || "Student"
-                )}
-              </strong>
+    }
 
-              <small>
-                ${escapeHTML(
-                  msg.text
-                )}
-              </small>
+    const newRef =
+      push(ref(db,"groupChat"));
 
-              <small>
-                ${formatTime(
-                  msg.createdAt
-                )}
-              </small>
+    await set(newRef,{
+      uid:currentUser.uid,
+      name:currentProfile?.name || "Student",
+      text:text,
+      createdAt:Date.now()
+    });
 
-            </div>
+    input.value = "";
+
+  }catch(error){
+
+    console.error(error);
+
+    document.getElementById("chatStatus").innerHTML =
+      `<div class="error">
+        Message পাঠানো যায়নি।
+       </div>`;
+
+  }
+
+});
 
 
-            <div class="user-actions">
+/* ================= DELETE MESSAGE ================= */
 
-              <button
-                onclick="deleteMessage('${msg.id}')"
-              >
-                Delete
-              </button>
+window.deleteMessage = async function(id){
 
-            </div>
+  if(currentUser?.uid !== ADMIN_UID) return;
+
+  if(!confirm("এই message delete করবেন?")) return;
+
+  try{
+    await remove(ref(db,"groupChat/"+id));
+  }catch(error){
+    alert("Message delete করা যায়নি।");
+  }
+
+};
+
+
+/* ================= ADMIN STUDENTS ================= */
+
+function loadStudents(){
+
+  const list =
+    document.getElementById("studentList");
+
+  onValue(ref(db,"users"),async snapshot=>{
+
+    list.innerHTML = "";
+
+    const data = snapshot.val();
+
+    if(!data){
+
+      list.innerHTML =
+        `<p>কোনো student পাওয়া যায়নি।</p>`;
+
+      return;
+    }
+
+    for(const [uid,u] of Object.entries(data)){
+
+      if(uid === ADMIN_UID) continue;
+
+      let mod = {};
+
+      try{
+
+        const modSnap =
+          await get(ref(db,"moderation/"+uid));
+
+        if(modSnap.exists()){
+          mod = modSnap.val();
+        }
+
+      }catch(e){}
+
+      let status = "Active";
+
+      if(mod.banned === true){
+        status = "🚫 Banned";
+      }
+      else if(
+        mod.mutedUntil &&
+        Number(mod.mutedUntil)>Date.now()
+      ){
+        status = "🔇 Muted";
+      }
+
+      list.innerHTML += `
+        <div class="item">
+          <strong>${escapeHTML(u.name || "Student")}</strong>
+          <small>
+            ${escapeHTML(u.class || "—")}
+            · Roll ${escapeHTML(u.roll || "—")}
+          </small>
+
+          <p>Status: ${status}</p>
+
+          <div class="admin-actions">
+
+            <button class="secondary"
+              onclick="muteStudent('${uid}',900000)">
+              15m Mute
+            </button>
+
+            <button class="secondary"
+              onclick="muteStudent('${uid}',3600000)">
+              1h Mute
+            </button>
+
+            <button class="danger"
+              onclick="banStudent('${uid}')">
+              Ban
+            </button>
+
+            <button class="secondary"
+              onclick="unbanStudent('${uid}')">
+              Unban
+            </button>
+
+            <button class="secondary"
+              onclick="unmuteStudent('${uid}')">
+              Unmute
+            </button>
 
           </div>
+        </div>
+      `;
 
-        `).join("");
+    }
+
+  });
+
+}
+
+
+/* ================= MODERATION ================= */
+
+window.muteStudent = async function(uid,time){
+
+  if(currentUser?.uid !== ADMIN_UID) return;
+
+  try{
+
+    await set(ref(db,"moderation/"+uid),{
+      banned:false,
+      mutedUntil:Date.now()+time
+    });
+
+    alert("Student muted হয়েছে।");
+
+  }catch(error){
+
+    alert("Mute করা যায়নি।");
+
+  }
+
+};
+
+
+window.banStudent = async function(uid){
+
+  if(currentUser?.uid !== ADMIN_UID) return;
+
+  try{
+
+    await set(ref(db,"moderation/"+uid),{
+      banned:true,
+      mutedUntil:0
+    });
+
+    alert("Student banned হয়েছে।");
+
+  }catch(error){
+
+    alert("Ban করা যায়নি।");
+
+  }
+
+};
+
+
+window.unbanStudent = async function(uid){
+
+  if(currentUser?.uid !== ADMIN_UID) return;
+
+  try{
+
+    await set(ref(db,"moderation/"+uid),{
+      banned:false,
+      mutedUntil:0
+    });
+
+    alert("Student unban হয়েছে।");
+
+  }catch(error){
+
+    alert("Unban করা যায়নি।");
+
+  }
+
+};
+
+
+window.unmuteStudent = async function(uid){
+
+  if(currentUser?.uid !== ADMIN_UID) return;
+
+  try{
+
+    await set(ref(db,"moderation/"+uid),{
+      banned:false,
+      mutedUntil:0
+    });
+
+    alert("Student unmute হয়েছে।");
+
+  }catch(error){
+
+    alert("Unmute করা যায়নি।");
+
+  }
+
+};
+
+
+/* ================= ADMIN CHAT ================= */
+
+function loadAdminChat(){
+
+  const list =
+    document.getElementById("adminChatList");
+
+  onValue(
+    query(ref(db,"groupChat"),orderByChild("createdAt")),
+    snapshot=>{
+
+      list.innerHTML = "";
+
+      const data = snapshot.val();
+
+      if(!data){
+
+        list.innerHTML =
+          `<p>কোনো message নেই।</p>`;
+
+        return;
+      }
+
+      Object.entries(data)
+      .reverse()
+      .slice(0,50)
+      .forEach(([id,m])=>{
+
+        list.innerHTML += `
+          <div class="item">
+            <strong>${escapeHTML(m.name || "User")}</strong>
+            <p>${escapeHTML(m.text || "")}</p>
+            <button class="danger"
+              onclick="deleteMessage('${id}')">
+              Delete Message
+            </button>
+          </div>
+        `;
+
+      });
 
     }
   );
